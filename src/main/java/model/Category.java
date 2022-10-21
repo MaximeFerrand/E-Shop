@@ -1,29 +1,32 @@
 package model;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
+	
 	private  String libelleCat;
-	public Category(Integer id, String libelleCat) {
-		super();
-		this.id = id;
+	@OneToMany
+	private List<Product> product; ;
+	public Category( String libelleCat) {
+		
+		
 		this.libelleCat = libelleCat;
 	}
 	public Category() {
-		super();
+		
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getLibelleCat() {
 		return libelleCat;
 	}
@@ -32,7 +35,7 @@ public class Category {
 	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", libelleCat=" + libelleCat + "]";
+		return "Category [ libelleCat=" + libelleCat + "]";
 	}
 
 }
