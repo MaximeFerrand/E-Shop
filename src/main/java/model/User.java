@@ -1,8 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -22,16 +27,15 @@ public abstract class User extends Account {
 	protected String firstname;
 	
 	protected int discount;
-	
-	@OneToMany
-	protected List<Adress> adresses;
+	@ElementCollection
+	protected Set<Adress> adresses= new HashSet();
 
-	public User(String name, String firstname, int discount, List<Adress> adresses) {
+	public User(String name, String firstname, int discount, Set<Adress> adresses) {
 		super();
 		this.name = name;
 		this.firstname = firstname;
 		this.discount = discount;
-		this.adresses = adresses;
+		this.adresses= adresses;
 	}
 
 	public User() {
@@ -62,11 +66,11 @@ public abstract class User extends Account {
 		this.discount = discount;
 	}
 
-	public List<Adress> getAdresses() {
+	public Set<Adress> getAdresses() {
 		return adresses;
 	}
 
-	public void setAdresses(List<Adress> adresses) {
+	public void setAdresses(Set<Adress> adresses) {
 		this.adresses = adresses;
 	}
 
@@ -77,11 +81,11 @@ public abstract class User extends Account {
 	}
 	
 	public double discountBasket(double priceBasket) {
-		
+		return priceBasket;
 	}
 	
-public double discountSubscription(String subName) {
-		
+public double discountSubscription(String subName, double x ) {
+		return x;
 	}
 	
 	

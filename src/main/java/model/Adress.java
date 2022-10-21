@@ -1,26 +1,32 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-@Entity
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Adress {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	
+	@Column(length=35,nullable = false)
 	private String number;
+	@Column(length=35,nullable = false)
 	private String way;
+	@Column(length=35,nullable = false)
 	private String pc;
+	@Column(length=35,nullable = false)
 	private String city;
+	
+	
+	
 	public Adress(String number, String way, String pc, String city) {
-		super();
+		
 		this.number = number;
 		this.way = way;
 		this.pc = pc;
 		this.city = city;
 	}
 	public Adress() {
-		super();
+		
 	}
 	public String getNumber() {
 		return number;

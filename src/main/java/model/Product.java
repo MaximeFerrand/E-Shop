@@ -1,35 +1,38 @@
 package model;
 
+
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 @Entity
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@Column(length=35,nullable = false)
 	private  String libelle;
+	@Column(length=35,nullable = false)
 	private Double prix;
-	private  Category category;
+	
+	
+	@ManyToOne
+	private  Category category ;
 	private   int  stock;
-	public Product(Integer id, String libelle, Double prix, Category categorie, int stock) {
-		super();
-		this.id = id;
+	public Product( String libelle, Double prix, int stock) {
+		
+		
 		this.libelle = libelle;
 		this.prix = prix;
-		this.category = categorie;
 		this.stock = stock;
 	}
 	public Product() {
-		super();
+		
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getLibelle() {
 		return libelle;
 	}
@@ -56,7 +59,7 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", libelle=" + libelle + ", prix=" + prix + ", stock=" + stock + "]";
+		return "Product [ libelle=" + libelle + ", prix=" + prix + ", stock=" + stock + "]";
 	}
 	
 
