@@ -52,7 +52,8 @@ public abstract class Supplier extends Account {
 	
 
 	public double discountProduct(double priceProduct) {
-		
+		double d=0;
+		return d;
 	}
 
 	
