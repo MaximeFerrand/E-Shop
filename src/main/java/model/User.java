@@ -81,7 +81,9 @@ public abstract class User extends Account {
 	}
 	
 	public double discountBasket(double priceBasket) {
-		return priceBasket;
+		
+		double d=0;
+		return d;
 	}
 	
 public double discountSubscription(String subName, double x ) {
