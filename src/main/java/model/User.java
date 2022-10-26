@@ -7,17 +7,13 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//DTYPE => DiscriminatorType
-//@DiscriminatorColumn(name = "type_personne",columnDefinition = "ENUM('customer','supplier')")
+
+
 @Table(name="user")
 public abstract class User extends Account {
 
@@ -25,8 +21,19 @@ public abstract class User extends Account {
 	protected String name;
 	@Column(length=30,nullable = false)
 	protected String firstname;
+	@OneToMany(mappedBy = "user")
+	private List<BasketDetail> basketDetails= new ArrayList();
 	
+	public List<BasketDetail> getBasketDetails() {
+		return basketDetails;
+	}
+
+	public void setBasketDetails(List<BasketDetail> basketDetails) {
+		this.basketDetails = basketDetails;
+	}
+
 	protected int discount;
+
 	@ElementCollection
 	protected Set<Adress> adresses= new HashSet();
 

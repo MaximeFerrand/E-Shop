@@ -1,13 +1,16 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,17 +21,37 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(length = 35,nullable = false)
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('ordered','in_Preparation', 'shipped', 'delivered', 'closed')",nullable = false)
 	private OrderTracking orderTracking;
+	///@Embedded
+	@OneToMany
+	private List<OrderDetail> ordreDetail= new ArrayList();
+	//private OrderDetail ordreDetail;
 	
+	
+
+
+
+	public List<OrderDetail> getOrdreDetail() {
+		return ordreDetail;
+	}
+
+
+
+
+
+	public void setOrdreDetail(List<OrderDetail> ordreDetail) {
+		this.ordreDetail = ordreDetail;
+	}
+
+
+
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 
 	public OrderTracking getOrderTracking() {
 		return orderTracking;
@@ -38,13 +61,13 @@ public class Order {
 		this.orderTracking = orderTracking;
 	}
 
-	public Order(Integer id, OrderTracking orderTracking) {
-		super();
-		this.id = id;
+	public Order( OrderTracking orderTracking) {
+		
+		
 		this.orderTracking = orderTracking;
 	}
 	public Order() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package model;
 
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,16 +13,16 @@ import javax.persistence.Table;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 //DTYPE => DiscriminatorType
-//@DiscriminatorColumn(name = "type_personne",columnDefinition = "ENUM('customer','supplier')")
+//@DiscriminatorColumn(name = "type_account",columnDefinition = "ENUM('admin','user', 'supplier')")
 @Table(name="account")
 public abstract class Account {
 
 	@Id //OBLIGATOIRE
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//SEMI-OBLIGATOIRE pour de l'auto-increment
 	protected Integer id;
-	@Column(length = 30, nullable = false)
+	@Column(length = 30, nullable = false,unique = true)
 	protected String login;
 	@Column(length = 30, nullable = false)
 	protected String password;
@@ -39,9 +40,7 @@ public abstract class Account {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 
 	public String getLogin() {
 		return login;
@@ -59,12 +58,7 @@ public abstract class Account {
 		this.password = password;
 	}
 
-	public Account(Integer id, String login, String password) {
-		super();
-		this.id = id;
-		this.login = login;
-		this.password = password;
-	}
+	
 	
 	
 	

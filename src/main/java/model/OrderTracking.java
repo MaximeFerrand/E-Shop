@@ -4,10 +4,10 @@ import javax.persistence.Embeddable;
 
 
 public enum OrderTracking {
-	commandé, enPreparation, expedie, livre, cloture;
+	ordered,inPreparation, shipped, delivered, closed;
 	
-	private OrderTracking() {
-		// TODO Auto-generated constructor stub
-	}
+	/*private OrderTracking() {
+		
+	}*/
 
 }
