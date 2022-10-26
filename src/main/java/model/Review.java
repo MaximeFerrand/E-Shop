@@ -1,8 +1,15 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Review {
 	
+	
+	@Column(nullable=false)
 	private Integer notation;
+	@Column(nullable=false)
 	private String comment;
 	
 
