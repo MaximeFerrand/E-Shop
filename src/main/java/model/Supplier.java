@@ -3,19 +3,23 @@ package model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.GenerationType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
+
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//DTYPE => DiscriminatorType
-//@DiscriminatorColumn(name = "type_personne",columnDefinition = "ENUM('customer','supplier')")
+@DiscriminatorColumn(name="Type_Supplier", columnDefinition = "ENUM('merchant', 'artisan')")
 @Table(name="supplier")
 public abstract class Supplier extends Account {
-
+   //@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// protected Integer id;
 	@Column(length=50,nullable = false)
 	protected String company;
 	

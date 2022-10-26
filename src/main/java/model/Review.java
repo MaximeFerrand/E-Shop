@@ -7,9 +7,10 @@ import javax.persistence.Embeddable;
 public class Review {
 	
 	
-	@Column(nullable=false)
+	//@Column(nullable=false)
 	private Integer notation;
-	@Column(nullable=false)
+	//@Column(nullable=false)
+	@Column(length=200, columnDefinition ="TEXT")
 	private String comment;
 	
 

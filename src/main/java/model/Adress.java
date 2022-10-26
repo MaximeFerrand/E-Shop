@@ -25,6 +25,7 @@ public class Adress {
 		this.pc = pc;
 		this.city = city;
 	}
+	
 	public Adress() {
 		
 	}

@@ -15,27 +15,34 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
 	
-	private  String libelleCat;
-	@OneToMany
-	private List<Product> product; ;
-	public Category( String libelleCat) {
+	private  String labelCat;
+	
+	public List<Product> getProduct() {
+		return product;
+	}
+	public void setProduct(List<Product> product) {
+		this.product = product;
+	}
+	@OneToMany(mappedBy="category")
+	private List<Product> product; 
+	public Category( String labelCat) {
 		
 		
-		this.libelleCat = libelleCat;
+		this.labelCat = labelCat;
 	}
 	public Category() {
 		
 	}
 	
-	public String getLibelleCat() {
-		return libelleCat;
+	public String getLabelCat() {
+		return labelCat;
 	}
-	public void setLibelleCat(String libelleCat) {
-		this.libelleCat = libelleCat;
+	public void setLabelCat(String labelCat) {
+		this.labelCat = labelCat;
 	}
 	@Override
 	public String toString() {
-		return "Category [ libelleCat=" + libelleCat + "]";
+		return "Category [ labelCat=" + labelCat + "]";
 	}
 
 }

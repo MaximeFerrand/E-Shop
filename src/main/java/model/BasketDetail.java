@@ -2,18 +2,31 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+@Entity
 public class BasketDetail {
 
+	@Column(nullable=false)
 	private Integer quantity;
-	private List<Product> products;
+	
+	
+	@Column(nullable=false)
+	@OneToOne
+	private User user;
+	
+	@OneToOne
+	@Column(nullable=false)
+	private Product product;
 	
 	public BasketDetail() {
 	}
 	
 	
-	public BasketDetail(Integer quantity, List<Product> products) {
+	public BasketDetail(Integer quantity, Product product) {
 		this.quantity = quantity;
-		this.products = products;
+		this.product = product;
 	}
 
 
@@ -26,12 +39,22 @@ public class BasketDetail {
 		this.quantity = quantity;
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 	

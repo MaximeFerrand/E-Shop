@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,10 @@ public class OrderDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(nullable= false)
+	private int quantity;
+	
 	@OneToOne
-	private Order commande;
+	private Product product;
 	
 	@Embedded
 	private Review review;
@@ -28,12 +31,11 @@ public class OrderDetail {
 	}
 	
 	
-	public OrderDetail(Integer id, Order commande, Integer quantité, Review review) {
-		super();
-		this.id = id;
-		this.commande = commande;
-		Quantité = quantité;
-		this.review = review;
+	public OrderDetail( Integer quantity, Product product) {
+		
+		this.product=product;
+		this.quantity = quantity;
+	
 	}
 	public Integer getId() {
 		return id;
@@ -41,17 +43,12 @@ public class OrderDetail {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Order getCommande() {
-		return commande;
+	
+	public Integer getQuantity() {
+		return quantity;
 	}
-	public void setCommande(Order commande) {
-		this.commande = commande;
-	}
-	public Integer getQuantité() {
-		return Quantité;
-	}
-	public void setQuantité(Integer quantité) {
-		Quantité = quantité;
+	public void setQuantity(Integer quantité) {
+		quantity = quantité;
 	}
 	public Review getReview() {
 		return review;
@@ -64,10 +61,10 @@ public class OrderDetail {
 	
 	@Override
 	public String toString() {
-		return "OrderDetail [id=" + id + ", commande=" + commande + ", Quantité=" + Quantité + ", review=" + review
+		return "OrderDetail [id=" + id + ", Quantity=" + quantity + ", review=" + review
 				+ "]";
 	}
-	private Integer Quantité;
+
 	
 
 }
