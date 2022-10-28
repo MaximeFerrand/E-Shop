@@ -1,12 +1,12 @@
 package ajc.sopra.sitee.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 @Entity
 public class BasketDetail {
@@ -19,12 +19,22 @@ public class BasketDetail {
 	
 	
 	@Column(nullable=false)
-	@OneToOne
+	@ManyToOne
 	private User user;
 	
-	@OneToOne
+	@ManyToOne
 	@Column(nullable=false)
 	private Product product;
+	
+	private static double TotalPrix;
+	
+	/*
+	totalPrix(product ,quantity): double
+	TotalPrix:static*/
+	public double totalPrix(Product product ,double quantity) {
+		TotalPrix= product.getprice()*quantity;
+		return TotalPrix;
+	}
 	
 	public BasketDetail() {
 	}

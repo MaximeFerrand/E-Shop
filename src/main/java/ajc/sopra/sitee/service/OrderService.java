@@ -1,6 +1,7 @@
 package ajc.sopra.sitee.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,11 +21,11 @@ public class OrderService {
 		return orderRepo.findAll();
 	}
 
-	public Order findById(Integer id) {
+	public Optional<Order> findById(Integer id) {
 		
 		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
 			throw new IdException();		});*/
-		return orderRepo.findById(id).orElseThrow(IdException::new);
+		return orderRepo.findById(id);///.orElseThrow(IdException::new);
 	}
 
 	/*public List<Order> findByLibelle(String libelle) {
@@ -33,7 +34,7 @@ public class OrderService {
 
 	public Order create(Order order) {
 		if (order.getId() != null) {
-			throw new OrderException("produit deja dans la base");
+			throw new OrderException("commande deja dans la base");
 		}
 		return save(order);
 

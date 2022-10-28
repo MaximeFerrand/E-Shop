@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableJpaRepositories(basePackages = "ajc.sopra.sitee.repository")
 //chargement du fichier config.properties dans une map
-@PropertySource("classpath:config.properties")
+//@PropertySource("classpath:config.properties")
 public class JpaConfig {
 	//injection de la map contenant les infos du fichier
 	@Autowired
@@ -37,11 +37,14 @@ public class JpaConfig {
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName(env.getProperty("dataSource.driver"));
+	/*	dataSource.setDriverClassName(env.getProperty("dataSource.driver"));
 		dataSource.setUrl(env.getProperty("dataSource.url"));
 		dataSource.setUsername(env.getProperty("dataSource.username"));
-		dataSource.setPassword(env.getProperty("dataSource.password"));
-
+		dataSource.setPassword(env.getProperty("dataSource.password"));*/
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/siteehop");
+		dataSource.setUsername("root");
+		dataSource.setPassword("");
 		dataSource.setMaxTotal(5);
 
 		return dataSource;
@@ -54,7 +57,7 @@ public class JpaConfig {
 		emf.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.hbm2ddl.auto", "create");
-		properties.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
+		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.format_sql", "true");
 		emf.setJpaProperties(properties);

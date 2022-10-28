@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,8 +29,11 @@ public class Order {
 	@OneToMany
 	private List<OrderDetail> ordreDetail= new ArrayList();
 	//private OrderDetail ordreDetail;
-	
-	
+	@ManyToOne
+	private User user;
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('houseShipping', 'pickUp', 'withdrawal')")
+	private Shipping shipping;
 
 
 
@@ -69,7 +73,9 @@ public class Order {
 	public Order() {
 		
 	}
-
+    public void payement() {
+    	//à completer
+    }
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", orderTracking=" + orderTracking + "]";
