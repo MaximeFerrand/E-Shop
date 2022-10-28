@@ -13,17 +13,37 @@ import javax.persistence.Table;
 
 @Entity
 
+@Table(name = "user")
+public class User extends Account {
 
-@Table(name="user")
-public abstract class User extends Account {
-
-	@Column(length=30,nullable = false)
-	protected String name;
-	@Column(length=30,nullable = false)
+	@Column(length = 30, nullable = false)
+	protected static String name;
+	@Column(length = 30, nullable = false)
 	protected String firstname;
 	@OneToMany(mappedBy = "user")
-	private List<BasketDetail> basketDetails= new ArrayList();
-	
+	private List<BasketDetail> basketDetails = new ArrayList();
+
+	private Boolean isValidated;
+
+	private static double TotalPrixValidated;
+
+	@OneToMany(mappedBy = "user")
+	private List<Order> orders = new ArrayList();
+
+	public double PrixTotalBasketDetails(Boolean isValidated, double doublebasketDetails) {
+
+		if (isValidated) {
+
+			for (BasketDetail b : basketDetails) {
+				TotalPrixValidated += b.getQuantity() * b.getProduct().getPrice();
+
+			}
+		} else {
+			TotalPrixValidated = 0;
+		}
+		return (TotalPrixValidated);
+	}
+
 	public List<BasketDetail> getBasketDetails() {
 		return basketDetails;
 	}
@@ -35,18 +55,18 @@ public abstract class User extends Account {
 	protected int discount;
 
 	@ElementCollection
-	protected Set<Adress> adresses= new HashSet();
+	protected Set<Adress> adresses = new HashSet();
 
 	public User(String name, String firstname, int discount, Set<Adress> adresses) {
 		super();
 		this.name = name;
 		this.firstname = firstname;
 		this.discount = discount;
-		this.adresses= adresses;
+		this.adresses = adresses;
 	}
 
 	public User() {
-	
+
 	}
 
 	public String getName() {
@@ -86,16 +106,15 @@ public abstract class User extends Account {
 		return "User [name=" + name + ", firstname=" + firstname + ", discount=" + discount + ", id=" + id + ", login="
 				+ login + ", password=" + password + "]";
 	}
-	
+
 	public double discountBasket(double priceBasket) {
-		
-		double d=0;
+
+		double d = 0;
 		return d;
 	}
-	
-public double discountSubscription(String subName, double x ) {
+
+	public double discountSubscription(String subName, double x) {
 		return x;
 	}
-	
-	
+
 }

@@ -25,6 +25,16 @@ public class Product {
 	private  String label;
 	@Column(length=35,nullable = false)
 	private Double price;
+	@Column(length=15,nullable = false)
+	private String Reference;
+	@Column(length=300,nullable = false)
+	private String Description;
+	@Column(nullable = false)
+	private String Measure;
+	
+	/*Reference :String
+	-Description : String
+	-Measure : String*/
 	
 	//@OneToMany(mappedBy ="product2")
 	//private OrderDetail orderDetail;
@@ -36,6 +46,23 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('New','Reconditioned','Repaired')")
 	private Status status;
+
+	public String getReference() {
+		return Reference;
+	}
+	public void setReference(String reference) {
+		Reference = reference;
+	}
+	
+	public void setDescription(String description) {
+		Description = description;
+	}
+	public String getMeasure() {
+		return Measure;
+	}
+	public void setMeasure(String measure) {
+		Measure = measure;
+	}
 	
 	public Integer getId() {
 		return id;
@@ -113,7 +140,13 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [ label=" + label + ", price=" + price + ", stock=" + stock + "]";
+		return "Product [id=" + id + ", label=" + label + ", price=" + price + ", Reference=" + Reference
+				+ ", Description=" + Description + ", Measure=" + Measure + ", stock=" + stock + ", basketDetails="
+				+ basketDetails + ", status=" + status + ", category=" + category + "]";
+	}
+	public String getDescription() {
+		return Description;
+		
 	}
 	
 

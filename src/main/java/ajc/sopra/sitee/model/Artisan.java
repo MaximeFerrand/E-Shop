@@ -6,7 +6,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("artisan")
+//@DiscriminatorValue("artisan")
 public class Artisan extends Supplier{
 
 	public Artisan() {

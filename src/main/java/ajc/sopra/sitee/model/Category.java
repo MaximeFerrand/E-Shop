@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+	private Integer id;
 	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
 	
 	private  String labelCat;
@@ -30,6 +32,10 @@ public class Category {
 		
 		this.labelCat = labelCat;
 	}
+	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Category() {
 		
 	}
@@ -43,6 +49,10 @@ public class Category {
 	@Override
 	public String toString() {
 		return "Category [ labelCat=" + labelCat + "]";
+	}
+	public Integer getId() {
+		
+		return id;
 	}
 
 }

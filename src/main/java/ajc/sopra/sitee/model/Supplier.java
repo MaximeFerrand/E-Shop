@@ -3,11 +3,7 @@ package ajc.sopra.sitee.model;
 import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
@@ -15,12 +11,13 @@ import javax.persistence.Table;
 
 @Entity
 
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 //@DiscriminatorColumn(name="Type_Supplier", columnDefinition = "ENUM('merchant', 'artisan')")
 //@DiscriminatorColumn(name = "espece",columnDefinition = "ENUM('felin','ours','elephant')")
 
 @Table(name="supplier")
 public abstract class Supplier extends Account {
+
     /*@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 protected Integer id;*/
