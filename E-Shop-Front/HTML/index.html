@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>E-Shop</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="description" content="">
+        <meta name="keywords" content="mobilier, luminaire, tapis, décoration, maison">
+        <link rel='stylesheet' type='text/css' media='screen' href='CSS/index.css'>
+        <script defer src='JS/main.js'></script>
+        <!-- CSS only--> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        
+        <!-- JavaScript Bundle with Popper--> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+    <!-- ************************HEADER************************-->
+        <header>
+            <div id="header-promo">
+                <div class="header-promo-info"><p>25 % mobilier</p></div>
+                <div class="header-promo-info"><p>30 % tapis</p></div>
+                <div class="header-promo-info"><p>30 % luminaire</p></div>
+                <div class="header-promo-info"><p>Livraison gratuite</p></div>
+            </div>
+            <div id="header-nav">
+                <div id="header-nav-logo"><a href="#">Logo E-shop</a></div>
+                <nav id="header-nav-container"> 
+                    <div id="header-nav-container-link">
+                        <div><a href="#">Tout voir</a></div>
+                        <div><a href="#">Mobilier</a></div>
+                        <div><a href="#">Luminaire</a></div>
+                        <div><a href="#">Tapis</a></div>
+                        <div><a href="#">A propos</a></div>
+                        <div><a href="#">Histoires</a></div>
+                        <div><a href="#">Contact</a></div>
+                    </div>
+                </nav>
+            </div>
+            <div id="header-connect">
+                <div id="header-connect-social">
+                    <a class="social-media" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                        </svg>
+                    </a>
+                    <a class="social-media" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </a>
+                    <a class="social-media" href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div id="header-connect-account">
+
+                    <div class="social-media header-connect-account-connexion">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
+                        </svg>
+                        <p>&ensp;</p>
+                        <a id="toConnect" href="#">Connexion</a>
+                    </div>
+                    <div class="social-media header-connect-account-connexion">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </svg>
+                        <p>&ensp;</p>
+                        <a href="#">0</a>
+                    </div>
+                </div>
+            </div>
+            <div id="header-welcome">
+                <div id="header-welcome-announce">
+                    <h1>Soldes annuelles</h1>
+                    <p>Titre. Cliquez pour le modifier et ajouter votre texte.</p>
+                    <a href="a-propos.html">Acheter</a>
+                </div>
+            </div>
+            <div id="header-secondary-nav">
+                <div class="header-welcome-nav-link">
+                    <img src="IMG/ICONES/mobilier.png" alt="">
+                    <a href="#">Mobilier</a>
+                </div>
+                <div class="header-welcome-nav-link">
+                    <img src="" alt="">
+                    <a href="#">Luminaire</a>
+                </div>
+                <div class="header-welcome-nav-link">
+                    <img src="" alt="">
+                    <a href="#">Tapis</a>
+                </div>
+                <div class="header-welcome-nav-link">
+                    <img src="IMG/ICONES/promo.png" alt="">
+                    <a href="#">Promo</a>
+                </div>
+            </div>
+        </header>
+
+    <!-- ************************MAIN************************-->
+        <main>
+            <section id="section-bestsellers">
+                <h1>Meilleures ventes</h1>
+                <div id="section-bestsellers-article">
+                    <article class="section-bestsellers-article">
+                        <div class="section-bestsellers-article-info">
+                            <div class="section-bestsellers-article-info-presentation">
+                                <p>Meilleur vente</p>
+                                <img src="IMG/ARTICLES/MOBILIER/FAUTEUIL/fauteuil_bleu.jpg" alt="">
+                                <h5>Aperçu rapide</h5> <!--au passage de la souris il apprait-->
+                            </div>
+                            <div class="section-bestsellers-article-info-price">
+                                <h5>Nom de l'article</h5>
+                                <p>150,00 &euro;</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="section-bestsellers-article">
+                        <div class="section-bestsellers-article-info">
+                            <div class="section-bestsellers-article-info-presentation">
+                                <p>Meilleur vente</p>
+                                <img src="IMG/ARTICLES/TAPIS/tapis_gris.jpg" alt="">
+                                <h5>Aperçu rapide</h5> <!--au passage de la souris il apprait-->
+                            </div>
+                            <div class="section-bestsellers-article-info-price">
+                                <h5>Nom de l'article</h5>
+                                <p>150,00 &euro;</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="section-bestsellers-article">
+                        <div class="section-bestsellers-article-info">
+                            <div class="section-bestsellers-article-info-presentation">
+                                <p>Meilleur vente</p>
+                                <img src="IMG/ARTICLES/LUMINAIRE/luminaire_noir.jpg" alt="">
+                                <h5>Aperçu rapide</h5> <!--au passage de la souris il apprait-->
+                            </div>
+                            <div class="section-bestsellers-article-info-price">
+                                <h5>Nom de l'article</h5>
+                                <p>150,00 &euro;</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="section-bestsellers-article">
+                        <div class="section-bestsellers-article-info">
+                            <div class="section-bestsellers-article-info-presentation">
+                                <p>Meilleur vente</p>
+                                <img src="IMG/ARTICLES/MOBILIER/CHAISE/chaise_blanche.jpg" alt="">
+                                <h5>Aperçu rapide</h5> <!--au passage de la souris il apprait-->
+                            </div>
+                            <div class="section-bestsellers-article-info-price">
+                                <h5>Nom de l'article</h5>
+                                <p>150,00 &euro;</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="section-presentation">
+                <div id="section-presentation-article">
+                    <article class="section-presentation-article" id="section-presentation-article-left">
+                        <div class="section-presentation-article-text" id="section-presentation-article-text-left">
+                            <h5>Sophistiqué et cosy</h5>
+                            <p>Paragraphe. Cliquez ici pour le modifier. Utilisez-le pour vous présenter à vos visiteurs.</p>
+                            <a href="a-propos.html">Acheter mobilier</a>
+                        </div>
+                        <div class="section-presentation-article-img">
+                            <img src="IMG/ARTICLES/PRESENTATION/Soft Couch.jpg" alt="">
+                        </div>
+                    </article>
+                    <article class="section-presentation-article">
+                        <div class="section-presentation-article-img">
+                            <img src="IMG/ARTICLES/PRESENTATION/Woman Interior.jpg" alt="">
+                        </div>
+                        <div class="section-presentation-article-text" id="section-presentation-article-text-right">
+                            <h5>Visite : l’oasis provençal de Julie Rey</h5>
+                            <p>Paragraphe. Cliquez ici pour le modifier. Utilisez-le pour vous présenter à vos visiteurs.</p>
+                            <a href="a-propos.html">Lire l'histoire</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section id="section-marques">
+                <article id="section-marques-article">
+                    <div id="section-marques-article-text">
+                        <h1>Marques et designers</h1>
+                    </div>
+                    <div id="section-marques-article-marques">
+                        <div class="section-marques-article-marques-img">
+                            <img src="IMG/MARQUES/kimoto.JPG" alt="">
+                        </div>
+                        <div class="section-marques-article-marques-img">
+                            <img src="IMG/MARQUES/nicholas_barringha.JPG" alt="">
+                        </div>
+                        <div class="section-marques-article-marques-img">
+                            <img src="IMG/MARQUES/four.JPG" alt="">
+                        </div>
+                        <div class="section-marques-article-marques-img">
+                            <img src="IMG/MARQUES/studio_native.JPG" alt="">
+                        </div>
+                        <div class="section-marques-article-marques-img">
+                            <img src="IMG/MARQUES/louisa_morel.JPG" alt="">
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section id="section-confort">
+                <article id="section-confort-article">
+                    <div id="section-confort-article-text">
+                        <h1>&#35;AprèsMidiChezSoi</h1>
+                    </div>
+                    <div id="section-confort-article-grid">
+                        <div id="section-confort-article-grid-img1"><img src="IMG/CONFORT/01.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img2"><img src="IMG/CONFORT/02.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img3"><img src="IMG/CONFORT/05.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img4"><img src="IMG/CONFORT/06.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img5"><img src="IMG/CONFORT/04.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img6"><img src="IMG/CONFORT/08.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img7"><img src="IMG/CONFORT/09.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img8"><img src="IMG/CONFORT/10.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img9"> <img src="IMG/CONFORT/11.jpg" alt=""></div>
+                        <div id="section-confort-article-grid-img10"><img src="IMG/CONFORT/12.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img11"><img src="IMG/CONFORT/03.jpg" alt=""> </div>
+                        <div id="section-confort-article-grid-img12"><img src="IMG/CONFORT/07.jpg" alt=""> </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+    <!-- ************************FOOTER************************-->
+        <footer>
+            <div id="footer-container">
+                <div class="footer-container">
+                    <form action="" id="footer-container-form">
+                        <h3>Abonnez-vous à notre newsletter</h3>
+                        <label for="">E-mail</label>
+                        <input type="email" name="" id="">
+                        <button type="submit">Envoyer</button>
+                    </form>
+                    <div id="footer-container-nav">
+                        <ul class="footer-container-nav-list-items">
+                            <li><p><b>Boutique</b></p></li>
+                            <li><a href="">Mobilier</a></li>
+                            <li><a href="">Luminaire</a></li>
+                            <li><a href="">Tapis</a></li>
+                            <li><a href="">Nouveauté</a></li>
+                            <li><a href="">Promos</a></li>
+                        </ul>
+                        <ul class="footer-container-nav-list-items">
+                            <li><p><b>Service client</b></p></li>
+                            <li><a href="">Expédition et retours</a></li>
+                            <li><a href="">Politique de boutique</a></li>
+                            <li><a href="">Moyens de paiement</a></li>
+                            <li><a href="">FAQ</a></li>
+                            <li><a href="">Mentions légales</a></li>
+                            <li><a href="">Politique de cookies</a></li>
+                        </ul>
+                        <ul class="footer-container-nav-list-items">
+                            <li><p ><b>Découvrir E-Shop</b></p></li>
+                            <li><a href="">Notre histoire</a></li>
+                            <li><a href="">Marques et designers</a></li>
+                            <li><a href="">Boutique</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-container">
+
+                    <div id="footer-container-eshop">
+                        <div id="footer-container-eshop-link">
+                            <a href="">E-Shop</a>
+                        </div>
+                        <div id="footer-container-eshop-adress">
+                            <p>47 rue des Couronnes 75020 Paris, France</p>
+                            <p>01 23 45 67 89 / info@mondomaine.com</p>
+                        </div>
+                    </div>
+
+                    <div id="footer-container-social-list">
+                        <a class="social-media" href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                            </svg>
+                        </a>
+                        <a class="social-media" href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                            </svg>
+                        </a>
+                        <a class="social-media" href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div id="footer-copyright"><p>&copy; 2022 par E-Shop</p></div>
+            </div>
+            
+        </footer>
+    
+    </body>
+</html>
