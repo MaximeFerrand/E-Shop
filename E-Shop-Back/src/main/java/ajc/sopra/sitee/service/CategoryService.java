@@ -6,11 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ajc.sopra.eshop.model.Fournisseur;
 import ajc.sopra.sitee.exception.CategoryException;
 import ajc.sopra.sitee.exception.IdException;
 import ajc.sopra.sitee.model.Category;
 import ajc.sopra.sitee.repository.CategoryRepository;
+import ajc.sopra.sitee.repository.ProductRepository;
 
 @Service
 public class CategoryService {
@@ -18,7 +18,8 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepo;
 	@Autowired
-     private ProductRepository productRepo;
+    private ProductRepository productRepo;
+	
 	public List<Category> findAll() {
 		return categoryRepo.findAll();
 	}

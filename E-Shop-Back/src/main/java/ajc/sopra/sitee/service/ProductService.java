@@ -26,7 +26,7 @@ public class ProductService {
 		
 		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
 			throw new IdException();		});*/
-		return productRepo.findById(id).orElseThrow(IdException::new);
+		return productRepo.findById(id); //.orElseThrow(IdException::new);
 	}
 
 	/*public List<Order> findByLibelle(String libelle) {

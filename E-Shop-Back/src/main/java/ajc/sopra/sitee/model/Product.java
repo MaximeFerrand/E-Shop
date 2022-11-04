@@ -29,6 +29,7 @@ public class Product {
 	private String Reference;
 	@Column(length=300,nullable = false)
 	private String Description;
+
 	@Column(nullable = false)
 	private String Measure;
 	
@@ -39,9 +40,9 @@ public class Product {
 	//@OneToMany(mappedBy ="product2")
 	//private OrderDetail orderDetail;
 	
-	private   int  stock;
+	private   Integer  stock;
 	@OneToMany(mappedBy ="product")
-	private List<BasketDetail> basketDetails = new ArrayList();
+	private List<BasketDetail> basketDetails = new ArrayList<>();
 	
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('New','Reconditioned','Repaired')")
@@ -104,8 +105,6 @@ public class Product {
 	private Category category ;
 	
 	public Product( String label, Double price, int stock) {
-		
-		
 		this.label = label;
 		this.price = price;
 		this.stock = stock;
@@ -132,10 +131,10 @@ public class Product {
 	public void setCategorie(Category categorie) {
 		this.category = categorie;
 	}
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 	@Override
