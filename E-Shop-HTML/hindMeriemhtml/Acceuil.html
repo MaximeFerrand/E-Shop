@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+  
+    <section id="reduction">
+        <div>25 % mobilier </div>  
+        <div>30 % tapis</div>  
+        <div>30 % luminaire</div>  
+        <div>Livraison gratuite</div>
+    
+    </section>
+
+<section id="navbar">
+      <div id="nav1" ng-app="myApp" >
+        <div><img src="./img/logo.png" alt="" srcset=""></div>
+      
+            <ul>
+                <li><a href="#/!">Tout voir</a></li>
+                <li><a href="#!mobilier">Mobilier</a></li>
+                <li> <a href="#!luminaire">Luminaire</a></li>
+                <li><a href="#!tapis">Tapis</a></li>
+                <li>A propos</li>
+                <li>Histoires</li>
+                
+            </ul>
+           
+          
+          
+      </div>
+
+      <div id="nav2">
+        <div>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-twitter"></a>
+        </div>
+      
+        <div >
+  
+            <i class="fa fa-user" style="font-size:24px;"></i>
+            <a href="" style="margin-left: 15px;font-size: 17px;color: #343434;">Connexion</a>
+            <i class="fa fa-shopping-cart" style="font-size:30px"></i>
+        </div>
+      
+      </div>
+
+
+
+
+
+</section>
+
+
+<section id="hero">
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        
+<div id="slogan">
+<h1>Soldes <br>
+annuelles
+</h1>
+<p>Titre. Cliquez pour le modifier et ajouter votre texte.</p>
+<button>Acheter</button>
+
+</div>
+
+
+
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/pexels-jonathan-borba-3144580.jpg" alt="Los Angeles" >
+          </div>
+          <div class="carousel-item">
+            <img src="./img/pexels-karolina-grabowska-5942736.jpg" alt="Chicago">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/pexels-pixabay-276583.jpg" alt="New York" >
+          </div>
+        </div>
+        
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+      
+
+
+</section>
+
+
+<section id="bar">
+ 
+  <div style="border-right: 1px solid black;"><img src="./img/tiroir-darmoire.png" alt="" srcset="">   <h2>Mobilier</h2></div>
+  <div style="border-right: 1px solid black;"><img src="./img/chandlier.png" alt="" srcset=""><h2>Luminaire</h2></div>
+  <div style="border-right: 1px solid black;"><img src="./img/tapis.png" alt="" srcset=""><h2>Tapis</h2></div>
+  <div><img src="./img/remise.png" alt="" srcset=""><h2>Promo</h2></div>
+
+</section>
+
+
+
+<section id="ventes">
+<h1>Meilleurs Ventes</h1>
+
+
+
+<div id="collection">
+
+ <div id="card" class="c1">
+  <h3 >Meilleurs Ventes</h3>
+  <h4 id="supm1">Appercu rapide</h4>
+  <div id="d1">.</div>
+      <h1 >Canape</h1>
+      <p>500 euro</p>
+ </div>
+
+
+
+ <div id="card" class="c1">
+  <h3>Meilleurs Ventes</h3>
+   <h4 id="supm2">Appercu rapide</h4>  
+   <img src="./img/f1.PNG" alt="" srcset="">
+     
+     <div id="d2">.</div>
+      <h1>Canape</h1>
+      <p>500 euro</p>
+ </div>
+
+
+ <div id="card" class="c1">
+  <h3>Meilleurs Ventes</h3>
+  <h4 id="supm3">Appercu rapide</h4>
+     <img src="./img/f1.PNG" alt="" srcset="">
+     <div id="d3">.</div>
+      <h1>Canape</h1>
+      <p>500 euro</p>
+ </div>
+
+
+ <div id="card" class="c1">
+  <h3>Meilleurs Ventes</h3>
+  <h4 id="supm4">Appercu rapide</h4>
+     <img src="./img/f1.PNG" alt="" srcset="">
+     <div id="d4">.</div>
+      <h1>Canape</h1>
+      <p>500 euro</p>
+ </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="more">
+
+<div id="left">
+<h1>Sophistiqué et cosy</h1>
+<p>Paragraphe. Cliquez ici pour le modifier. Utilisez-le pour vous présenter à vos visiteurs.</p>
+<button>Acheter mobilier</button><br>
+<img src="./img/Soft Couch.png" alt="" srcset="">
+</div>
+<div id="right">
+
+
+  
+    <img src="./img/Woman Interior.png" alt="" srcset="">
+
+  <h1>Sophistiqué et cosy</h1>
+    <p>Paragraphe. Cliquez ici pour le modifier. Utilisez-le pour vous présenter à vos visiteurs.</p>
+    <button>Acheter mobilier</button><br>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+
+
+<section id="designe">
+
+<header>
+ <h1>Marques et designers</h1> 
+</header>
+
+<main>
+
+<div>
+  <img src="./img/Group 21.png" alt="" srcset="">
+</div>
+<div>
+  <img src="./img/Group 3.png" alt="" srcset="">
+</div>
+<div>
+  <img src="./img/Group 12.png" alt="" srcset="">
+</div>
+<div>
+  <img src="./img/Group 2.png" alt="" srcset="">
+</div>
+<div>
+  <img src="./img/Group 18.png" alt="" srcset="">
+</div>
+</main>
+
+
+</section>
+
+
+
+
+
+
+<section id="other">
+
+<h1>#Aprèsmidichezsoi</h1>
+
+
+<div class="catal">
+
+  <div class="item1">
+    <img src="./img//01.jpg" alt="" srcset="">
+  </div>
+  <div class="item2">
+    <img src="./img/02.jpg" alt="" srcset="">
+  </div>
+  <div class="item3">
+    <img src="./img/03.jpg" alt="" srcset="">
+  </div>  
+  <div class="item4">
+    <img src="./img/04.jpg" alt="" srcset="">
+  </div>
+  <div class="item5">
+    <img src="./img/05.jpg" alt="" srcset="">
+  </div>
+  <div class="item6">
+    <img src="./img/06.jpg" alt="" srcset="">
+  </div>
+
+  <div class="item7">
+    <img src="./img/07.jpg" alt="" srcset="">
+  </div>
+  <div class="item8">
+    <img src="./img/08.jpg" alt="" srcset="">
+  </div>
+  <div class="item9">
+    <img src="./img/09.jpg" alt="" srcset="">
+  </div>  
+  <div class="item10">
+    <img src="./img/10.jpg" alt="" srcset="">
+  </div>
+  <div class="item11">
+    <img src="./img/11.jpg" alt="" srcset="">
+  </div>
+  <div class="item12">   <img src="./img/12.jpg" alt="" srcset=""></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+</section>
+
+
+<script>
+
+
+
+document.getElementById("d1").onmouseover=()=>
+{
+
+  document.getElementById("supm1").style.opacity=1;
+   
+      
+    }
+
+    document.getElementById("d1").onmouseout=()=>
+{
+
+  document.getElementById("supm1").style.opacity=0;
+   
+      
+    }
+
+
+    document.getElementById("d2").onmouseover=()=>
+{
+
+  document.getElementById("supm2").style.opacity=1;
+   
+      
+    }
+
+    document.getElementById("d3").onmouseout=()=>
+{
+
+  document.getElementById("supm3").style.opacity=0;
+   
+      
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+var sr =ScrollReveal();
+
+sr.reveal('#left',{
+duration:2500,
+distance:'111px',
+origin:'left'
+
+});
+
+sr.reveal('#right',{
+duration:2500,
+distance:'111px',
+origin:'left'
+
+});
+
+sr.reveal('#designe div',{
+duration:2500,
+distance:'111px',
+origin:'left'
+
+});
+
+sr.reveal('.catal div',{
+duration:2500,
+distance:'111px',
+origin:'top'
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
