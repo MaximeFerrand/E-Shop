@@ -26,7 +26,7 @@ public class ProductService {
 		
 		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
 			throw new IdException();		});*/
-		return productRepo.findById(id);//.orElseThrow(IdException::new);
+		return productRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	/*public List<Order> findByLibelle(String libelle) {
@@ -35,7 +35,7 @@ public class ProductService {
 
 	public Product create(Product product) {
 		if (product.getId() != null) {
-			throw new OrderException("produit deja dans la base");
+			throw new OrderException("produit  deja dans la base");
 		}
 		return save(product);
 
@@ -56,19 +56,22 @@ public class ProductService {
 		}
 		*/
 		if(product.getLabel()==null) {
-			throw new ProductException(" Le label de du produit n'est pas renseigne !!");
+			throw new ProductException(" Le label  du produit n'est pas renseigné !!");
+		}
+		if(product.getStock()==null) {
+			throw new ProductException(" Le stock de produits disponibles   n'est pas renseigné !!");
 		}
 		if(product.getPrice()==null) {
-			throw new ProductException(" Le prix de du produit n'est pas renseigne !!");
+			throw new ProductException(" Le prix  du produit n'est pas renseignée !!");
 		}
 		if(product.getMeasure()==null) {
-			throw new ProductException(" La mesure de du produit n'est pas renseigne !!");
+			throw new ProductException(" La mesure   du produit n'est pas renseignée !!");
 		}
 		if(product.getReference()==null) {
-			throw new ProductException(" La Reference de du produit n'est pas renseigne !!");
+			throw new ProductException(" La Reference   du produit n'est pas renseignée !!");
 		}
 		if(product.getDescription()==null) {
-			throw new ProductException(" La Description de du produit n'est pas renseigne !!");
+			throw new ProductException(" La Description   du produit n'est pas renseignée !!");
 		}
 		return productRepo.save(product);
 	}
