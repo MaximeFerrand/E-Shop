@@ -1,0 +1,664 @@
+* {padding: 0;
+    margin: 0;
+  }
+  body{
+background-color:white
+
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+#reduction {
+    background-color:#31674F;
+    width: 100%;
+    display: flex;
+  }
+
+
+  #reduction  div{
+  
+     color: white;
+    width: 25%;
+    font-family: 'Montserrat', sans-serif;
+ 
+    font-size: 12pt;
+    text-align: center;
+    border-right: 1px solid white;
+   margin-left: 55px;
+   
+  }
+  #reduction  div h1{
+    background-color: green;
+     margin-top: 25px;
+     padding-top: 10px;
+  }
+
+  #nav1 {
+
+    width: 96%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #343434;
+    margin-top: 20px;
+    align-items: center;
+padding-bottom: 10px;
+}
+
+  #nav1 img{
+width: 110px;
+  }
+
+  #nav1 ul li{
+     display: inline;
+   margin-left: 30px;
+color: #343434;
+   font-size: 13pt;
+   font-family: 'Roboto Mono', monospace;
+      }
+
+
+
+
+
+      #nav2 {
+
+        width: 96%;
+        margin-left: 2%;
+        display: flex;
+        justify-content: space-between;
+
+        margin-top: 20px;
+        align-items: center;
+    padding-bottom: 10px;
+    }
+    .fa {
+
+color: #343434;
+font-size: 18pt;
+margin-left: 10px;
+      }
+
+      .carousel-item img{
+width: 100%;
+height: 700px;
+              }
+
+              
+      #slogan {
+  padding: 5%;
+        width: 100%;
+
+
+  z-index: 14;
+
+  background-color: #343434;
+   text-align: center;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+    #slogan h1{
+        color: #E9E9E9;
+        font-size: 35pt;
+        font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    
+    
+    }
+    #slogan p{
+        color: #E9E9E9;
+        font-size: 10pt;
+        font-family: 'Poppins', sans-serif;
+     margin-top: 15px;
+     text-align: center;
+     width: 40%;
+     margin-left: 30%;
+    
+    }
+    #slogan button{
+        background:none;
+        color: #E9E9E9;
+        font-size: 13pt;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 35px;
+        padding-right: 35px;
+        font-family: 'Poppins', sans-serif;
+     margin-top: 15px;
+     border-color: #E9E9E9;
+    
+    }
+
+
+    #bar{
+      background-color: white;
+ position: absolute;
+      left: 5%;
+   width: 90%;
+     margin-top: -45px;      
+display: flex;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+  
+  
+  #bar div{
+width: 25%;
+
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 45px;
+padding-bottom: 45px;
+
+}
+
+#bar div h2{
+
+  font-family: 'Rubik', sans-serif;
+  }
+
+  #bar div img{
+
+    width: 50px;
+    }
+
+    #collection{
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+  margin-top: -110px;
+      }
+      #card{
+ width: 450px;
+ margin-top: 100px;
+              }
+  
+             
+                 
+                             #d1{
+                              width: 100%;
+                              height: 650px;
+                              background: url("./img/tapi11.png");
+                                        transition: ease 0.5s all; 
+                                        background-size: cover;
+                                        background-repeat: no-repeat;  
+                                               }
+                                               #d1:hover{
+                                                width: 100%;
+                                               
+                                                background: url("./img/tapi12.png");
+                                                             
+
+                                                                 }
+
+                     #d2{
+                     width: 100%;
+                         height: 650px;
+                     background: url("./img/tapi21.png");
+                   transition: ease 0.5s all; 
+                           background-size: cover;
+                  background-repeat: no-repeat;  
+                        }
+                                   #d2:hover{
+                                           width: 100%;
+                                                                                     
+                                 background: url("./img/tapi22.png");
+                                                                                                   
+                                      
+                                              }
+                                      
+ #d3{
+     width: 100%;
+       height: 650px;
+        background: url("./img/tap31.png");
+                                              transition: ease 0.5s all; 
+                                                      background-size: cover;
+                                             background-repeat: no-repeat;  
+                                                   }
+                        #d3:hover{
+                              width: 100%;
+                                                                                                                
+                  background: url("./img/ea26fd_c7087f8fa71a469aa7c14962bdc5ef66_mv2_d_2000_2670_s_2.png");
+                                                                                                                              
+                                                                 
+                                                }
+                                                                 
+
+           #d4{
+            width: 100%;
+              height: 650px;
+              background: url("./img/tapi41.png");
+                                      transition: ease 0.5s all; 
+                                  background-size: cover;
+                                         background-repeat: no-repeat;  
+                                                                                                  }
+                                #d4:hover{
+                                 width: 100%;
+                                                                                                                                                               
+                      background: url("./img/tapi42.png");
+                                                                                                                                                                             
+                                                                                     
+                                      }
+        
+                                    
+                                      #d5{
+                                        width: 100%;
+                                          height: 650px;
+                                          background: url("./img/tapi51.png");
+                                                                  transition: ease 0.5s all; 
+                                                              background-size: cover;
+                                                                     background-repeat: no-repeat;  
+                                                                                                                              }
+                                                            #d5:hover{
+                                                             width: 100%;
+                                                                                                                                                                                           
+                                                  background: url("./img/tapi52.png");
+                                                                                                                                                                                                         
+                                                                                                                 
+                                                                  }
+
+
+                         #d6{
+                 width: 100%;
+                         height: 650px;
+                      background: url("./img/tapi61.png");
+                                                                                              transition: ease 0.5s all; 
+                                                                                          background-size: cover;
+                                                                                                 background-repeat: no-repeat;  
+                                                                                                                                                          }
+                                                                                        #d6:hover{
+                                                 width: 100%;
+                                                                                                                                                                                                                       
+                                     background: url("./img/tapi62.png");
+                                                                                                                                                                                                                                     
+                                                                                                                                             
+                                                                                              }
+                            
+                            
+
+
+
+
+
+
+
+
+
+
+
+                                   
+                             #card h1{
+
+                              font-family: 'Rubik', sans-serif;
+                              margin-top: 20px;
+                              }
+                            
+
+                              #card p{
+text-align: center;
+font-size: 10pt;
+                                }
+                              
+
+        #card h3{
+background-color: #31674F;
+padding: 5px;
+color: white;
+font-family: 'Poppins', sans-serif;
+width: 112px;
+font-size: 10pt;
+text-align: center;
+position: absolute;
+             }
+
+
+             #card h4{
+              background-color:#313131;
+              padding: 13px;
+              color: white;
+              font-family: 'Poppins', sans-serif;
+              width: 450px;
+              font-size: 10pt;
+              text-align: center;
+              position: absolute;    
+              margin-top: 610px;
+              opacity: 0;
+              z-index: 10;
+             
+                           }
+
+
+
+
+
+
+             #more{
+          
+              width: 100%;
+         display: flex;
+         justify-content: space-around;
+             padding: 50px;
+             padding-top: 100px;
+        
+       
+                           }
+         
+                           #more div{
+                          width: 50%;
+                          padding-bottom: 150px;  
+                        }
+                  #left{
+                    padding-top: 100px;
+             border-right: 1px solid black;
+             text-align: center;
+                       }
+                       @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+                       #left h1{
+                 color: #434343;
+                 font-family: 'Open Sans', sans-serif;
+                 font-size: 25pt;
+                           }
+
+
+                 #left p{
+                    color: #434343;
+                    width: 50%;
+                    margin-left: 25%;
+                    margin-top: 3%;
+                            font-family: 'Open Sans', sans-serif;
+                            font-size: 10pt;
+                                      }
+           
+             #left button{
+                background-color:#313131;
+                border: 1px solid #313131;
+                font-size: 9pt;
+                color: white;
+                padding-left: 12px;
+                padding-right: 12px;
+                padding-bottom: 7px;
+                padding-top: 7px;
+                transition: ease 0.5s all;   
+                                                          }
+                      #left button:hover{
+           background-color:white;
+                 border: 1px solid #313131;
+                  font-size: 9pt;
+                     color: #313131;
+              padding-left: 12px;
+               padding-right: 12px;
+                             padding-bottom: 7px;
+         padding-top: 7px;
+                         }
+                 
+                 
+                 
+                 
+                 
+                                                          #left img{
+
+              margin-top: 8%;
+                    width: 300px;        
+              }
+
+
+
+
+            
+            #right{
+              padding-top: 100px;
+
+       text-align: center;
+                 }
+                 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+                 #right h1{
+           color: #434343;
+           font-family: 'Open Sans', sans-serif;
+           font-size: 25pt;
+                     }
+
+
+           #right p{
+              color: #434343;
+              width: 50%;
+              margin-left: 25%;
+              margin-top: 3%;
+                      font-family: 'Open Sans', sans-serif;
+                      font-size: 10pt;
+                                }
+     
+       #right button{
+          background-color:#313131;
+          border: 1px solid #313131;
+          font-size: 9pt;
+          color: white;
+          padding-left: 12px;
+          padding-right: 12px;
+          padding-bottom: 7px;
+          padding-top: 7px;
+          transition: ease 0.5s all;   
+                                                    }
+                #right button:hover{
+     background-color:white;
+           border: 1px solid #313131;
+            font-size: 9pt;
+               color: #313131;
+        padding-left: 12px;
+         padding-right: 12px;
+                       padding-bottom: 7px;
+   padding-top: 7px;
+                   }
+           
+           
+           
+           
+           
+         #right img{
+
+                      width: 300px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+        #designe header{
+          position: absolute;
+          width: 35%;
+          border: 1px solid #313131;
+          font-size: 25pt;
+          left: 32%;
+          margin-top: -25px;
+          padding: 10px;
+          text-align: center;
+          color: #515151;
+          background-color: white;
+          font-family: 'Montserrat', sans-serif;
+}
+#designe header h1{
+  color: #353535;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+}
+
+#designe main{
+
+  width: 35%;
+  border: 1px solid #313131;
+  font-size: 25pt;
+  margin-left: 5%;
+width: 90%;
+  text-align: center;
+  color: #515151;
+  margin-top: -25px;
+  display: flex;
+}
+#designe main div{
+
+  width: 20%;
+  padding-top: 5%;
+  padding-bottom: 3%;
+
+}
+
+
+#other{
+
+
+  padding-top: 5%;
+  
+
+}
+
+#other h1{
+text-align: center;
+  
+
+}
+
+
+
+.item1 { grid-area: item1; }
+.item2 { grid-area: item2; }
+.item3 { grid-area: item3; }
+.item4 { grid-area: item4; }
+.item5 { grid-area: item5; }
+.item6 { grid-area: item6; }
+.item7 { grid-area: item7; }
+.item8 { grid-area: item8; }
+.item9 { grid-area: item9; }
+.item10 { grid-area: item10; }
+.item11 { grid-area: item11; }
+.item12 { grid-area: item12; }
+.item5 { grid-area: item5; }
+
+
+
+
+.catal {
+  display: grid;
+  grid-template-areas:
+    'item1   item2 item3   item4 item4 item5'
+    'item6   item6 item7   item4 item4  item8'
+    'item6   item6 item9   item10 item11 item12 ';
+  gap: 10px;
+
+  margin-top: 5%;
+  padding: 10px;
+}
+.catal img { 
+width: 100%;
+height: 100%;
+
+ }
+
+ footer{ 
+    width: 100%;
+   background-color: #31674F;
+   margin-top: 50px;
+    display: flex;
+ padding: 25px;
+ padding-bottom: 70px;
+     }
+     footer p{ 
+        margin-top: 35px;
+     font-size: 12pt;
+     color: aliceblue;
+     font-family: 'Montserrat', sans-serif;
+         }
+         footer span{ 
+            font-size: 10pt;
+            color: aliceblue;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 85px;
+                }
+                footer input{ 
+                    margin-top: 25px;
+                    width: 50%;
+                    font-size: 12pt;
+                    color: aliceblue;
+                    font-family: 'Montserrat', sans-serif;
+                    background: none;
+                    border: 1px solid whitesmoke;
+                    padding: 10px;
+                        }
+                        footer button{ 
+                            margin-top: 25px;
+                           
+                            font-size: 10pt;
+                            color: aliceblue;
+                            font-family: 'Montserrat', sans-serif;
+                            background: none;
+                            border: 1px solid whitesmoke;
+                            padding: 10px;
+                                }
+
+                                footer img{ 
+                                  width: 150px;
+                                  margin-top: 100px;
+                                        }
+                                        footer h6{ 
+                                 
+                                 width: 35%;
+                                 margin-left: 180px;
+                                            margin-top: -55px;
+                                            font-size: 10pt;
+                                            color: aliceblue;
+                                            font-family: 'Montserrat', sans-serif;
+                                                  }
+                footer h3{ 
+                         color: white;        
+                 margin-top: 10%;
+                 font-family: 'Montserrat', sans-serif;                                               }             
+
+              footer h5{ 
+       color: white;  
+       margin-top: 15px;      
+       font-family: 'Montserrat', sans-serif;                       }             
+                                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @media screen and (max-width: 688px) {
+
+      #slogan h1{
+      
+        font-size: 25pt;
+   
+    
+    
+
+
+
+
+
+      } }
+
+
+      #ventes{
+
+   margin-top: 150px;
+        }
+
+        #ventes h1{
+text-align: center;
+font-family: 'Rubik', sans-serif;
+               }
