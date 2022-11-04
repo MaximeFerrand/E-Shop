@@ -20,8 +20,10 @@ public class User extends Account {
 	protected static String name;
 	@Column(length = 30, nullable = false)
 	protected String firstname;
+	
+	/*
 	@OneToMany(mappedBy = "user")
-	private List<BasketDetail> basketDetails = new ArrayList();
+	private List<BasketDetail> basketDetails = new ArrayList();*/
 
 	private Boolean isValidated;
 
@@ -30,6 +32,7 @@ public class User extends Account {
 	@OneToMany(mappedBy = "user")
 	private List<Order> orders = new ArrayList();
 
+	/*
 	public double PrixTotalBasketDetails(Boolean isValidated, double doublebasketDetails) {
 
 		if (isValidated) {
@@ -50,7 +53,7 @@ public class User extends Account {
 
 	public void setBasketDetails(List<BasketDetail> basketDetails) {
 		this.basketDetails = basketDetails;
-	}
+	}*/
 
 	protected int discount;
 

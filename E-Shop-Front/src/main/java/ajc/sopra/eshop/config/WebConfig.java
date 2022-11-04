@@ -8,9 +8,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import ajc.sopra.sitee.config.JpaConfig;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan({"ajc.sopra.eshop.controller","ajc.sopra.eshop.restcontroller"})
+@ComponentScan("ajc.sopra.eshop.restcontroller")
 @Import(JpaConfig.class)
 public class WebConfig {
 	

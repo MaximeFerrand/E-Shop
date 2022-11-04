@@ -4,6 +4,7 @@ package ajc.sopra.sitee.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,8 +42,11 @@ public class Product {
 	//private OrderDetail orderDetail;
 	
 	private   Integer  stock;
-	@OneToMany(mappedBy ="product")
+	
+	/*
+	 * @OneToMany(mappedBy ="product")
 	private List<BasketDetail> basketDetails = new ArrayList<>();
+	*/
 	
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('New','Reconditioned','Repaired')")
@@ -83,12 +87,14 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	/*
 	public List<BasketDetail> getBasketDetails() {
 		return basketDetails;
 	}
 	public void setBasketDetails(List<BasketDetail> basketDetails) {
 		this.basketDetails = basketDetails;
-	}
+	}*/
+	
 	public Status getStatus() {
 		return status;
 	}
@@ -140,12 +146,26 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", label=" + label + ", price=" + price + ", Reference=" + Reference
-				+ ", Description=" + Description + ", Measure=" + Measure + ", stock=" + stock + ", basketDetails="
-				+ basketDetails + ", status=" + status + ", category=" + category + "]";
+				+ ", Description=" + Description + ", Measure=" + Measure + ", stock=" + stock + ", status=" + status + ", category=" + category + "]";
 	}
 	public String getDescription() {
 		return Description;
 		
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(id, other.id);
 	}
 	
 
