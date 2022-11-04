@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ajc.sopra.eshop.model.Fournisseur;
 import ajc.sopra.sitee.exception.CategoryException;
 import ajc.sopra.sitee.exception.IdException;
 import ajc.sopra.sitee.model.Category;
@@ -16,21 +17,16 @@ public class CategoryService {
 
 	@Autowired
 	private CategoryRepository categoryRepo;
-
+	@Autowired
+     private ProductRepository productRepo;
 	public List<Category> findAll() {
 		return categoryRepo.findAll();
 	}
 
 	public Optional<Category> findById(Integer id) {
-		
-		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
-			throw new IdException();		});*/
+		 
 		return categoryRepo.findById(id);//.orElseThrow(IdException::new);
 	}
-
-	/*public List<Order> findByLibelle(String libelle) {
-		return orderRepo.findByLibelleContaining(libelle);
-	}*/
 
 	public Category create(Category category) {
 		if (category.getId() != null) {
@@ -51,12 +47,7 @@ public class CategoryService {
 	}
 
 	private Category save(Category category) {
-		/*if (order.getLibelle() == null || order.getLibelle().isBlank() || order.getLibelle().length() > 30) {
-			throw new ProduitException("probleme libelle");
-		}
-		if (produit.getPrix() <= 0) {
-			throw new ProduitException("probleme prix");
-		}*/
+		
 		return categoryRepo.save(category);
 	}
 
@@ -66,5 +57,8 @@ public class CategoryService {
 
 	public void deleteId(Integer id) {
 		categoryRepo.deleteById(id);
+	}
+	public Category findByIdFetchProduits(Integer id) {
+		return categoryRepo.findByIdFetchingProduct(id).orElseThrow(IdException::new);
 	}
 }
