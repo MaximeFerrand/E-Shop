@@ -3,17 +3,22 @@ package ajc.sopra.sitee.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Adress {
 
-	
+	@JsonView(JsonViews.Common.class)
 	@Column(length=35,nullable = false)
 	private String number;
 	@Column(length=35,nullable = false)
+	@JsonView(JsonViews.Common.class)
 	private String way;
 	@Column(length=35,nullable = false)
+	@JsonView(JsonViews.Common.class)
 	private String pc;
 	@Column(length=35,nullable = false)
+	@JsonView(JsonViews.Common.class)
 	private String city;
 	
 	

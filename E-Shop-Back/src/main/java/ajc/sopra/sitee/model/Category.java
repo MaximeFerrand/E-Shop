@@ -9,16 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@JsonView(JsonViews.Common.class)
 	private Integer id;
 	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
-	
+	@JsonView(JsonViews.Common.class)
 	private  String labelCat;
-	
+	(JsonViews.CategoryWithProduct.class)
 	public List<Product> getProduct() {
 		return product;
 	}

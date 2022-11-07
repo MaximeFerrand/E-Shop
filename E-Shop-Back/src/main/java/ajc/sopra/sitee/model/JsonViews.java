@@ -43,6 +43,8 @@ public class JsonViews {
 	
 	public class ArtisanWithProduit extends Common{
 	}
-	
+	public class CategoryWithProduct extends Common{
+	}
+	}
 
-}
+
