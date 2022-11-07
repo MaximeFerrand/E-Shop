@@ -60,7 +60,7 @@ public class User extends Account {
 	@JsonView(JsonViews.Common.class)
 	protected int discount;
 	@JsonView(JsonViews.UserWithAdress.class)
-	@ElementCollection
+	@ElementCollection()
 	protected Set<Adress> adresses = new HashSet();
 
 	public User(String name, String firstname, int discount, Set<Adress> adresses) {

@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
-@Table(name="order")
+@Table(name="basket")
 //@DiscriminatorColumn(name="order tracking",columnDefinition = "ENUM('commandé', 'enPreparation', 'expedie', 'livre', 'cloture';)")
 
 public class Order {
@@ -31,12 +31,12 @@ public class Order {
 	private Integer id;
 	@JsonView(JsonViews.Order.class)
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('ordered','in_Preparation', 'shipped', 'delivered', 'closed')",nullable = false)
+	@Column(columnDefinition = "ENUM('ordered','inPreparation', 'shipped', 'delivered', 'closed')",nullable = false)
 	private OrderTracking orderTracking;
 	///@Embedded
 	
 	@JsonView(JsonViews.OrderWithOrderDetail.class)
-	@OneToMany
+	@OneToMany(mappedBy = "order")
 	private List<OrderDetail> ordreDetails= new ArrayList();
 	//private OrderDetail ordreDetail;
 	@JsonView(JsonViews.OrderWithUser.class)

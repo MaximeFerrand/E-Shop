@@ -34,6 +34,9 @@ public class OrderDetail {
 	@Embedded
 	private Review review;
 	
+	@ManyToOne
+	private Order order;
+	
 	public OrderDetail() {
 		
 	}
