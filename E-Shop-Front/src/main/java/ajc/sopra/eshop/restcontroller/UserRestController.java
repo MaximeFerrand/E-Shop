@@ -21,32 +21,33 @@ import com.fasterxml.jackson.annotation.JsonView;
 import ajc.sopra.eshop.model.Client;
 import ajc.sopra.eshop.model.JsonViews;
 import ajc.sopra.eshop.service.ClientService;
+import ajc.sopra.sitee.service.UserService;
 
 @RestController
 @RequestMapping("/api/client")
-public class ClientRestController {
+public class UserRestController {
 
 	@Autowired
-	private ClientService clientSrv;
+	private UserService userSrv;
 
 	@PostMapping("/inscription")
 	@JsonView(JsonViews.Common.class)
-	public Client inscription(@Valid @RequestBody Client client, BindingResult br) {
+	public User inscription(@Valid @RequestBody User client, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return clientSrv.save(client);
+		return userSrv.save(client);
 	}
 
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("/{id}")
-	public Client findById(@PathVariable Integer id) {
-		return clientSrv.findById(id);
+	public User findById(@PathVariable Integer id) {
+		return userSrv.findById(id);
 	}
 
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("")
-	public List<Client> findAll() {
-		return clientSrv.findAll();
+	public List<user> findAll() {
+		return userSrv.findAll();
 	}
 }

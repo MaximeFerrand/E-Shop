@@ -19,8 +19,8 @@ public class UserService {
 		return userRepo.findAll();
 	}
 
-	public Optional<User> findById(Integer id) {
-		return userRepo.findById(id);//.orElseThrow(IdException::new);
+	public User findById(Integer id) {
+		return userRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	public User save(User client) {
