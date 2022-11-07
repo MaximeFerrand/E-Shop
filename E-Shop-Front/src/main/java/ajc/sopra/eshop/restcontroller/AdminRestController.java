@@ -17,35 +17,36 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import ajc.sopra.sitee.model.Admin;
 import ajc.sopra.sitee.model.JsonViews;
-import ajc.sopra.sitee.model.User;
-import ajc.sopra.sitee.service.UserService;
+import ajc.sopra.sitee.service.AdminService;
+
 
 @RestController
-@RequestMapping("/api/user")
-public class UserRestController {
+@RequestMapping("/api/admin")
+public class AdminRestController {
 
 	@Autowired
-	private UserService userSrv;
+	private AdminService adminSrv;
 
-	@PostMapping("/subscription")
+	@PostMapping("/add_admin")
 	@JsonView(JsonViews.Common.class)
-	public User inscription(@Valid @RequestBody User user, BindingResult br) {
+	public Admin add(@Valid @RequestBody Admin user, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return userSrv.save(user);
+		return adminSrv.save(user);
 	}
 
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("/{id}")
-	public User findById(@PathVariable Integer id) {
-		return userSrv.findById(id);
+	public Admin findById(@PathVariable Integer id) {
+		return adminSrv.findById(id);
 	}
 
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("")
-	public List<User> findAll() {
-		return userSrv.findAll();
+	public List<Admin> findAll() {
+		return adminSrv.findAll();
 	}
 }

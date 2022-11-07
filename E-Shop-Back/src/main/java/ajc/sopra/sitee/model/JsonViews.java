@@ -26,7 +26,18 @@ public class JsonViews {
 	public static class OrderDetailWithReview extends Common {
 
 	}
+	
+	public static class SupplierWithProduit extends Common {
    public static class ProductWithSupplier extends Common{
    }
-   }
 
+	
+	public static class UserWithAdress extends Common {
+
+	}
+	
+	public static class UserWithOrder extends Common {
+
+	}
+
+}
