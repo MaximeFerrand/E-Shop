@@ -1,6 +1,8 @@
 package ajc.sopra.sitee.model;
 
-public enum Status {
+import com.fasterxml.jackson.annotation.JsonView;
 
+public enum Status {
+	@JsonView(JsonViews.Common.class)
 	 New, Reconditioned, Repaired;
 }

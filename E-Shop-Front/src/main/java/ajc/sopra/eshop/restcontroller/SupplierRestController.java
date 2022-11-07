@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,79 +23,72 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
-import ajc.sopra.eshop.model.Adresse;
-import ajc.sopra.eshop.model.Fournisseur;
-import ajc.sopra.eshop.model.JsonViews;
-import ajc.sopra.eshop.service.FournisseurService;
+import ajc.sopra.sitee.model.JsonViews;
+import ajc.sopra.sitee.model.Supplier;
+import ajc.sopra.sitee.service.SupplierService;
 
 @RestController
-@RequestMapping("/api/fournisseur")
-public class FournisseurRestController {
+@RequestMapping("/api/supplier")
+public class SupplierRestController {
 
 	@Autowired
-	private FournisseurService fournisseurSrv;
+	private SupplierService supplierSrv;
 
 	@GetMapping("")
 	@JsonView(JsonViews.Common.class)
-	public List<Fournisseur> findAll() {
-		return fournisseurSrv.findAll();
+	public List<Supplier> findAll() {
+		return supplierSrv.findAll();
 	}
 
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("/{id}")
-	public Fournisseur findById(@PathVariable Integer id) {
-		return fournisseurSrv.findById(id);
+	public Supplier findById(@PathVariable Integer id) {
+		return supplierSrv.findById(id);
 	}
 
-	@JsonView(JsonViews.FournisseurWithProduit.class)
+	@JsonView(JsonViews.SupplierWithProduit.class)
 	@GetMapping("/{id}/produit")
-	public Fournisseur findByIdWithProduit(@PathVariable Integer id) {
-		return fournisseurSrv.findByIdFetchProduits(id);
+	public Supplier findByIdWithProduit(@PathVariable Integer id) {
+		return supplierSrv.findByIdFetchProduits(id);
 	}
 
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Fournisseur create(@Valid @RequestBody Fournisseur fournisseur, BindingResult br) {
+	public Supplier create(@Valid @RequestBody Supplier fournisseur, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return fournisseurSrv.save(fournisseur);
+		return supplierSrv.save(fournisseur);
 	}
 
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public Fournisseur update(@Valid @RequestBody Fournisseur fournisseur, BindingResult br, @PathVariable Integer id) {
-		if (br.hasErrors() && fournisseurSrv.findById(id) == null) {
+	public Supplier update(@Valid @RequestBody Supplier supplier, BindingResult br, @PathVariable Integer id) {
+		if (br.hasErrors() && supplierSrv.findById(id) == null) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return fournisseurSrv.save(fournisseur);
+		return supplierSrv.save(supplier);
 	}
 
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public Fournisseur patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		Fournisseur fournisseur = fournisseurSrv.findById(id);
+	public Supplier patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
+		Supplier supplier = supplierSrv.findById(id);
 		fields.forEach((k, v) -> {
-			if (k.equals("adresse")) {
-				Map<String, Object> mapAdresse = (Map<String, Object>) v;
-				mapAdresse.forEach((kAdresse, vAdresse) -> {
-					Field fieldAdresse = ReflectionUtils.findField(Adresse.class, kAdresse);
-					ReflectionUtils.makeAccessible(fieldAdresse);
-					ReflectionUtils.setField(fieldAdresse, fournisseur.getAdresse(), vAdresse);
-				});
-			} else {
-				Field field = ReflectionUtils.findField(Fournisseur.class, k);
+			
+				Field field = ReflectionUtils.findField(Supplier.class, k);
 				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, fournisseur, v);
-			}
+				ReflectionUtils.setField(field, supplier, v);
+			
 		});
-		return fournisseurSrv.save(fournisseur);
+		return supplierSrv.save(supplier);
 	}
 
+	/*
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Integer id) {
-		fournisseurSrv.deleteById(id);
-	}
+		supplierSrv.deleteById(id);
+	}*/
 }

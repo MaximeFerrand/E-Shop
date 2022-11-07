@@ -3,10 +3,10 @@ package ajc.sopra.sitee.service;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ajc.sopra.sitee.exception.IdException;
 import ajc.sopra.sitee.exception.SupplierException;
 import ajc.sopra.sitee.model.Supplier;
 import ajc.sopra.sitee.repository.ProductRepository;
@@ -25,12 +25,12 @@ public class SupplierService {
 
 	}
 
-	public Optional<Supplier> findByIdFetchProduits(Integer id) {
-		return supplierRepo.findByIdFetchingProduits(id);//.orElseThrow(IdException::new);
+	public Supplier findByIdFetchProduits(Integer id) {
+		return supplierRepo.findByIdFetchingProduits(id).orElseThrow(IdException::new);
 	}
 
-	public Optional<Supplier> findById(Integer id) {
-		return supplierRepo.findById(id);//.orElseThrow(IdException::new);
+	public Supplier findById(Integer id) {
+		return supplierRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	public Supplier save(Supplier supplier) {
@@ -44,8 +44,9 @@ public class SupplierService {
 		return supplierRepo.save(supplier);
 	}
 
-	/*public void deleteById(Integer id) {
-		productRepo.deleteBySupplier(findById(id));
+	/*
+	public void deleteById(Integer id) {
+		productRepo.deleteById(findById(id));
 		supplierRepo.deleteById(id);
 	}*/
 }
