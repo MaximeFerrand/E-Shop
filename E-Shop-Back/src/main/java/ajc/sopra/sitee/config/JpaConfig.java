@@ -14,12 +14,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
-
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
@@ -28,27 +25,28 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableJpaRepositories(basePackages = "ajc.sopra.sitee.repository")
 //chargement du fichier config.properties dans une map
-//@PropertySource("classpath:config.properties")
+@PropertySource("classpath:config.properties")
 public class JpaConfig {
-	//injection de la map contenant les infos du fichier
+	// injection de la map contenant les infos du fichier
 	@Autowired
 	private Environment env;
-	
+
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
-	/*	dataSource.setDriverClassName(env.getProperty("dataSource.driver"));
+		dataSource.setDriverClassName(env.getProperty("dataSource.driver"));
 		dataSource.setUrl(env.getProperty("dataSource.url"));
 		dataSource.setUsername(env.getProperty("dataSource.username"));
-		dataSource.setPassword(env.getProperty("dataSource.password"));*/
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/siteehop");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword(env.getProperty("dataSource.password"));
+		// dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		// dataSource.setUrl("jdbc:mysql://localhost:3306/siteeshop");
+		// dataSource.setUsername("root");
+		// dataSource.setPassword("");
 		dataSource.setMaxTotal(5);
 
 		return dataSource;
 	}
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();

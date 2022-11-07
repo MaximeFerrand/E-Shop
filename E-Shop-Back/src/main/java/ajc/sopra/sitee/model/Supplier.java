@@ -24,7 +24,7 @@ public abstract class Supplier extends Account {
 	@Column(length=50,nullable = false)
 	protected String company;
 	
-	@OneToMany
+	@OneToMany(mappedBy ="supplier")
 	protected List<Product> products;
 
 	

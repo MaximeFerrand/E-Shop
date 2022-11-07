@@ -42,7 +42,7 @@ public class ArtisanService {
 	}
 
 	public void deleteById(Integer id) {
-		productRepo.deleteByArtisan(findById(id));
+		//productRepo.deleteByArtisan(findById(id));
 		artisanRepo.deleteById(id);
 	}
 }

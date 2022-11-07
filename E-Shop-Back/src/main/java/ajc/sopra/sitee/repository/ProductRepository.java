@@ -16,7 +16,7 @@ import ajc.sopra.sitee.model.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer>{
 
 	
-	@Transactional
+	/*@Transactional
 	@Modifying
 	@Query("delete from Product p where p.artisan=:artisan")
 	int deleteByArtisan(@Param("artisan") Artisan artisan);
@@ -24,7 +24,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	@Transactional
 	@Modifying
 	@Query("delete from Product p where p.merchant=:merchant")
-	int deleteByMerchant(@Param("merchant") Merchant merchant);
+	int deleteByMerchant(@Param("merchant") Merchant merchant);*/
 	
 	/*
 	@Query("delete from Product p where p.supplier=:supplier")

@@ -14,23 +14,34 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
+
 @Entity
 @Table(name="order")
 //@DiscriminatorColumn(name="order tracking",columnDefinition = "ENUM('commandé', 'enPreparation', 'expedie', 'livre', 'cloture';)")
 
 public class Order {
+	@JsonView(JsonViews.Order.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@JsonView(JsonViews.Order.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('ordered','in_Preparation', 'shipped', 'delivered', 'closed')",nullable = false)
 	private OrderTracking orderTracking;
 	///@Embedded
+	
+	@JsonView(JsonViews.OrderWithOrderDetail.class)
 	@OneToMany
 	private List<OrderDetail> ordreDetail= new ArrayList();
 	//private OrderDetail ordreDetail;
+	@JsonView(JsonViews.OrderWithUser.class)
 	@ManyToOne
 	private User user;
+	
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('houseShipping', 'pickUp', 'withdrawal')")
 	private Shipping shipping;

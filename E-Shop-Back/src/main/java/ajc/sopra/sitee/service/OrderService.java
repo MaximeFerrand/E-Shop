@@ -21,11 +21,10 @@ public class OrderService {
 		return orderRepo.findAll();
 	}
 
-	public Optional<Order> findById(Integer id) {
+	public Order findById(Integer id) {
 		
-		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
-			throw new IdException();		});*/
-		return orderRepo.findById(id);///.orElseThrow(IdException::new);
+		
+		return orderRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	/*public List<Order> findByLibelle(String libelle) {
@@ -47,7 +46,7 @@ public class OrderService {
 		return save(order);
 	}
 
-	private Order save(Order order) {
+	public Order save(Order order) {
 		/*if (order.getLibelle() == null || order.getLibelle().isBlank() || order.getLibelle().length() > 30) {
 			throw new ProduitException("probleme libelle");
 		}
@@ -55,6 +54,9 @@ public class OrderService {
 			throw new ProduitException("probleme prix");
 		}*/
 		return orderRepo.save(order);
+	}
+	public List<Order> saveAll(List<Order> orders) {
+		return orderRepo.saveAll(orders);
 	}
 
 	public void delete(Order order) {

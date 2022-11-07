@@ -22,11 +22,11 @@ public class ProductService {
 		return productRepo.findAll();
 	}
 
-	public Optional<Product> findById(Integer id) {
+	public Product findById(Integer id) {
 		
 		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
 			throw new IdException();		});*/
-		return productRepo.findById(id); //.orElseThrow(IdException::new);
+		return productRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	/*public List<Order> findByLibelle(String libelle) {
@@ -50,7 +50,7 @@ public class ProductService {
 		return save(product);
 	}
 
-	private Product save(Product product) {
+	public Product save(Product product) {
 		/*if (order.getLibelle() == null || order.getLibelle().isBlank() || order.getLibelle().length() > 30) {
 			throw new ProduitException("probleme libelle");
 		}

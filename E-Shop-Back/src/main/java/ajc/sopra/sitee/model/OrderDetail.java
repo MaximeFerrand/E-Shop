@@ -1,28 +1,32 @@
 package ajc.sopra.sitee.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name="order detail")
 
 public class OrderDetail {
+	@JsonView(JsonViews.Order.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@JsonView(JsonViews.Order.class)
 	@Column(nullable= false)
 	private int quantity;
+	@JsonView(JsonViews.OrderDetailWithProduct.class)
 	
-	@OneToOne
+	@ManyToOne 
 	private Product product;
-	
+	@JsonView(JsonViews.OrderDetailWithReview.class)
 	@Embedded
 	private Review review;
 	

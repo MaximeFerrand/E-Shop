@@ -16,14 +16,13 @@ import ajc.sopra.sitee.service.OrderService;
 @ContextConfiguration(classes = { JpaConfig.class })
 @Transactional
 //par defaut rollback a la fin de chaque transaction
-class ProduitServiceTest {
+class OrderServiceTest {
 
 	@Autowired
-	OrderService productSrv;
-
+	OrderService orderSrv;
 	@Test
 	void InjectionProduitServicetest() {
-		assertNotNull(productSrv);
+		assertNotNull(orderSrv);
 	}
 	
 	/*@Test
