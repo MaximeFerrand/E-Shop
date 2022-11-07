@@ -47,7 +47,7 @@ public class CategoryService {
 		return save(category);
 	}
 
-	private Category save(Category category) {
+	public Category save(Category category) {
 		
 		return categoryRepo.save(category);
 	}
@@ -62,5 +62,4 @@ public class CategoryService {
 	public Category findByIdFetchProduits(Integer id) {
 		return categoryRepo.findByIdFetchingProduct(id).orElseThrow(IdException::new);
 	}
-	
 }

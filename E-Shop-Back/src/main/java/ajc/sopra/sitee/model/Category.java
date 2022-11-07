@@ -20,7 +20,7 @@ public class Category {
 	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
 	@JsonView(JsonViews.Common.class)
 	private  String labelCat;
-	(JsonViews.CategoryWithProduct.class)
+	@JsonView(JsonViews.CategoryWithProduct.class)
 	public List<Product> getProduct() {
 		return product;
 	}
