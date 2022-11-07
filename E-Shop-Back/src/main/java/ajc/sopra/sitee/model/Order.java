@@ -43,7 +43,7 @@ public class Order {
 	@ManyToOne
 	private User user;
 	
-	private OrderDetail orderDetail;
+	//private OrderDetail orderDetail;
 	
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)

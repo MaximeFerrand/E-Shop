@@ -13,7 +13,7 @@ public class Artisan extends Supplier{
 	}
 	
 	public Artisan(String company, List<Product> products) {
-		super(company, products);
+		super(company, products, "Artisan");
 	}
 
 
