@@ -47,7 +47,7 @@ public class CategoryRestController {
 	}
 	@JsonView(JsonViews.CategoryWithProduct.class)
 	@GetMapping("/{id}/produit")
-	public Supplier findByIdWithProduit(@PathVariable Integer id) {
+	public Category findByIdWithProduit(@PathVariable Integer id) {
 		return categorySrv.findByIdFetchProduits(id);
 	}
 	@PostMapping("")
@@ -69,8 +69,8 @@ public class CategoryRestController {
 	}
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
-	public Supplier patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		Category category = categorySrv.findById(id);
+	public Category patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
+		Category category = categorySrv.findById(id).get();
 		fields.forEach((k, v) -> {
 			
 				Field field = ReflectionUtils.findField(Category.class, k);
