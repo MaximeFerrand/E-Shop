@@ -18,6 +18,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 
 
+
+
 @Entity
 @Table(name="order")
 //@DiscriminatorColumn(name="order tracking",columnDefinition = "ENUM('commandé', 'enPreparation', 'expedie', 'livre', 'cloture';)")
@@ -35,21 +37,33 @@ public class Order {
 	
 	@JsonView(JsonViews.OrderWithOrderDetail.class)
 	@OneToMany
-	private List<OrderDetail> ordreDetail= new ArrayList();
+	private List<OrderDetail> ordreDetails= new ArrayList();
 	//private OrderDetail ordreDetail;
 	@JsonView(JsonViews.OrderWithUser.class)
 	@ManyToOne
 	private User user;
+	
+	private OrderDetail orderDetail;
 	
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('houseShipping', 'pickUp', 'withdrawal')")
 	private Shipping shipping;
 
-
+	
 
 	public List<OrderDetail> getOrdreDetail() {
-		return ordreDetail;
+		return ordreDetails;
+	}
+
+  
+
+
+
+	public Order(User user) {
+		super();
+		this.user = user;
+		
 	}
 
 
@@ -57,7 +71,7 @@ public class Order {
 
 
 	public void setOrdreDetail(List<OrderDetail> ordreDetail) {
-		this.ordreDetail = ordreDetail;
+		this.ordreDetails = ordreDetail;
 	}
 
 
