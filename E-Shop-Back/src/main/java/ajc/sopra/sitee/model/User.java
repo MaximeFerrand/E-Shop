@@ -11,24 +11,27 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 
 @Table(name = "user")
 public class User extends Account {
-
+	@JsonView(JsonViews.Common.class)
 	@Column(length = 30, nullable = false)
 	protected static String name;
+	@JsonView(JsonViews.Common.class)
 	@Column(length = 30, nullable = false)
 	protected String firstname;
 	
 	/*
 	@OneToMany(mappedBy = "user")
 	private List<BasketDetail> basketDetails = new ArrayList();*/
-
+	@JsonView(JsonViews.Common.class)
 	private Boolean isValidated;
 
-	private static double TotalPrixValidated;
-
+	//private static double TotalPrixValidated;
+	@JsonView(JsonViews.UserWithOrder.class)
 	@OneToMany(mappedBy = "user")
 	private List<Order> orders = new ArrayList();
 
@@ -54,9 +57,9 @@ public class User extends Account {
 	public void setBasketDetails(List<BasketDetail> basketDetails) {
 		this.basketDetails = basketDetails;
 	}*/
-
+	@JsonView(JsonViews.Common.class)
 	protected int discount;
-
+	@JsonView(JsonViews.UserWithAdress.class)
 	@ElementCollection
 	protected Set<Adress> adresses = new HashSet();
 
@@ -66,6 +69,23 @@ public class User extends Account {
 		this.firstname = firstname;
 		this.discount = discount;
 		this.adresses = adresses;
+	}
+
+	public Boolean getIsValidated() {
+		return isValidated;
+	}
+
+	public void setIsValidated(Boolean isValidated) {
+		this.isValidated = isValidated;
+	}
+
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 
 	public User() {
