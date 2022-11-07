@@ -83,4 +83,23 @@ public class ProductService {
 	public void deleteId(Integer id) {
 		productRepo.deleteById(id);
 	}
+	
+	public List<Product> findAllByPriceAsc ( List<Product> products){
+		return productRepo.selectIncreasePrice(products);
+	}
+	
+	public List<Product> findAllByPriceDESC ( List<Product> products){
+		return productRepo.selectDecreasePrice(products);
+	}
+	public List<Product> findAllByLabelAsc ( List<Product> products){
+		return productRepo.selectIncreaseLabel(products);
+	}
+	
+	public List<Product> selectIntervalPrice( int a, int b){
+		return productRepo.selectIntervalPrice(a,b);
+	}
+	
+	
+	
+	
 }

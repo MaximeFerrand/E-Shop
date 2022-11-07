@@ -20,15 +20,22 @@ public class Category {
 	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
 	@JsonView(JsonViews.Common.class)
 	private  String labelCat;
+	
+	
+	
 	@JsonView(JsonViews.CategoryWithProduct.class)
-	public List<Product> getProduct() {
-		return product;
-	}
-	public void setProduct(List<Product> product) {
-		this.product = product;
-	}
 	@OneToMany(mappedBy="category")
-	private List<Product> product; 
+	private List<Product> products; 
+	
+	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	public Category( String labelCat) {
 		
 		

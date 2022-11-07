@@ -62,4 +62,9 @@ public class CategoryService {
 	public Category findByIdFetchProduits(Integer id) {
 		return categoryRepo.findByIdFetchingProduct(id).orElseThrow(IdException::new);
 	}
+	
+	
+	public Category findByLabelCat(String labelCat) {
+	return categoryRepo.findByLabelCatContaining(labelCat);
+			}
 }

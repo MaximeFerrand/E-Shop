@@ -1,15 +1,12 @@
 package ajc.sopra.sitee.repository;
 
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import ajc.sopra.sitee.model.Artisan;
-import ajc.sopra.sitee.model.Merchant;
 import ajc.sopra.sitee.model.Product;
 
 
@@ -29,6 +26,23 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	/*
 	@Query("delete from Product p where p.supplier=:supplier")
 	int deleteBySupplier(@Param("supplier") Supplier supplier);*/
-
+	
+	List<Product> findByLabelContaining(String libelle);
+	
+	@Query("select p from Product p order by p.price asc")
+	List<Product> selectIncreasePrice (List<Product> listeBrute);
+	
+	@Query("select p from Product p order by p.price  desc")
+	List<Product> selectDecreasePrice (List<Product> listeBrute);
+	
+	@Query("select p from Product p order by p.label asc")
+	List<Product> selectIncreaseLabel (List<Product> listeBrute);
+	
+	@Query("select p from Product p where p.price between :min and :max  ")
+	List<Product> selectIntervalPrice (@Param("min")int min,@Param("max") int max);
+	
+	
+	
+	
 
 }
