@@ -12,16 +12,20 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
-@Table(name="order detail")
+@Table(name="order_detail")
 
 public class OrderDetail {
+	
+
+
+
 	@JsonView(JsonViews.Order.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@JsonView(JsonViews.Order.class)
 	@Column(nullable= false)
-	private int quantity;
+	private Integer quantity;
 	@JsonView(JsonViews.OrderDetailWithProduct.class)
 	
 	@ManyToOne 
@@ -35,12 +39,25 @@ public class OrderDetail {
 	}
 	
 	
+	
 	public OrderDetail( Integer quantity, Product product) {
 		
 		this.product=product;
 		this.quantity = quantity;
 	
 	}
+	
+	public Product getProduct() {
+		return product;
+	}
+
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+
+	
 	public Integer getId() {
 		return id;
 	}
