@@ -42,7 +42,7 @@ public class MerchantService {
 	}
 
 	public void deleteById(Integer id) {
-		productRepo.deleteByMerchant(findById(id));
+		//productRepo.deleteByMerchant(findById(id));
 		merchantRepo.deleteById(id);
 	}
 }

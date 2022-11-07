@@ -51,7 +51,7 @@ public class OrderDetailService {
 		return save(orderDetail);
 	}
 
-	private OrderDetail save(OrderDetail orderDetail) {
+	public OrderDetail save(OrderDetail orderDetail) {
 		/*if (order.getLibelle() == null || order.getLibelle().isBlank() || order.getLibelle().length() > 30) {
 			throw new ProduitException("probleme libelle");
 		}
@@ -59,6 +59,16 @@ public class OrderDetailService {
 			throw new ProduitException("probleme prix");
 		}*/
 		return orderDetailRepo.save(orderDetail);
+	}
+
+	public List<OrderDetail> saveAll(List<OrderDetail> orderDetails) {
+		/*if (order.getLibelle() == null || order.getLibelle().isBlank() || order.getLibelle().length() > 30) {
+			throw new ProduitException("probleme libelle");
+		}
+		if (produit.getPrix() <= 0) {
+			throw new ProduitException("probleme prix");
+		}*/
+		return orderDetailRepo.saveAll(orderDetails);
 	}
 
 	public void delete(OrderDetail orderDetail) {

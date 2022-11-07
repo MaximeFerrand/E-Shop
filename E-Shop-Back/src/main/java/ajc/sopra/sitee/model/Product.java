@@ -16,21 +16,30 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+
+
 
 @Entity
 public class Product {
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@JsonView(JsonViews.Common.class)
 	@Column(length=35,nullable = false)
 	private  String label;
+	@JsonView(JsonViews.Common.class)
 	@Column(length=35,nullable = false)
 	private Double price;
+	@JsonView(JsonViews.Common.class)
 	@Column(length=15,nullable = false)
 	private String Reference;
+	//@JsonView(JsonViews.Common.class)
 	@Column(length=300,nullable = false)
 	private String Description;
-
+	@JsonView(JsonViews.Common.class)
 	@Column(nullable = false)
 	private String Measure;
 	
@@ -38,9 +47,15 @@ public class Product {
 	-Description : String
 	-Measure : String*/
 	
-	//@OneToMany(mappedBy ="product2")
-	//private OrderDetail orderDetail;
+	@OneToMany(mappedBy ="product")
+	private List<OrderDetail> orderDetail;
 	
+	
+	@ManyToOne
+	private Supplier supplier;
+	
+	
+	@JsonView(JsonViews.Common.class)
 	private   Integer  stock;
 	
 	/*
@@ -48,6 +63,7 @@ public class Product {
 	private List<BasketDetail> basketDetails = new ArrayList<>();
 	*/
 	
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('New','Reconditioned','Repaired')")
 	private Status status;
