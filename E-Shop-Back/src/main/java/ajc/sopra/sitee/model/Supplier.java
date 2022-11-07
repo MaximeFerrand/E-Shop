@@ -24,15 +24,18 @@ public abstract class Supplier extends Account {
 	@Column(length=50,nullable = false)
 	protected String company;
 	
+	protected String typeOfSupplier;
+	
 	@OneToMany(mappedBy ="supplier")
 	protected List<Product> products;
 
 	
 		
-	public Supplier(String company, List<Product> products) {
+	public Supplier(String company, List<Product> products, String typeOfSupplier) {
 		super();
 		this.company = company;
 		this.products = products;
+		this.typeOfSupplier = typeOfSupplier;
 	}
 
 	public Supplier() {
@@ -55,6 +58,14 @@ public abstract class Supplier extends Account {
 		this.products = products;
 	}
 	
+
+	public String getTypeOfSupplier() {
+		return typeOfSupplier;
+	}
+
+	public void setTypeOfSupplier(String typeOfSupplier) {
+		this.typeOfSupplier = typeOfSupplier;
+	}
 
 	public double discountProduct(double priceProduct) {
 		double d=0;
