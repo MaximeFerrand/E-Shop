@@ -27,8 +27,9 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@JsonView(JsonViews.Common.class)
+	 
 	@Column(length=35,nullable = false)
+	@JsonView(JsonViews.Common.class)
 	private  String label;
 	@JsonView(JsonViews.Common.class)
 	@Column(length=35,nullable = false)
@@ -43,13 +44,10 @@ public class Product {
 	@Column(nullable = false)
 	private String Measure;
 	
-	/*Reference :String
-	-Description : String
-	-Measure : String*/
 	
 	@OneToMany(mappedBy ="product")
 	private List<OrderDetail> orderDetail;
-	
+	@JsonView(JsonViews.ProductWithSupplier.class)
 	
 	@ManyToOne
 	private Supplier supplier;
@@ -103,6 +101,10 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	@JsonView(JsonViews.Common.class)
+	@ManyToOne
+	
+	private Category category ;
 	/*
 	public List<BasketDetail> getBasketDetails() {
 		return basketDetails;
@@ -123,8 +125,7 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	@ManyToOne
-	private Category category ;
+	
 	
 	public Product( String label, Double price, int stock) {
 		this.label = label;

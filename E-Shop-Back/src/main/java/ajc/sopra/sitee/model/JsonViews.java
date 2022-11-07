@@ -1,3 +1,4 @@
+	
 package ajc.sopra.sitee.model;
 
 public class JsonViews {
@@ -25,5 +26,7 @@ public class JsonViews {
 	public static class OrderDetailWithReview extends Common {
 
 	}
+   public static class ProductWithSupplier extends Common{
+   }
+   }
 
-}
