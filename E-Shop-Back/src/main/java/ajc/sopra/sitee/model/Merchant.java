@@ -14,7 +14,7 @@ public class Merchant extends Supplier{
 	}
 	
 	public Merchant(String company, List<Product> products) {
-		super(company, products);
+		super(company, products, "Merchant");
 	}
 
 }
