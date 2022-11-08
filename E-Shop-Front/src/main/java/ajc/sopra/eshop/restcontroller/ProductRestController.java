@@ -38,7 +38,6 @@ public class ProductRestController {
 	private SupplierService supplierSrv;
 	@Autowired
 	private CategoryService categorySrv;
-	
 
 	@GetMapping("")
 	@JsonView(JsonViews.ProductWithSupplier.class)
@@ -86,6 +85,15 @@ public class ProductRestController {
 
 		fields.forEach((k, v) -> {
 			if (k.equals("supplier")) {
+				/*if (v.toString() == "Artisan") {
+					Map<String, Object> map = (Map<String, Object>) v;
+					product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
+				}
+
+				if (v.toString() == "Merchant") {
+					Map<String, Object> map = (Map<String, Object>) v;
+					product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
+				}*/
 				Map<String, Object> map = (Map<String, Object>) v;
 				product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
 			} else {
@@ -100,19 +108,21 @@ public class ProductRestController {
 
 	@GetMapping("/triCroisantPrice/nom")
 	public List<Product> RechercheCroissantPrice(@PathVariable String nom) {
-		
+
 		return productSrv.findAllByPriceAsc(categorySrv.findByLabelCat(nom).getProducts());
 
 	}
+
 	@GetMapping("/triCroisantLabel/nom")
 	public List<Product> RechercheCroissantLabel(@PathVariable String nom) {
-		
+
 		return productSrv.findAllByLabelAsc(categorySrv.findByLabelCat(nom).getProducts());
 
 	}
+
 	@GetMapping("/triDecroissantPrice/nom")
 	public List<Product> RechercheDecoissantPrice(@PathVariable String nom) {
-		
+
 		return productSrv.findAllByPriceDESC(categorySrv.findByLabelCat(nom).getProducts());
 
 	}

@@ -3,13 +3,16 @@ package ajc.sopra.sitee.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Embeddable
 public class Review {
 	
-	
+	@JsonView(JsonViews.Common.class)
 	//@Column(nullable=false)
 	private Integer notation;
 	//@Column(nullable=false)
+	@JsonView(JsonViews.Common.class)
 	@Column(length=200, columnDefinition ="TEXT")
 	private String comment;
 	

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 //@DiscriminatorColumn(name = "espece",columnDefinition = "ENUM('felin','ours','elephant')")
 
 @Table(name="supplier")
-public abstract class Supplier extends Account {
+public class Supplier extends Account {
 
     /*@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
