@@ -47,8 +47,8 @@ public class Product {
 	
 	@OneToMany(mappedBy ="product")
 	private List<OrderDetail> orderDetail;
-	@JsonView(JsonViews.ProductWithSupplier.class)
-	
+	//@JsonView(JsonViews.ProductWithSupplier.class)
+	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	private Supplier supplier;
 	

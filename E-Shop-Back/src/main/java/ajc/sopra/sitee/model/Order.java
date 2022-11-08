@@ -99,7 +99,7 @@ public class Order {
 		
 	}
     public void payement() {
-    	//à completer
+    	//à completer appel au API simulatrice
     }
 	@Override
 	public String toString() {
