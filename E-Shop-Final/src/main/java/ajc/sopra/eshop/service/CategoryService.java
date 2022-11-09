@@ -56,7 +56,7 @@ public class CategoryService {
 		categoryRepo.delete(category);
 	}
 
-	public void deleteId(Integer id) {
+	public void deleteById(Integer id) {
 		categoryRepo.deleteById(id);
 	}
 	public Category findByIdFetchProduits(Integer id) {
@@ -67,4 +67,6 @@ public class CategoryService {
 	public Category findByLabelCat(String labelCat) {
 	return categoryRepo.findByLabelCatContaining(labelCat);
 			}
+
+
 }

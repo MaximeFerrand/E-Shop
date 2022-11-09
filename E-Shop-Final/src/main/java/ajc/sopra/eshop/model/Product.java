@@ -31,30 +31,36 @@ public class Product {
 	@Column(length=35,nullable = false)
 	@JsonView(JsonViews.Common.class)
 	private  String label;
+	
 	@JsonView(JsonViews.Common.class)
 	@Column(length=35,nullable = false)
 	private Double price;
+	
 	@JsonView(JsonViews.Common.class)
 	@Column(length=15,nullable = false)
-	private String Reference;
-	//@JsonView(JsonViews.Common.class)
+	private String reference;
+	
+	@JsonView(JsonViews.Common.class)
 	@Column(length=300,nullable = false)
-	private String Description;
+	private String description;
+	
 	@JsonView(JsonViews.Common.class)
 	@Column(nullable = false)
-	private String Measure;
-	
+	private String measure;
 	
 	@OneToMany(mappedBy ="product")
 	private List<OrderDetail> orderDetail;
-	//@JsonView(JsonViews.ProductWithSupplier.class)
+	
 	@JsonView(JsonViews.Common.class)
 	@ManyToOne
 	private Supplier supplier;
 	
-	
 	@JsonView(JsonViews.Common.class)
 	private   Integer  stock;
+	
+	@JsonView(JsonViews.Common.class)
+	@ManyToOne
+	private Category category ;
 	
 	/*
 	 * @OneToMany(mappedBy ="product")
@@ -65,22 +71,35 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('New','Reconditioned','Repaired')")
 	private Status status;
+	
+	
+	public Product( String label, Double price, Integer stock) {
+		this.label = label;
+		this.price = price;
+		this.stock = stock;
+	}
+	public Product() {
+	}
 
 	public String getReference() {
-		return Reference;
+		return reference;
 	}
 	public void setReference(String reference) {
-		Reference = reference;
+		this.reference = reference;
 	}
 	
+	public String getDescription() {
+		return description;
+		
+	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public String getMeasure() {
-		return Measure;
+		return measure;
 	}
 	public void setMeasure(String measure) {
-		Measure = measure;
+		this.measure = measure;
 	}
 	
 	public Integer getId() {
@@ -113,17 +132,6 @@ public class Product {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
-	@JsonView(JsonViews.Common.class)
-	@ManyToOne
-	
-	private Category category ;
-	/*
-	public List<BasketDetail> getBasketDetails() {
-		return basketDetails;
-	}
-	public void setBasketDetails(List<BasketDetail> basketDetails) {
-		this.basketDetails = basketDetails;
-	}*/
 	
 	public Status getStatus() {
 		return status;
@@ -131,6 +139,7 @@ public class Product {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
 	public Category getCategory() {
 		return category;
 	}
@@ -138,48 +147,19 @@ public class Product {
 		this.category = category;
 	}
 	
-	
-	public Product( String label, Double price, int stock) {
-		this.label = label;
-		this.price = price;
-		this.stock = stock;
-	}
-	public Product() {
-		
-	}
-	
-	public String getlabel() {
-		return label;
-	}
-	public void setlabel(String label) {
-		this.label = label;
-	}
-	public Double getprice() {
-		return price;
-	}
-	public void setprice(Double price) {
-		this.price = price;
-	}
-	public Category getCategorie() {
-		return category;
-	}
-	public void setCategorie(Category categorie) {
-		this.category = categorie;
-	}
 	public Integer getStock() {
 		return stock;
 	}
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+	
+	
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", label=" + label + ", price=" + price + ", Reference=" + Reference
-				+ ", Description=" + Description + ", Measure=" + Measure + ", stock=" + stock + ", status=" + status + ", category=" + category + "]";
-	}
-	public String getDescription() {
-		return Description;
-		
+		return "Product [id=" + id + ", label=" + label + ", price=" + price + ", reference=" + reference
+				+ ", description=" + description + ", measure=" + measure + ", orderDetail=" + orderDetail
+				+ ", supplier=" + supplier + ", stock=" + stock + ", status=" + status + ", category=" + category + "]";
 	}
 	@Override
 	public int hashCode() {

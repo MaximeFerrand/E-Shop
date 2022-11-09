@@ -21,13 +21,12 @@ public class Category {
 	@JsonView(JsonViews.Common.class)
 	private  String labelCat;
 	
-	
-	
+
 	@JsonView(JsonViews.CategoryWithProduct.class)
 	@OneToMany(mappedBy="category")
 	private List<Product> products; 
 	
-	
+	//probleme return null
 	public List<Product> getProducts() {
 		return products;
 	}
@@ -37,8 +36,6 @@ public class Category {
 	}
 
 	public Category( String labelCat) {
-		
-		
 		this.labelCat = labelCat;
 	}
 	

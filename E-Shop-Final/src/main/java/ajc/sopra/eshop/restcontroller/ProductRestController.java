@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import ajc.sopra.eshop.model.JsonViews;
 import ajc.sopra.eshop.model.Product;
+import ajc.sopra.eshop.model.Supplier;
 import ajc.sopra.eshop.service.CategoryService;
 import ajc.sopra.eshop.service.ProductService;
 import ajc.sopra.eshop.service.SupplierService;
@@ -39,25 +41,40 @@ public class ProductRestController {
 	@Autowired
 	private CategoryService categorySrv;
 
+	//ok
 	@GetMapping("")
 	@JsonView(JsonViews.ProductWithSupplier.class)
 	public List<Product> findAll() {
 		return productSrv.findAll();
 	}
 
+	//ok
+	@JsonView(JsonViews.Common.class)
+	@GetMapping("/{id}")
+	public Product findById(@PathVariable Integer id) {
+		return productSrv.findById(id);
+	}
+	
+	//recherche par label ?
+	
+	//ok
 	@JsonView(JsonViews.ProductWithSupplier.class)
+	@PostMapping("")
 	public Product create(@Valid @RequestBody Product product, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
 		}
+		//a mettre dans le service ?
 		if (product.getSupplier() != null && product.getSupplier().getId() != null) {
 			product.setSupplier(supplierSrv.findById(product.getSupplier().getId()));
 		}
-//		produit = produitSrv.create(produit);
-//		return produitSrv.findById(produit.getId());
+		if (product.getCategory() != null && product.getCategory().getId() != null) {
+			product.getCategory().getProducts().add(product);
+		}
 		return productSrv.create(product);
 	}
 
+	//ok
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Integer id) {
@@ -68,6 +85,7 @@ public class ProductRestController {
 		}
 	}
 
+	//ok
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.ProductWithSupplier.class)
 	public Product update(@Valid @RequestBody Product product, BindingResult br, @PathVariable Integer id) {
@@ -78,24 +96,23 @@ public class ProductRestController {
 		return productSrv.update(product);
 	}
 
+	//ok
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.ProductWithSupplier.class)
 	public Product update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
 		Product product = productSrv.findById(id);
-
 		fields.forEach((k, v) -> {
 			if (k.equals("supplier")) {
-				/*if (v.toString() == "Artisan") {
-					Map<String, Object> map = (Map<String, Object>) v;
-					product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
-				}
-
-				if (v.toString() == "Merchant") {
-					Map<String, Object> map = (Map<String, Object>) v;
-					product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
-				}*/
 				Map<String, Object> map = (Map<String, Object>) v;
 				product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
+			} else {
+				Field field = ReflectionUtils.findField(Product.class, k);
+				ReflectionUtils.makeAccessible(field);
+				ReflectionUtils.setField(field, product, v);
+			}
+			if (k.equals("category")) {
+				Map<String, Object> map = (Map<String, Object>) v;
+				product.setCategory(categorySrv.findByIdFetchProduits(Integer.parseInt(map.get("id").toString())));
 			} else {
 				Field field = ReflectionUtils.findField(Product.class, k);
 				ReflectionUtils.makeAccessible(field);

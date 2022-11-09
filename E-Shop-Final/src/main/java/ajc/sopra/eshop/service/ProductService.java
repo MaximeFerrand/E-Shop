@@ -58,9 +58,10 @@ public class ProductService {
 		if(product.getLabel()==null) {
 			throw new ProductException(" Le label  du produit n'est pas renseigné !!");
 		}
+		/*
 		if(product.getStock()==null) {
 			throw new ProductException(" Le stock de produits disponibles   n'est pas renseigné !!");
-		}
+		}*/
 		if(product.getPrice()==null) {
 			throw new ProductException(" Le prix  du produit n'est pas renseignée !!");
 		}
@@ -72,6 +73,9 @@ public class ProductService {
 		}
 		if(product.getDescription()==null) {
 			throw new ProductException(" La Description   du produit n'est pas renseignée !!");
+		}
+		if(product.getCategory()==null) {
+			throw new ProductException(" La Catégorie   du produit n'est pas renseignée !!");
 		}
 		return productRepo.save(product);
 	}

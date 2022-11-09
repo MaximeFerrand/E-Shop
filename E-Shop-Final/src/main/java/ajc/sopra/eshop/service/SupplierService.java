@@ -44,9 +44,10 @@ public class SupplierService {
 		return supplierRepo.save(supplier);
 	}
 
-	/*
+	
+	
 	public void deleteById(Integer id) {
-		productRepo.deleteById(findById(id));
+		//productRepo.deleteById(findById(id));
 		supplierRepo.deleteById(id);
-	}*/
+	}
 }

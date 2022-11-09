@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,34 +35,41 @@ public class SupplierRestController {
 	@Autowired
 	private SupplierService supplierSrv;
 
+	//ok
 	@GetMapping("")
 	@JsonView(JsonViews.Common.class)
 	public List<Supplier> findAll() {
 		return supplierSrv.findAll();
 	}
 
+	//ok
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("/{id}")
 	public Supplier findById(@PathVariable Integer id) {
 		return supplierSrv.findById(id);
 	}
 
+	//a verifier quand produits en bdd
 	@JsonView(JsonViews.SupplierWithProduit.class)
 	@GetMapping("/{id}/produit")
 	public Supplier findByIdWithProduit(@PathVariable Integer id) {
 		return supplierSrv.findByIdFetchProduits(id);
 	}
 
-	@PostMapping("/add_supplier")
+	//gerer par admin uniquement
+	//ok
+	/*
+	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Supplier create(@Valid @RequestBody Supplier fournisseur, BindingResult br) {
+	public Supplier create(@Valid @RequestBody Supplier supplier, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
-		return supplierSrv.save(fournisseur);
-	}
+		return supplierSrv.save(supplier);
+	}*/
 
+	//ok
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Supplier update(@Valid @RequestBody Supplier supplier, BindingResult br, @PathVariable Integer id) {
@@ -70,7 +78,8 @@ public class SupplierRestController {
 		}
 		return supplierSrv.save(supplier);
 	}
-
+	
+	//ok
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Supplier patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
@@ -85,10 +94,10 @@ public class SupplierRestController {
 		return supplierSrv.save(supplier);
 	}
 
-	/*
+	//ok
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Integer id) {
 		supplierSrv.deleteById(id);
-	}*/
+	}
 }

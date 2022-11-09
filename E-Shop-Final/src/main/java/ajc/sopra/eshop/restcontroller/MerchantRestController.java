@@ -24,6 +24,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import ajc.sopra.eshop.model.Artisan;
 import ajc.sopra.eshop.model.JsonViews;
 import ajc.sopra.eshop.model.Merchant;
 import ajc.sopra.eshop.service.MerchantService;
@@ -35,34 +36,43 @@ public class MerchantRestController {
 	@Autowired
 	private MerchantService merchantSrv;
 
+	//ok
 	@GetMapping("")
 	@JsonView(JsonViews.Common.class)
 	public List<Merchant> findAll() {
 		return merchantSrv.findAll();
 	}
 
+	//ok
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("/{id}")
 	public Merchant findById(@PathVariable Integer id) {
 		return merchantSrv.findById(id);
 	}
 
+	
 	@JsonView(JsonViews.MerchantWithProduit.class)
 	@GetMapping("/{id}/produit")
 	public Merchant findByIdWithProduit(@PathVariable Integer id) {
 		return merchantSrv.findByIdFetchProduits(id);
 	}
 
+	//ok
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Merchant create(@Valid @RequestBody Merchant merchant, BindingResult br) {
+		//solution temporaire voir ligne 16 class Merchant "Merchant"
+		if (merchant.getTypeOfSupplier()==null || merchant.getTypeOfSupplier().isEmpty()) {
+			merchant.setTypeOfSupplier("Merchant");
+		}
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return merchantSrv.save(merchant);
 	}
 
+	//ok
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Merchant update(@Valid @RequestBody Merchant merchant, BindingResult br, @PathVariable Integer id) {
@@ -72,28 +82,21 @@ public class MerchantRestController {
 		return merchantSrv.save(merchant);
 	}
 
-	/*
+	//ok
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Merchant patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
 		Merchant merchant = merchantSrv.findById(id);
 		fields.forEach((k, v) -> {
-			if (k.equals("adresse")) {
-				Map<String, Object> mapAdresse = (Map<String, Object>) v;
-				mapAdresse.forEach((kAdresse, vAdresse) -> {
-					Field fieldAdresse = ReflectionUtils.findField(Adresse.class, kAdresse);
-					ReflectionUtils.makeAccessible(fieldAdresse);
-					ReflectionUtils.setField(fieldAdresse, merchant.getAdresse(), vAdresse);
-				});
-			} else {
-				Field field = ReflectionUtils.findField(Merchant.class, k);
-				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, merchant, v);
-			}
-		});
+			Field field = ReflectionUtils.findField(Merchant.class, k);
+			ReflectionUtils.makeAccessible(field);
+			ReflectionUtils.setField(field, merchant, v);
+		
+	});
 		return merchantSrv.save(merchant);
-	}*/
+	}
 
+	//ok
 	@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Integer id) {

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
-//@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 //@Table(name="supplier")
 public class Supplier extends Account {
 
@@ -21,19 +21,22 @@ public class Supplier extends Account {
 	protected String company;
 	
 	@JsonView(JsonViews.Common.class)
+	@Column(name="typeOfSupplier", length=50)
 	protected String typeOfSupplier;
 	
 	@OneToMany(mappedBy ="supplier")
 	protected List<Product> products;
 
-	public Supplier(String login, String password) {
-		super(login, password);
-	}
 	
 	public Supplier(String login, String password, String company ,String typeOfSupplier) {
 		super(login, password);
 		this.company = company;
 		this.typeOfSupplier = typeOfSupplier;
+	}
+	
+	public Supplier(String login, String password, String company) {
+		super(login, password);
+		this.company = company;
 	}
 		
 	public Supplier(String company, List<Product> products, String typeOfSupplier) {

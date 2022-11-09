@@ -8,12 +8,12 @@ import javax.persistence.Entity;
 @Entity
 //@DiscriminatorValue("artisan")
 public class Artisan extends Supplier{
-
+		
 	public Artisan() {
 	}
 	
-	public Artisan(String company, List<Product> products) {
-		super(company, products, "Artisan");
+	public Artisan(String login, String password, String company) {
+		super(login, password, company, "Artisan"); //"Artisan" ne fonctionne pas =null
 	}
 
 
