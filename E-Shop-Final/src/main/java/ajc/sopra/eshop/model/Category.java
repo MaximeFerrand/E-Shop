@@ -1,5 +1,6 @@
 package ajc.sopra.eshop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,14 +18,14 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(JsonViews.Common.class)
 	private Integer id;
-	@Column(columnDefinition = "VARCHAR(35)",nullable = false)
+	@Column(/*columnDefinition = "VARCHAR(35) default 'pas de category'"*/length=35,nullable = false)
 	@JsonView(JsonViews.Common.class)
 	private  String labelCat;
 	
 
 	@JsonView(JsonViews.CategoryWithProduct.class)
 	@OneToMany(mappedBy="category")
-	private List<Product> products; 
+	private List<Product> products=new ArrayList(); 
 	
 	//probleme return null
 	public List<Product> getProducts() {
