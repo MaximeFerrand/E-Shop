@@ -1,0 +1,86 @@
+/*********BESTSELLERS************/
+#section-bestsellers {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#section-bestsellers h1 {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#section-bestsellers-article {
+  height: 600px;
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.section-bestsellers-article {
+  height: 100%;
+  width: 22%;
+}
+
+.section-bestsellers-article-info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-bestsellers-article-info-presentation {
+  position: relative;
+  width: 100%;
+  height: 950%;
+}
+
+.section-bestsellers-article-info-presentation > p {
+  position: absolute;
+  background-color: var(--color2);
+  color: var(--color1);
+  width: 40%;
+  text-align: center;
+}
+
+.section-bestsellers-article-info-presentation > h5 {
+  position: absolute;
+  background-color: rgba(25, 25, 25, 0.97);
+  color: var(--color1);
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-bestsellers-article-info-presentation > img {
+  width: 100%;
+  height: 100%;
+}
+
+.section-bestsellers-article-info-price {
+  width: 100%;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-bestsellers-article-info-price p,
+h5 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}

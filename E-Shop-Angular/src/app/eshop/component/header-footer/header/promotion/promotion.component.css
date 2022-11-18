@@ -1,0 +1,31 @@
+/**************PROMO***********/
+#header-promo {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.header-promo-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  flex: 1;
+  background-color: var(--color2);
+}
+
+.header-promo-info:nth-child(odd) {
+  border-right: solid 2px var(--color1);
+}
+.header-promo-info:nth-child(2) {
+  border-right: solid 2px var(--color1);
+}
+
+.header-promo-info p {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: var(--color1);
+}

@@ -1,0 +1,49 @@
+/************MARQUES***************/
+#section-marques {
+  width: 100%;
+  height: 350px;
+}
+
+#section-marques-article {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+
+#section-marques-article-text {
+  width: 40%;
+  height: 25%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color1);
+  border: solid 1px var(--color3);
+}
+
+#section-marques-article-marques {
+  width: 95%;
+  height: 75%;
+  display: flex;
+  align-items: center;
+  margin-top: -40px;
+}
+
+.section-marques-article-marques-img {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border: solid 1px var(--color3);
+}
+
+.section-marques-article-marques-img img {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: flex-end;
+}

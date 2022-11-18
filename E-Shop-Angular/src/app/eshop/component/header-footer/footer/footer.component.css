@@ -1,0 +1,131 @@
+/**********************FOOTER***************************/
+footer {
+  width: 100%;
+  height: var(--heightFooter);
+  margin-top: 25px;
+  color: var(--color1);
+  border: solid 2px black;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color1);
+}
+
+a:hover {
+  color: var(--color1);
+}
+
+#footer-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  padding: 35px;
+  background-color: var(--color2);
+}
+
+.footer-container:nth-child(1) {
+  height: 300px;
+}
+
+.footer-container:nth-child(2) {
+  height: 200px;
+}
+
+#footer-container-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+#footer-container-form > label {
+  padding-top: 30px;
+}
+
+#footer-container-form > input {
+  width: 50%;
+  height: 45px;
+  background-color: var(--color2);
+  color: var(--color1);
+  border: solid 1px var(--color1);
+}
+
+#footer-container-form > button {
+  width: 15%;
+  height: 45px;
+  background-color: var(--color2);
+  color: var(--color1);
+  border: solid 1px var(--color1);
+}
+
+#footer-container-form > button:hover {
+  background-color: var(--color1);
+  color: var(--color2);
+  border: solid 1px var(--color2);
+}
+
+#footer-container-nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.footer-container-nav-list-items {
+  list-style: none;
+  color: var(--color1);
+}
+
+#footer-container-eshop {
+  width: 50%;
+  display: flex;
+}
+
+#footer-container-eshop-link {
+  width: 30%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#footer-container-eshop-adress {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#footer-container-eshop-adress p {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+#footer-container-social-list {
+  width: 50%;
+  padding-right: 35px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#footer-container-social-list > a {
+  width: 10px;
+  margin-left: 25px;
+  display: flex;
+}
+
+#footer-copyright {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 35px;
+  color: var(--color3);
+}

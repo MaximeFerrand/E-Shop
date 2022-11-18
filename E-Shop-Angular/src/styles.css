@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+/**********************************************************MISE EN FORME**********************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+:root {
+  --color1: white;
+  --color2: #448377;
+  --color3: black;
+  --heightHeader: 1070px;
+  --heightMain: 2200px;
+  --heightFooter: 500px;
+  --paddingButtonLink: 8px;
+  --borderRadiusLink: 6px;
+  --fontFamily: "Poppins", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: var(--fontFamily);
+  height: var(--heightMain);
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,49 @@
+/***************CONNECT***********/
+#header-connect {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  min-height: 60px;
+  margin-left: 2.5%;
+}
+
+#header-connect-social {
+  display: flex;
+  width: 90px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#header-connect-account {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header-connect-account-connexion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header-connect-account-connexion:nth-child(odd) {
+  width: auto;
+  margin-right: 20px;
+}
+
+.header-connect-account-connexion:nth-child(even) {
+  width: auto;
+}
+
+.social-media svg {
+  min-width: 18px;
+  min-height: 18px;
+}
+
+#header-connect a {
+  text-decoration: none;
+  color: var(--color3);
+}

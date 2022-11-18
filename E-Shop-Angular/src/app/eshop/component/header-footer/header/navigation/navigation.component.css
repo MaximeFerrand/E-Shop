@@ -1,0 +1,34 @@
+/***************NAVIGATION***********/
+#header-nav {
+  display: flex;
+  width: 95%;
+  min-height: 60px;
+  margin-left: 2.5%;
+  border-bottom: solid 1px var(--color3);
+}
+
+#header-nav-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+#header-nav-container {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#header-nav-container-link {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header-nav a {
+  text-decoration: none;
+  color: var(--color3);
+}

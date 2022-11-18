@@ -1,0 +1,37 @@
+/***********SECONDARY NAV***********/
+#header-secondary-nav {
+  width: 95%;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color1);
+  margin-top: -75px;
+}
+
+.header-welcome-nav-link {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.header-welcome-nav-link:nth-child(odd) {
+  border-right: solid 1px var(--color3);
+}
+
+.header-welcome-nav-link:nth-child(2) {
+  border-right: solid 1px var(--color3);
+}
+
+.header-welcome-nav-link img {
+  width: 50px;
+  padding-right: 10px;
+}
+
+.header-welcome-nav-link a {
+  text-decoration: none;
+  color: var(--color3);
+  font-size: 20px;
+}
