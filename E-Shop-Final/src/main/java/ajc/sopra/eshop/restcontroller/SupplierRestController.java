@@ -56,10 +56,8 @@ public class SupplierRestController {
 		return supplierSrv.findByIdFetchProduits(id);
 	}
 
-	//gerer par admin uniquement
-	//ok
-	/*
-	@PostMapping("")
+	//Ok
+	@PostMapping("/signup")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Supplier create(@Valid @RequestBody Supplier supplier, BindingResult br) {
@@ -67,7 +65,7 @@ public class SupplierRestController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return supplierSrv.save(supplier);
-	}*/
+	}
 
 	//ok
 	@PutMapping("/{id}")

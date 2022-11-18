@@ -2,6 +2,7 @@ package ajc.sopra.eshop.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,14 +19,17 @@ public class SecurityConfig {
 			.csrf().disable()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
-			.authorizeRequests()/*
+			.authorizeRequests()
 				.antMatchers(HttpMethod.OPTIONS).permitAll()
 				.antMatchers(HttpMethod.GET,"/api/auth").authenticated()
-				.antMatchers(HttpMethod.POST ,"/api/client/inscription").anonymous()
-				.antMatchers(HttpMethod.PATCH,"/api/client/**").authenticated()
-				.antMatchers(HttpMethod.POST, "/api/achat/**").hasRole("CLIENT")
-				.anyRequest().hasRole("ADMIN")*/
-				.anyRequest().permitAll()
+				.antMatchers(HttpMethod.POST ,"/api/user/signup").anonymous()
+				.antMatchers(HttpMethod.POST ,"/api/supplier/signup").anonymous()
+				.antMatchers(HttpMethod.PATCH,"/api/user/**").authenticated()
+				.antMatchers(HttpMethod.POST, "/api/user/**").hasRole("USER")
+				.antMatchers(HttpMethod.PATCH,"/api/supplier/**").authenticated()
+				.antMatchers(HttpMethod.POST, "/api/supplier/**").hasRole("SUPPLIER")		
+				.anyRequest().hasRole("ADMIN")
+				//.anyRequest().permitAll()
 			.and()
 			.httpBasic()
 			.and()

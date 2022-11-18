@@ -28,7 +28,7 @@ public class UserRestController {
 	@Autowired
 	private UserService userSrv;
 
-	@PostMapping("/subscription")
+	@PostMapping("/signup")
 	@JsonView(JsonViews.Common.class)
 	public User inscription(@Valid @RequestBody User user, BindingResult br) {
 		if (br.hasErrors()) {

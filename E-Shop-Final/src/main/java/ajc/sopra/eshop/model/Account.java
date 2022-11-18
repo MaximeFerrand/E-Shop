@@ -98,7 +98,6 @@ public class Account implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
-		// client fournisseur, admin
 		String role=null;
 		if(this.getClass().getName().equals("Admin"))  {
 			role="ROLE_ADMIN";
@@ -106,7 +105,7 @@ public class Account implements UserDetails{
 			role="ROLE_USER";
 		}
 		else {
-			role="ROLE_SUpplier";}
+			role="ROLE_SUPPLIER";}
 	
 		return Arrays.asList(new SimpleGrantedAuthority(role));
 	}
