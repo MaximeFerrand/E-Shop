@@ -9,6 +9,6 @@ import ajc.sopra.eshop.model.Account;
 
 public interface AccountRepository extends JpaRepository<Account, Integer> {
 	
-	Optional<Account> findByEmail(String email);
+	Optional<Account> findByLogin(String email);
 
 }

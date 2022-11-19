@@ -13,8 +13,8 @@ import ajc.sopra.eshop.model.Account;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/auth")
-public class AuthencitationRestController {
-
+public class AuthenticationRestController {
+//ok
 	@GetMapping("")
 	public Account authentication(@AuthenticationPrincipal Account account) {
 		return account;

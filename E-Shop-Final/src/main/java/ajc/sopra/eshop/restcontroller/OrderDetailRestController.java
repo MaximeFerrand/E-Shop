@@ -1,6 +1,7 @@
 package ajc.sopra.eshop.restcontroller;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,8 +26,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import ajc.sopra.eshop.model.JsonViews;
+import ajc.sopra.eshop.model.JsonViews.OrderDetailWithProductAndReview;
 import ajc.sopra.eshop.model.OrderDetail;
-import ajc.sopra.eshop.model.Product;
 import ajc.sopra.eshop.service.OrderDetailService;
 import ajc.sopra.eshop.service.ProductService;
 
@@ -39,22 +40,43 @@ public class OrderDetailRestController {
 	
 	@Autowired
 	private ProductService productSrv;
-	
-	@JsonView(JsonViews.OrderDetailWithProduct.class)
+	//ok
+	@JsonView(OrderDetailWithProductAndReview.class)
 	@PostMapping("")
-	public OrderDetail create(@RequestBody OrderDetail achat) {
+	public OrderDetail create(@RequestBody OrderDetail orderDetail,BindingResult br) {
+		
 		//controles
-		return orderDetailService.save(achat);
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
+		}
+		//a mettre dans le service ?
+		else if (orderDetail.getProduct() != null && orderDetail.getProduct().getId() != null) {
+			orderDetail.setProduct(productSrv.findById(orderDetail.getProduct().getId()));
+		}
+		/*if (orderDetail.getReview() != null) {
+			orderDetail.setReview(orderDetail.getReview());
+			//product.getCategory().getProducts().add(product);
+			//categorySrv.save(product.getCategory());
+		}*/
+		return orderDetailService.save(orderDetail);
 	}
 	
-	@JsonView(JsonViews.OrderDetailWithProduct.class)
-	@PostMapping("/list")
-	public List<OrderDetail> create(@RequestBody List<OrderDetail> achats) {
+	//ok
+	@JsonView(OrderDetailWithProductAndReview.class)
+	@PostMapping("/listOrder")
+	public List<OrderDetail> create(@RequestBody List<OrderDetail> order,BindingResult br) {
 		//controles
-		return orderDetailService.saveAll(achats);
+		
+		if (br.hasErrors()) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
+		}
+		for(OrderDetail orderDetail :order) {
+			orderDetail.setProduct(productSrv.findById(orderDetail.getProduct().getId()));
+		}
+		return orderDetailService.saveAll(order);
 	}
-	
-	@JsonView({JsonViews.OrderDetailWithProduct.class,JsonViews.OrderDetailWithReview.class} )
+	//ok
+	@JsonView(JsonViews.OrderDetailWithProductAndReview.class )
 	@GetMapping("")
 	public List<OrderDetail> findAll(){
 		return orderDetailService.findAll();
@@ -70,7 +92,7 @@ public class OrderDetailRestController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id inconnu");
 		}
 	}
-
+/*
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public OrderDetail update(@Valid @RequestBody OrderDetail orderDetail, BindingResult br, @PathVariable Integer id) {
@@ -80,7 +102,7 @@ public class OrderDetailRestController {
 		orderDetail.setId(id);
 		return orderDetailService.update(orderDetail);
 	}
-
+*/
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public OrderDetail update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
@@ -91,7 +113,8 @@ public class OrderDetailRestController {
 				Map<String, Object> map2 = (Map<String, Object>) v;
 				orderDetail.getReview().setComment(map2.get("notation").toString());
 				orderDetail.getReview().setNotation(Integer.parseInt(map2.get("notation").toString()));
-			}else {
+			}
+			else {
 				Field field = ReflectionUtils.findField(OrderDetail.class, k);
 				ReflectionUtils.makeAccessible(field);
 				ReflectionUtils.setField(field, orderDetail, v);

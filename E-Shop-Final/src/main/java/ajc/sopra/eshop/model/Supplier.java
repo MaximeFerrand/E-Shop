@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-//@Table(name="supplier")
+//@Table(lastname="supplier")
 public class Supplier extends Account {
 
 	@JsonView(JsonViews.Common.class)

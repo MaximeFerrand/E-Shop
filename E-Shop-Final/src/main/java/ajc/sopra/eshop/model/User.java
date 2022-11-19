@@ -13,13 +13,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import ajc.sopra.eshop.model.JsonViews.UserWithOrderAndAdress;
+
 @Entity
 
 @Table(name = "user")
 public class User extends Account {
 	@JsonView(JsonViews.Common.class)
 	@Column(length = 30, nullable = false)
-	protected static String name;
+	protected String lastname;
 	@JsonView(JsonViews.Common.class)
 	@Column(length = 30, nullable = false)
 	protected String firstname;
@@ -27,11 +29,11 @@ public class User extends Account {
 	/*
 	@OneToMany(mappedBy = "user")
 	private List<BasketDetail> basketDetails = new ArrayList();*/
-	@JsonView(JsonViews.Common.class)
-	private Boolean isValidated;
+	//@JsonView(JsonViews.Common.class)
+	//private Boolean isValidated;
 
 	//private static double TotalPrixValidated;
-	@JsonView(JsonViews.UserWithOrder.class)
+	@JsonView(JsonViews.UserWithOrderAndAdress.class)
 	@OneToMany(mappedBy = "user")
 	private List<Order> orders = new ArrayList();
 
@@ -59,25 +61,19 @@ public class User extends Account {
 	}*/
 	@JsonView(JsonViews.Common.class)
 	protected int discount;
-	@JsonView(JsonViews.UserWithAdress.class)
+	@JsonView(JsonViews.UserWithOrderAndAdress.class)
 	@ElementCollection()
 	protected Set<Adress> adresses = new HashSet();
 
 	public User(String name, String firstname, int discount, Set<Adress> adresses) {
 		super();
-		this.name = name;
+		this.lastname = name;
 		this.firstname = firstname;
 		this.discount = discount;
 		this.adresses = adresses;
 	}
 
-	public Boolean getIsValidated() {
-		return isValidated;
-	}
-
-	public void setIsValidated(Boolean isValidated) {
-		this.isValidated = isValidated;
-	}
+	
 
 
 	public List<Order> getOrders() {
@@ -92,12 +88,12 @@ public class User extends Account {
 
 	}
 
-	public String getName() {
-		return name;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setLastname(String name) {
+		this.lastname = name;
 	}
 
 	public String getFirstname() {
@@ -126,7 +122,7 @@ public class User extends Account {
 
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", firstname=" + firstname + ", discount=" + discount + ", id=" + id + ", login="
+		return "User [lastname=" + lastname + ", firstname=" + firstname + ", discount=" + discount + ", id=" + id + ", login="
 				+ login + ", password=" + password + "]";
 	}
 

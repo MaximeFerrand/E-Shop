@@ -28,7 +28,7 @@ public class AdminRestController {
 
 	@Autowired
 	private AdminService adminSrv;
-
+//ok
 	@PostMapping("/add_admin")
 	@JsonView(JsonViews.Common.class)
 	public Admin add(@Valid @RequestBody Admin user, BindingResult br) {
@@ -43,7 +43,7 @@ public class AdminRestController {
 	public Admin findById(@PathVariable Integer id) {
 		return adminSrv.findById(id);
 	}
-
+//ok
 	@JsonView(JsonViews.Common.class)
 	@GetMapping("")
 	public List<Admin> findAll() {

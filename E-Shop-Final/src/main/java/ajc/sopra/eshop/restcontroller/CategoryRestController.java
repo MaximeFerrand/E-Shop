@@ -35,22 +35,27 @@ import ajc.sopra.eshop.service.CategoryService;
 public class CategoryRestController {
 	@Autowired
 	private CategoryService categorySrv;
-	
+	//ok
 	@GetMapping("")
-	@JsonView(JsonViews.Common.class)
+	//@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.CategoryWithProduct.class)
 	public List<Category> findAll() {
 		return categorySrv.findAll();
 	}
-	@JsonView(JsonViews.Common.class)
+	//ok
+	//@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.CategoryWithProduct.class)
 	@GetMapping("/{id}")
-	public Optional<Category> findById(@PathVariable Integer id) {
+	public Category findById(@PathVariable Integer id) {
 		return  categorySrv.findById(id);
 	}
+	/*
 	@JsonView(JsonViews.CategoryWithProduct.class)
 	@GetMapping("/{id}/produit")
 	public Category findByIdWithProduit(@PathVariable Integer id) {
 		return categorySrv.findByIdFetchProduits(id);
-	}
+	}*/
+	//ok
 	@PostMapping("")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.CREATED)
@@ -60,6 +65,7 @@ public class CategoryRestController {
 		}
 		return categorySrv.save(category);
 	}
+	/*
 	@PutMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Category update(@Valid @RequestBody Category category, BindingResult br, @PathVariable Integer id) {
@@ -67,11 +73,26 @@ public class CategoryRestController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return categorySrv.save(category);
+	}*/
+	//ok
+	@PatchMapping("/{id}")
+	@JsonView(JsonViews.Common.class)
+	public Category patchAvecProduit(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
+		Category category = categorySrv.findById(id);
+		fields.forEach((k, v) -> {
+			
+				Field field = ReflectionUtils.findField(Category.class, k);
+				ReflectionUtils.makeAccessible(field);
+				ReflectionUtils.setField(field, category, v);
+			
+		});
+		return categorySrv.save(category);
 	}
+	/*
 	@PatchMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	public Category patch(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		Category category = categorySrv.findById(id).get();
+		Category category = categorySrv.findById(id);
 		fields.forEach((k, v) -> {
 			
 				Field field = ReflectionUtils.findField(Category.class, k);
@@ -82,9 +103,10 @@ public class CategoryRestController {
 		return categorySrv.save(category);
 	}
 	
-	@DeleteMapping("/{id}")
+	/*@DeleteMapping("/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void deleteById(@PathVariable Integer id) {
+		categorySrv.findById(id);
 		categorySrv.deleteById(id);
-	}
+	}*/
 }

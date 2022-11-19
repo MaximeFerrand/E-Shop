@@ -25,7 +25,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 //DTYPE => DiscriminatorType
-//@DiscriminatorColumn(name = "type_account",columnDefinition = "ENUM('admin','user', 'supplier')")
+//@DiscriminatorColumn(lastname = "type_account",columnDefinition = "ENUM('admin','user', 'supplier')")
 @Table(name="account")
 public class Account implements UserDetails{
 
@@ -35,11 +35,11 @@ public class Account implements UserDetails{
 	protected Integer id;
 	@Email
 	@JsonView(JsonViews.Common.class)
-	@Column(length = 30, nullable = false,unique = true)
+	@Column(length = 255,nullable = false,unique = true)
 	protected String login;
 	
 	@JsonView(JsonViews.Common.class)
-	@Column(length = 30, nullable = false)
+	@Column(length = 255,nullable = false)
 	protected String password;
 	
 	public Account() {
@@ -99,9 +99,10 @@ public class Account implements UserDetails{
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
 		String role=null;
-		if(this.getClass().getName().equals("Admin"))  {
+		if(this.getClass().getSimpleName().equals("Admin"))  {
+			
 			role="ROLE_ADMIN";
-		}else if (this.getClass().getName().equals("User")){
+		}else if (this.getClass().getSimpleName().equals("User")){
 			role="ROLE_USER";
 		}
 		else {

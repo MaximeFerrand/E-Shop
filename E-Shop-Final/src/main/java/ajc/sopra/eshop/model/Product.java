@@ -48,17 +48,18 @@ public class Product {
 	@Column(nullable = false)
 	private String measure;
 	
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	@OneToMany(mappedBy ="product")
 	private List<OrderDetail> orderDetail;
 	
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	@ManyToOne
 	private Supplier supplier;
 	
 	@JsonView(JsonViews.Common.class)
 	private   Integer  stock;
 	
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	@ManyToOne
 	private Category category ;
 	

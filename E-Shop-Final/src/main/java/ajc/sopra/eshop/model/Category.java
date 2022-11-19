@@ -18,9 +18,10 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonView(JsonViews.Common.class)
 	private Integer id;
-	@Column(/*columnDefinition = "VARCHAR(35) default 'pas de category'"*/length=35,nullable = false)
+	@Column(/*columnDefinition = "VARCHAR(35) default 'pas de category'"*/length=35,nullable = false,unique=true)
 	@JsonView(JsonViews.Common.class)
-	private  String labelCat;
+	//@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
+	private  String labelcat;
 	
 
 	@JsonView(JsonViews.CategoryWithProduct.class)
@@ -37,7 +38,7 @@ public class Category {
 	}
 
 	public Category( String labelCat) {
-		this.labelCat = labelCat;
+		this.labelcat = labelCat;
 	}
 	
 	public void setId(Integer id) {
@@ -47,15 +48,15 @@ public class Category {
 		
 	}
 	
-	public String getLabelCat() {
-		return labelCat;
+	public String getLabelcat() {
+		return labelcat;
 	}
-	public void setLabelCat(String labelCat) {
-		this.labelCat = labelCat;
+	public void setLabelcat(String labelCat) {
+		this.labelcat = labelCat;
 	}
 	@Override
 	public String toString() {
-		return "Category [ labelCat=" + labelCat + "]";
+		return "Category [ labelcat=" + labelcat + "]";
 	}
 	public Integer getId() {
 		

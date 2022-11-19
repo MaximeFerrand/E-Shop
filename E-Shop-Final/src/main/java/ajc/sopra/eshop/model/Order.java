@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name="basket")
-//@DiscriminatorColumn(name="order tracking",columnDefinition = "ENUM('commandé', 'enPreparation', 'expedie', 'livre', 'cloture';)")
+//@DiscriminatorColumn(lastname="order tracking",columnDefinition = "ENUM('commandé', 'enPreparation', 'expedie', 'livre', 'cloture';)")
 
 public class Order {
 	@JsonView(JsonViews.Order.class)

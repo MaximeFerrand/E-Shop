@@ -41,7 +41,7 @@ public class OrderRestController {
 	private UserService userSrv;
 	
 	
-	@JsonView({JsonViews.OrderWithOrderDetail.class, JsonViews.OrderWithUser.class})
+	//@JsonView(JsonViews.OrderWithOrderDetailAndUser.class)
 	@GetMapping("")
 	public List<Product> produitDispo() {
 		

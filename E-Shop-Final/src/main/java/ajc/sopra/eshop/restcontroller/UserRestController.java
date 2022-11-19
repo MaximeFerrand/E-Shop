@@ -27,23 +27,24 @@ public class UserRestController {
 
 	@Autowired
 	private UserService userSrv;
-
+//ok
 	@PostMapping("/signup")
-	@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.UserWithOrderAndAdress.class)
+	//@JsonView({JsonViews.UserWithAdress.class,JsonViews.UserWithOrder.class})
 	public User inscription(@Valid @RequestBody User user, BindingResult br) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
 		return userSrv.save(user);
 	}
-
-	@JsonView(JsonViews.Common.class)
+//ok
+	@JsonView(JsonViews.UserWithOrderAndAdress.class)
 	@GetMapping("/{id}")
 	public User findById(@PathVariable Integer id) {
 		return userSrv.findById(id);
 	}
-
-	@JsonView(JsonViews.Common.class)
+//ok
+	@JsonView(JsonViews.UserWithOrderAndAdress.class)
 	@GetMapping("")
 	public List<User> findAll() {
 		return userSrv.findAll();

@@ -19,18 +19,20 @@ public class OrderDetail {
 
 
 
-	@JsonView(JsonViews.Order.class)
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@JsonView(JsonViews.Order.class)
+	@JsonView(JsonViews.Common.class)
 	@Column(nullable= false)
 	private Integer quantity;
-	@JsonView(JsonViews.OrderDetailWithProduct.class)
-	
+	//@JsonView(JsonViews.OrderDetailWithProduct.class)
+	@JsonView(JsonViews.OrderDetailWithProductAndReview.class )
 	@ManyToOne 
+	//@Column(nullable= false)
 	private Product product;
-	@JsonView(JsonViews.OrderDetailWithReview.class)
+	//@JsonView(JsonViews.OrderDetailWithReview.class)
+	@JsonView(JsonViews.OrderDetailWithProductAndReview.class )
 	@Embedded
 	private Review review;
 	

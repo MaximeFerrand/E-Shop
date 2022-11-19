@@ -24,9 +24,9 @@ public class CategoryService {
 		return categoryRepo.findAll();
 	}
 
-	public Optional<Category> findById(Integer id) {
+	public Category findById(Integer id) {
 		 
-		return categoryRepo.findById(id);//.orElseThrow(IdException::new);
+		return categoryRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	public Category create(Category category) {
@@ -41,7 +41,7 @@ public class CategoryService {
 		if (category.getId() == null || !categoryRepo.existsById(category.getId())) {
 			throw new IdException();
 		}
-		if(category.getLabelCat()==null) {
+		if(category.getLabelcat()==null) {
 			throw new CategoryException(" Le label de la categorie n'est pas renseigne !!");
 		}
 		return save(category);
@@ -65,7 +65,7 @@ public class CategoryService {
 	
 	
 	public Category findByLabelCat(String labelCat) {
-	return categoryRepo.findByLabelCatContaining(labelCat);
+	return categoryRepo.findByLabelcatContaining(labelCat);
 			}
 
 

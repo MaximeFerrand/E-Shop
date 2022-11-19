@@ -43,13 +43,16 @@ public class ProductRestController {
 
 	//ok
 	@GetMapping("")
-	@JsonView(JsonViews.ProductWithSupplier.class)
+
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
+	//@JsonView(JsonViews.ProductWithSupplier.class)
 	public List<Product> findAll() {
 		return productSrv.findAll();
 	}
 
 	//ok
-	@JsonView(JsonViews.Common.class)
+	//@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	@GetMapping("/{id}")
 	public Product findById(@PathVariable Integer id) {
 		return productSrv.findById(id);
@@ -58,7 +61,8 @@ public class ProductRestController {
 	//recherche par label ?
 	
 	//ok
-	@JsonView(JsonViews.ProductWithSupplier.class)
+
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	@PostMapping("")
 	public Product create(@Valid @RequestBody Product product, BindingResult br) {
 		if (br.hasErrors()) {
@@ -69,7 +73,9 @@ public class ProductRestController {
 			product.setSupplier(supplierSrv.findById(product.getSupplier().getId()));
 		}
 		if (product.getCategory() != null && product.getCategory().getId() != null) {
+			product.setCategory(categorySrv.findById(product.getCategory().getId()));
 			product.getCategory().getProducts().add(product);
+			categorySrv.save(product.getCategory());
 		}
 		return productSrv.create(product);
 	}
@@ -87,7 +93,8 @@ public class ProductRestController {
 
 	//ok
 	@PutMapping("/{id}")
-	@JsonView(JsonViews.ProductWithSupplier.class)
+
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	public Product update(@Valid @RequestBody Product product, BindingResult br, @PathVariable Integer id) {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
@@ -98,19 +105,17 @@ public class ProductRestController {
 
 	//ok
 	@PatchMapping("/{id}")
-	@JsonView(JsonViews.ProductWithSupplier.class)
+
+	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
+	//@JsonView(JsonViews.ProductWithSupplier.class)
 	public Product update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
 		Product product = productSrv.findById(id);
 		fields.forEach((k, v) -> {
 			if (k.equals("supplier")) {
 				Map<String, Object> map = (Map<String, Object>) v;
 				product.setSupplier(supplierSrv.findById(Integer.parseInt(map.get("id").toString())));
-			} else {
-				Field field = ReflectionUtils.findField(Product.class, k);
-				ReflectionUtils.makeAccessible(field);
-				ReflectionUtils.setField(field, product, v);
-			}
-			if (k.equals("category")) {
+			} 
+			else if (k.equals("category")) {
 				Map<String, Object> map = (Map<String, Object>) v;
 				product.setCategory(categorySrv.findByIdFetchProduits(Integer.parseInt(map.get("id").toString())));
 			} else {

@@ -15,6 +15,6 @@ public interface CategoryRepository extends JpaRepository<Category, Integer>{
 	@Query("select c from Category c left join fetch c.products where c.id=:id")
 	Optional<Category> findByIdFetchingProduct(@Param("id") Integer id);
 	
-	Category findByLabelCatContaining(String labelCat);
+	Category findByLabelcatContaining(String labelCat);
 
 }
