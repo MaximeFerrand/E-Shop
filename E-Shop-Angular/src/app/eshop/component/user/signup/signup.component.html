@@ -1,1 +1,95 @@
-<p>signup works!</p>
+<div>
+  <form (ngSubmit)="save()" [formGroup]="form">
+    <ng-container formGroupName="groupeInfo">
+      <div class="form-group">
+        <label for="prenom">prenom:</label>
+        <input formControlName="prenom" class="form-control" />
+        <div
+          *ngIf="
+            form.get('groupeInfo.prenom')?.dirty &&
+            form.get('groupeInfo.prenom')?.invalid
+          "
+          class="alert alert-danger"
+        >
+          probleme prenom
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="nom">nom:</label>
+        <input formControlName="nom" class="form-control" />
+        <div
+          *ngIf="
+            form.get('groupeInfo.nom')?.dirty &&
+            form.get('groupeInfo.nom')?.invalid
+          "
+          class="alert alert-danger"
+        >
+          probleme nom
+        </div>
+      </div>
+      <ng-container formGroupName="groupePassword">
+        <div class="form-group">
+          <label for="password">password:</label>
+          <input formControlName="password" class="form-control" />
+          <div
+            *ngIf="
+              form.get('groupeInfo.groupePassword.password')?.dirty &&
+              form.get('groupeInfo.groupePassword.password')?.invalid
+            "
+            class="alert alert-danger"
+          >
+            probleme password
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmation">confirmation:</label>
+          <input formControlName="confirmation" class="form-control" />
+          <div
+            *ngIf="
+              form.get('groupeInfo.groupePassword')?.dirty &&
+              form.get('groupeInfo.groupePassword')?.invalid
+            "
+            class="alert alert-danger"
+          >
+            probleme confirmation
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <div class="form-group">
+      <label for="login">login:</label>
+      <input type="email" formControlName="login" class="form-control" />
+      <div
+        *ngIf="form.get('login')?.dirty && form.get('login')?.invalid"
+        class="alert alert-danger"
+      >
+        probleme email
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="numero">numero:</label>
+      <input formControlName="numero" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="voie">rue:</label>
+      <input formControlName="voie" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="cp">code postal:</label>
+      <input formControlName="cp" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="ville">ville:</label>
+      <input formControlName="ville" class="form-control" />
+    </div>
+    <div>
+      <button
+        type="submit"
+        [disabled]="form.invalid"
+        class="btn btn-outline-primary"
+      >
+        envoyer
+      </button>
+    </div>
+  </form>
+</div>

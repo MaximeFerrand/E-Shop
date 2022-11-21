@@ -8,11 +8,14 @@ import org.springframework.stereotype.Service;
 
 import ajc.sopra.eshop.exception.IdException;
 import ajc.sopra.eshop.model.User;
+import ajc.sopra.eshop.repository.AccountRepository;
 import ajc.sopra.eshop.repository.UserRepository;
 
 
 @Service
 public class UserService {
+	@Autowired
+	private AccountRepository accountRepo;
 	@Autowired
 	private UserRepository userRepo;
 	@Autowired
@@ -29,5 +32,9 @@ public class UserService {
 	public User save(User user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepo.save(user);
+	}
+
+	public boolean checkEmailExists(String email) {
+		return accountRepo.findByLogin(email).isPresent();
 	}
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/eshop/services/authentication.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent implements OnInit {
-  constructor() {}
+  constructor(private authSrv: AuthenticationService) {}
 
   ngOnInit(): void {}
+
+  get admin() {
+    return this.authSrv.isAdmin();
+  }
+
+  get user() {
+    return this.authSrv.isUser();
+  }
+
+  get supplier() {
+    return this.authSrv.isSupplier();
+  }
+
+  get anonymous() {
+    return !this.authSrv.isAuthenticated();
+  }
 }

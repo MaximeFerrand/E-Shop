@@ -1,1 +1,29 @@
-<p>product-list works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>id:</th>
+      <th>libelle:</th>
+      <th>prix:</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.id }}</td>
+      <td>{{ p.label }}</td>
+      <td>{{ p.price }}</td>
+      <td>
+        <a routerLink="/product/edit/{{ p.id }}" routerLinkActive="active"
+          >editer</a
+        >
+      </td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="delete(p.id!)">
+          supprimer
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a routerLink="/produit/edit" routerLinkActive="active">nouveau produit</a>

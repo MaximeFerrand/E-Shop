@@ -22,6 +22,12 @@ import { SupplierListComponent } from './eshop/component/user/supplier/supplier-
 import { SupplierEditComponent } from './eshop/component/user/supplier/supplier-edit/supplier-edit.component';
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
 import { SigninComponent } from './eshop/component/signin/signin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { routes } from './routes';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthenticationInterceptor } from './eshop/interceptor/authentication.interceptor';
+import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +52,22 @@ import { SigninComponent } from './eshop/component/signin/signin.component';
     SupplierEditComponent,
     SignupComponent,
     SigninComponent,
+    ProblemAdminComponent,
   ],
-  imports: [BrowserModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

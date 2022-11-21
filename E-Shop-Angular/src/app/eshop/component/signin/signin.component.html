@@ -1,1 +1,46 @@
-<p>signin works!</p>
+<div *ngIf="error" class="alert alert-danger">données incorrectes</div>
+<form (ngSubmit)="send()" #form="ngForm">
+  <div class="form-group">
+    <label for="login">login:</label>
+    <input
+      type="email"
+      name="login"
+      class="form-control"
+      [(ngModel)]="login"
+      required
+      #emailCtrl="ngModel"
+    />
+    <div
+      *ngIf="emailCtrl.dirty && emailCtrl.invalid"
+      class="alert alert-danger"
+    >
+      email obligatoire
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">password:</label>
+    <input
+      type="password"
+      name="password"
+      class="form-control"
+      [(ngModel)]="password"
+      required
+      #passwordCtrl="ngModel"
+    />
+    <div
+      *ngIf="passwordCtrl.dirty && passwordCtrl.invalid"
+      class="alert alert-danger"
+    >
+      mot de passe obligatoire
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-outline-primary">envoyer</button>
+    <a
+      routerLink="/home"
+      routerLinkActive="active"
+      class="btn btn-outline-warning"
+      >annuler</a
+    >
+  </div>
+</form>

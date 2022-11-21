@@ -16,7 +16,14 @@
         />
       </svg>
       <p>&ensp;</p>
-      <a id="toConnect" href="#">Connexion</a>
+      <a
+        id="toConnect"
+        *ngIf="anonymous"
+        routerLink="/signin"
+        routerLinkActive="active"
+        >Connexion</a
+      >
+      <a id="toConnect" *ngIf="authenticated" (click)="logoff()">Deconnexion</a>
     </div>
     <div class="social-media header-connect-account-connexion">
       <svg

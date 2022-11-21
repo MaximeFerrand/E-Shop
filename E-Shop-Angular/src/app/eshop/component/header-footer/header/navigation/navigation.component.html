@@ -1,12 +1,34 @@
 <div id="header-nav">
-  <div id="header-nav-logo"><a href="#">Logo E-shop</a></div>
+  <div id="header-nav-logo">
+    <a routerLink="/home" routerLinkActive="active">Logo E-shop</a>
+  </div>
   <nav id="header-nav-container">
     <div id="header-nav-container-link">
-      <div><a href="#">Tout voir</a></div>
-      <div><a href="#">Mobilier</a></div>
-      <div><a href="#">Luminaire</a></div>
-      <div><a href="#">Tapis</a></div>
-      <div><a href="#">A propos</a></div>
+      <div>
+        <a *ngIf="anonymous" routerLink="/signup" routerLinkActive="active"
+          >Tout voir ano</a
+        >
+      </div>
+      <div>
+        <a *ngIf="anonymous" routerLink="/signup" routerLinkActive="active"
+          >Mobilier ano</a
+        >
+      </div>
+      <div>
+        <a *ngIf="admin" routerLink="/admin" routerLinkActive="active"
+          >Luminaire admin</a
+        >
+      </div>
+      <div>
+        <a *ngIf="supplier" routerLink="/supplier" routerLinkActive="active"
+          >Tapis supplier</a
+        >
+      </div>
+      <div>
+        <a *ngIf="user" routerLink="/user" routerLinkActive="active"
+          >A propos</a
+        >
+      </div>
       <div><a href="#">Histoires</a></div>
       <div><a href="#">Contact</a></div>
     </div>

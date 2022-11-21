@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,10 +24,16 @@ import ajc.sopra.eshop.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin(origins= {"*"})
 public class UserRestController {
 
 	@Autowired
 	private UserService userSrv;
+	
+	@GetMapping("/check/email/{email}")
+	public boolean checkEmailExists(@PathVariable String email) {
+		return userSrv.checkEmailExists(email);
+	}
 //ok
 	@PostMapping("/signup")
 	@JsonView(JsonViews.UserWithOrderAndAdress.class)
