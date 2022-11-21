@@ -15,10 +15,13 @@ import { PresentationComponent } from './eshop/component/home/presentation/prese
 import { MarquesComponent } from './eshop/component/home/marques/marques.component';
 import { FooterComponent } from './eshop/component/header-footer/footer/footer.component';
 import { SocialMediaComponent } from './eshop/component/header-footer/social-media/social-media.component';
-import { CartComponent } from './eshop/cart/cart.component';
 import { ProductComponent } from './eshop/component/user/product/product/product.component';
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
+import { SupplierListComponent } from './eshop/component/user/supplier/supplier-list/supplier-list.component';
+import { SupplierEditComponent } from './eshop/component/user/supplier/supplier-edit/supplier-edit.component';
+import { SignupComponent } from './eshop/component/user/signup/signup.component';
+import { SigninComponent } from './eshop/component/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +39,13 @@ import { ProductListComponent } from './eshop/component/user/product/product-lis
     MarquesComponent,
     FooterComponent,
     SocialMediaComponent,
-    CartComponent,
     ProductComponent,
     ProductEditComponent,
     ProductListComponent,
+    SupplierListComponent,
+    SupplierEditComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [BrowserModule],
   providers: [],
