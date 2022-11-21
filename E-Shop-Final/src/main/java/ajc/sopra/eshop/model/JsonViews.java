@@ -47,6 +47,18 @@ public class JsonViews {
 	}
 	public class CategoryWithProduct extends Common{
 	}
+	public class searchProduct extends Common{
 	}
-
-
+	public class searchnom extends Common{}
+		public class ProductWithcat extends Common{}
+			public class ProducAsc extends Common{
+	}
+			public class ProducDesc extends Common{
+			}
+			  public class ProducNom extends Common{
+				}
+			  public class Productkey extends Common{
+				}
+			  public class  Productbetween extends Common{
+				}
+}

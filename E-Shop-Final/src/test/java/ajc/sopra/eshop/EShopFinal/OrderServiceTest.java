@@ -2,13 +2,17 @@ package ajc.sopra.eshop.EShopFinal;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import ajc.sopra.eshop.model.Product;
 import ajc.sopra.eshop.service.OrderService;
+import ajc.sopra.eshop.service.ProductService;
 
 @ExtendWith(SpringExtension.class)
 @Transactional
@@ -21,7 +25,8 @@ class OrderServiceTest {
 	void InjectionProduitServicetest() {
 		assertNotNull(orderSrv);
 	}
-	
+	@Autowired
+	ProductService pros;
 	/*@Test
 	@Commit
 	@Disabled
@@ -37,5 +42,8 @@ class OrderServiceTest {
 		assertNotNull(produit.getId());
 		assertNotNull(produitSrv.findById(produit.getId()));
 	}*/
-
+	/*List<Product> searchResults= pros.getProductsBy("lit");
+	searchResults.forEach(product -> System.out.println(product.getLabel()));	
+	
+}	*/
 }

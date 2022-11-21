@@ -1,6 +1,7 @@
 package ajc.sopra.eshop.restcontroller;
 
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -127,7 +129,10 @@ public class ProductRestController {
 
 		return productSrv.update(product);
 	}
+	@JsonView(JsonViews.searchProduct.class)
+	
 
+	
 	@GetMapping("/triCroisantPrice/nom")
 	public List<Product> RechercheCroissantPrice(@PathVariable String nom) {
 
@@ -148,5 +153,45 @@ public class ProductRestController {
 		return productSrv.findAllByPriceDESC(categorySrv.findByLabelCat(nom).getProducts());
 
 	}
+	/*@JsonView(JsonViews.ProductWithcat.class)
+	@GetMapping("/toto")
+	public List<Product> findByCategoryyy(@RequestParam("lab") String lab) {
+		
+		return   productSrv.findByCategory(lab);}*/
+	@JsonView(JsonViews.searchProduct.class)
+	@GetMapping("/search/{libelle}")
+	public List<Product> search(@PathVariable(name="libelle") String name) {
+		return productSrv.getProductsByName(name);}
+	
 
+	@JsonView(JsonViews.ProductWithcat.class)
+	@GetMapping("/toto/{catpro}")
+	public List<Product> findByCategoryyy(@PathVariable(name="catpro") String name) {
+		return   productSrv.findByCategory(name);}
+	
+	@JsonView(JsonViews.ProducAsc.class)
+	@GetMapping("/tri")
+	public List<Product> orderByAscendingg(){
+		return   productSrv.orderByAscending();}
+	
+	@JsonView(JsonViews.ProducDesc.class)
+	@GetMapping("/tri/Desc")
+	public List<Product> orderByDescendingg(){
+		return   productSrv.orderByDescending();}
+	
+	@JsonView(JsonViews.ProducNom.class)
+	@GetMapping("/triAlpha")
+	public List<Product> orderByname(){
+	return   productSrv.orderBynom();}
+	
+	@JsonView(JsonViews.Productkey.class)
+	@GetMapping("/tri/{keyss}")
+	public List<Product> findByKeywordsInnn(@PathVariable(name="keyss")String name){
+	return   productSrv.findByKeywordsInn(name);}
+
+@JsonView(JsonViews.Productbetween.class)
+@GetMapping("/tri/{value1}-{value2}")
+public List<Product> findByPricee(@PathVariable Double value1,@PathVariable  Double value2){
+	return   productSrv.findByPrice(value1,value2);}
 }
+

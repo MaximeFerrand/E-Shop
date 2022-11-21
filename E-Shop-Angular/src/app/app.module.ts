@@ -15,6 +15,7 @@ import { PresentationComponent } from './eshop/component/home/presentation/prese
 import { MarquesComponent } from './eshop/component/home/marques/marques.component';
 import { FooterComponent } from './eshop/component/header-footer/footer/footer.component';
 import { SocialMediaComponent } from './eshop/component/header-footer/social-media/social-media.component';
+import { CartComponent } from './eshop/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { SocialMediaComponent } from './eshop/component/header-footer/social-med
     MarquesComponent,
     FooterComponent,
     SocialMediaComponent,
+    CartComponent,
   ],
   imports: [BrowserModule],
   providers: [],

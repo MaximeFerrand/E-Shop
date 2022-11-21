@@ -1,9 +1,11 @@
 package ajc.sopra.eshop.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import ajc.sopra.eshop.exception.IdException;
@@ -103,7 +105,37 @@ public class ProductService {
 		return productRepo.selectIntervalPrice(a,b);
 	}
 	
+	public List<Product> findByCategory(String labelcat){
+	return productRepo.findByCategoryLabelcat(labelcat);}
+	public List<Product> getProductsByName(String libelle) {
+		return productRepo.findByLabel(libelle);	  
+	}
+	 
+	public List<Product> orderByAscending() {
+		return productRepo.orderByAscending();}
+	 
+
+	public List<Product> orderByDescending() {
+		return productRepo.orderByDescending();}
+	public List<Product> orderBynom() {
+		return productRepo.orderByname();}
+		 
+	 
+	 
 	
+
+	public List<Product> findByKeywordsInn(String keys) {
+		return productRepo.findByTitleLike(keys);}
+		 
 	
-	
+
+public List<Product> findByPrice(Double min, Double max) {
+	return productRepo.findByPrice(min, max);
+
 }
+
+
+ 
+}	 
+	 
+
