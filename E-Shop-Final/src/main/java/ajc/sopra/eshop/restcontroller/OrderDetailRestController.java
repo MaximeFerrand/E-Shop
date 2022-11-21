@@ -81,7 +81,7 @@ public class OrderDetailRestController {
 	public List<OrderDetail> findAll(){
 		return orderDetailService.findAll();
 	}
-	
+	//ok
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Common.class)
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -102,17 +102,21 @@ public class OrderDetailRestController {
 		orderDetail.setId(id);
 		return orderDetailService.update(orderDetail);
 	}
-*/
+*///ok
 	@PatchMapping("/{id}")
-	@JsonView(JsonViews.Common.class)
+	//@JsonView(JsonViews.Common.class)
+	@JsonView(JsonViews.OrderDetailWithProductAndReview.class )
 	public OrderDetail update(@RequestBody Map<String, Object> fields, @PathVariable Integer id) {
-		OrderDetail orderDetail = orderDetailService.findById(id).get();
+		OrderDetail orderDetail = orderDetailService.findById(id);
 
 		fields.forEach((k, v) -> {
 			if(k.equals("review")) {
 				Map<String, Object> map2 = (Map<String, Object>) v;
 				orderDetail.getReview().setComment(map2.get("notation").toString());
 				orderDetail.getReview().setNotation(Integer.parseInt(map2.get("notation").toString()));
+			}
+			else if(k.equals("quantity")) {
+				orderDetail.setQuantity(Integer.parseInt((String) v));
 			}
 			else {
 				Field field = ReflectionUtils.findField(OrderDetail.class, k);

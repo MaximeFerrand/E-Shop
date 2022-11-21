@@ -21,11 +21,11 @@ public class OrderDetailService {
 		return orderDetailRepo.findAll();
 	}
 
-	public Optional<OrderDetail> findById(Integer id) {
+	public OrderDetail findById(Integer id) {
 		
 		/*return produitRepo.findByIdproduitRepo(id).orElseThrow(()->{
 			throw new IdException();		});*/
-		return orderDetailRepo.findById(id);//.orElseThrow(IdException::new);
+		return orderDetailRepo.findById(id).orElseThrow(IdException::new);
 	}
 
 	/*public List<Order> findByLibelle(String libelle) {

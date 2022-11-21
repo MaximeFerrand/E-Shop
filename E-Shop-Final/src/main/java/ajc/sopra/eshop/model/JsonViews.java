@@ -8,7 +8,7 @@ public class JsonViews {
 	public static class Common {
 	}
 
-	public static class OrderWithOrderDetail extends Common {
+	public static class OrderWithOrderDetailAndUser extends Common {
 	}
 
 	public static class OrderWithUser extends Common {

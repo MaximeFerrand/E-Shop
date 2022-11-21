@@ -25,26 +25,37 @@ import com.fasterxml.jackson.annotation.JsonView;
 //@DiscriminatorColumn(lastname="order tracking",columnDefinition = "ENUM('commandé', 'enPreparation', 'expedie', 'livre', 'cloture';)")
 
 public class Order {
-	@JsonView(JsonViews.Order.class)
+	@JsonView(JsonViews.Common.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@JsonView(JsonViews.Order.class)
+	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('ordered','inPreparation', 'shipped', 'delivered', 'closed')",nullable = false)
 	private OrderTracking orderTracking;
 	///@Embedded
 	
-	@JsonView(JsonViews.OrderWithOrderDetail.class)
+	@JsonView(JsonViews.OrderWithOrderDetailAndUser.class)
 	@OneToMany(mappedBy = "order")
 	private List<OrderDetail> ordreDetails= new ArrayList();
 	//private OrderDetail ordreDetail;
-	@JsonView(JsonViews.OrderWithUser.class)
+	@JsonView(JsonViews.OrderWithOrderDetailAndUser.class)
 	@ManyToOne
 	private User user;
 	
 	//private OrderDetail orderDetail;
 	
+	public User getUser() {
+		return user;
+	}
+
+
+
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
 	@Column(columnDefinition = "ENUM('houseShipping', 'pickUp', 'withdrawal')")
