@@ -16,6 +16,9 @@ import { MarquesComponent } from './eshop/component/home/marques/marques.compone
 import { FooterComponent } from './eshop/component/header-footer/footer/footer.component';
 import { SocialMediaComponent } from './eshop/component/header-footer/social-media/social-media.component';
 import { CartComponent } from './eshop/cart/cart.component';
+import { ProductComponent } from './eshop/component/user/product/product/product.component';
+import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
+import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { CartComponent } from './eshop/cart/cart.component';
     FooterComponent,
     SocialMediaComponent,
     CartComponent,
+    ProductComponent,
+    ProductEditComponent,
+    ProductListComponent,
   ],
   imports: [BrowserModule],
   providers: [],

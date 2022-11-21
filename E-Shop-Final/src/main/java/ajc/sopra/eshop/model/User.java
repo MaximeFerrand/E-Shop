@@ -64,6 +64,10 @@ public class User extends Account {
 	@JsonView(JsonViews.UserWithOrderAndAdress.class)
 	@ElementCollection()
 	protected Set<Adress> adresses = new HashSet();
+	
+	public User(String login, String Password) {
+		super(login, Password);
+	}
 
 	public User(String name, String firstname, int discount, Set<Adress> adresses) {
 		super();

@@ -31,7 +31,7 @@ public class Order {
 	private Integer id;
 	@JsonView(JsonViews.Common.class)
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('ordered','inPreparation', 'shipped', 'delivered', 'closed')",nullable = false)
+	@Column(columnDefinition = "ENUM('ordered','inPreparation', 'shipped', 'delivered', 'closed') default 'ordered'")
 	private OrderTracking orderTracking;
 	///@Embedded
 	

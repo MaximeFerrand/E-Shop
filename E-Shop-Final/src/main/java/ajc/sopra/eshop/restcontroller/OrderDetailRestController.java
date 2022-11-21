@@ -44,20 +44,12 @@ public class OrderDetailRestController {
 	@JsonView(OrderDetailWithProductAndReview.class)
 	@PostMapping("")
 	public OrderDetail create(@RequestBody OrderDetail orderDetail,BindingResult br) {
-		
-		//controles
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "données incorrectes");
 		}
-		//a mettre dans le service ?
 		else if (orderDetail.getProduct() != null && orderDetail.getProduct().getId() != null) {
 			orderDetail.setProduct(productSrv.findById(orderDetail.getProduct().getId()));
 		}
-		/*if (orderDetail.getReview() != null) {
-			orderDetail.setReview(orderDetail.getReview());
-			//product.getCategory().getProducts().add(product);
-			//categorySrv.save(product.getCategory());
-		}*/
 		return orderDetailService.save(orderDetail);
 	}
 	
@@ -81,6 +73,7 @@ public class OrderDetailRestController {
 	public List<OrderDetail> findAll(){
 		return orderDetailService.findAll();
 	}
+	
 	//ok
 	@DeleteMapping("/{id}")
 	@JsonView(JsonViews.Common.class)

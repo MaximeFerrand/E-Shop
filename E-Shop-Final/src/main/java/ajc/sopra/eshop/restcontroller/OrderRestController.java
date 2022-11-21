@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,10 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 //import com.mysql.cj.xdevapi.Client;
 
+import ajc.sopra.eshop.model.Account;
 import ajc.sopra.eshop.model.JsonViews;
 import ajc.sopra.eshop.model.Order;
 import ajc.sopra.eshop.model.OrderDetail;
 import ajc.sopra.eshop.model.Product;
+import ajc.sopra.eshop.model.User;
 import ajc.sopra.eshop.service.OrderDetailService;
 import ajc.sopra.eshop.service.OrderService;
 import ajc.sopra.eshop.service.ProductService;
@@ -53,95 +56,23 @@ public class OrderRestController {
 		
 		return produitSrv.findAll();
 	}
-	//ok
-	/*
-	@JsonView(JsonViews.OrderWithOrderDetailAndUser.class)
-	@GetMapping("/panier/add/{id}")
-	public Map<Product, Integer> ajoutPanier(@PathVariable Integer id, Model model, HttpSession session) {
-		if (session.getAttribute("panier") == null) {
-			// on a pas encore de panier
-			// List<ElementPanier>
-			// ElementPanier=>class{ Produit, Quantite }
-			// Map<Produit,Integer>
-			session.setAttribute("panier", new HashMap<Product, Integer>());
-		}
-		Map<Product, Integer> panier = (Map<Product, Integer>) session.getAttribute("panier");
-		//Product produit = produitSrv.findById(id);
-		OrderDetail orderDetail = orderDetailSrv.findById(id);
-		if (panier.containsKey(produit)) {
-			panier.put(produit, panier.get(produit) + 1);
-		} else {
-			panier.put(produit, 1);
-		}
-		LOGGER.debug(panier.toString());
-		return panier;
-	}*/
 	
 	@JsonView(JsonViews.OrderWithOrderDetailAndUser.class)
-	@GetMapping("/panier/add/{id}")
-	public List<OrderDetail> ajoutPanier(@PathVariable Integer id, Model model, HttpSession session) {
-		if (session.getAttribute("panier") == null) {
-			// on a pas encore de panier
-			// List<ElementPanier>
-			// ElementPanier=>class{ Produit, Quantite }
-			// Map<Produit,Integer>
-			session.setAttribute("panier", new ArrayList());
-		}
-		List<OrderDetail> panier = (List<OrderDetail>) session.getAttribute("panier");
-		//Product produit = produitSrv.findById(id);
-		//OrderDetail orderDetail = orderDetailSrv.findById(id);
-		for(OrderDetail d : panier) {
-			if (d.getId()==id) {
-				d.setQuantity(d.getQuantity()+1);
-			} else {
-				d.setQuantity( 1);
-			}
-			
-		}
-		
-		LOGGER.debug(panier.toString());
-		return panier;
+	@PostMapping("")
+	public Order create(@RequestBody Order order, @AuthenticationPrincipal Account account) {
+		//controles
+		//User user= new User(account.getLogin(), account.getPassword());
+		order.setUser(userSrv.findById(account.getId()));
+		return orderSrv.save(order);
 	}
-	//ok
-	/*
+	
 	@JsonView(JsonViews.OrderWithOrderDetailAndUser.class)
-	@GetMapping("/panier/delete/{id}")
-	public Map<Product, Integer>  retirerProduitDuPanier(@PathVariable Integer id, Model model, HttpSession session) {
-		Product produit = produitSrv.findById(id);
-		Map<Product, Integer> panier = (Map<Product, Integer>) session.getAttribute("panier");
-		if (panier.get(produit) > 1) {
-			panier.put(produit, panier.get(produit) - 1);
-		} else {
-			panier.remove(produit);
-		}
-		return panier;
-	}*/
-	/*
-	@JsonView(JsonViews.Common.class)
-
-	@GetMapping("/panier/validate")
-	public Model validationPanier(Model model) {
-		model.addAttribute("clients", userSrv.findAll());
-		model.addAttribute("client", new User());
-		//return "achat/validate";
-		return model;
-	}*/
-	@JsonView(JsonViews.Common.class)
-	@PostMapping("/save")
-	public void enregistrementAchatComplet(@RequestBody Order order, HttpSession session, Model model) {
-		Map<Product, Integer> panier = (Map<Product, Integer>) session.getAttribute("panier");
-		List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
-		order.setUser(userSrv.findById(order.getUser().getId()));
-		
-		panier.forEach((k, v) -> {
-			order.getOrdreDetail().add(new OrderDetail(v, k));
-			
+	@PostMapping("/list")
+	public List<Order> create(@RequestBody List<Order> orders,@AuthenticationPrincipal Account account) {
+		orders.forEach(order->{
+			order.setUser(userSrv.findById(account.getId()));
 		});
-		
-		orderSrv.save(order);
-		session.invalidate();
-		//return "home";
-
+		return orderSrv.saveAll(orders);
 	}
 }
 
