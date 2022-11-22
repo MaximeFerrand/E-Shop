@@ -90,7 +90,7 @@ public class Account implements UserDetails{
 		return Objects.equals(id, other.id);
 	}
 
-	//@JsonView(JsonViews.CompteWithClient.class)
+	@JsonView(JsonViews.Common.class)
 	public String getRole() {
 		return getAuthorities().stream().findFirst().get().toString();
 	}

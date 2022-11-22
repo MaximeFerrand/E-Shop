@@ -18,8 +18,10 @@ import ajc.sopra.eshop.model.JsonViews;
 public class AuthenticationRestController {
 //ok
 	@JsonView(JsonViews.Common.class)
+	//@JsonView(JsonViews.UserWithOrderAndAdress.class)
 	@GetMapping("")
 	public Account authentication(@AuthenticationPrincipal Account account) {
+		
 		return account;
 	}
 }

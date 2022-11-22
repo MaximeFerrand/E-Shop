@@ -23,6 +23,7 @@ export class SigninComponent implements OnInit {
     console.log('avant auth');
     this.authSrv.authentication(this.login, this.password).subscribe({
       next: (data) => {
+        console.log(data);
         console.log('avant next');
         this.error = false;
         sessionStorage.setItem(
@@ -30,14 +31,18 @@ export class SigninComponent implements OnInit {
           'Basic ' + window.btoa(this.login + ':' + this.password)
         );
         if (data.role == 'ROLE_USER') {
+
           let user = new User(
-            data.user.id,
-            data.user.firstname,
-            data.user.lastname,
-            data.user.adress ? data.adress : undefined,
-            data.user.login
+            data.id,
+            data.login,
+
+            data.firstname,
+            data.lastname,
+            data.adresses ? data.adresses: undefined,
+
           );
           sessionStorage.setItem('user', JSON.stringify(user));
+
           sessionStorage.setItem('role', 'user');
           sessionStorage.setItem('account', JSON.stringify(data.login));
         } else if (data.role == 'ROLE_ADMIN') {
@@ -45,15 +50,16 @@ export class SigninComponent implements OnInit {
           sessionStorage.setItem('role', 'admin');
         } else if (data.role == 'ROLE_SUPPLIER') {
           let supplier = new Supplier(
-            data.supplier.id,
-            data.supplier.company,
-            data.supplier.product ? data.product : undefined,
-            data.user.login
+            data.id,
+            data.company,
+            data.product ? data.product : undefined,
+            data.login
           );
           sessionStorage.setItem('supplier', JSON.stringify(supplier));
           sessionStorage.setItem('role', 'supplier');
           sessionStorage.setItem('account', JSON.stringify(data.login));
         }
+        console.log("hello"+sessionStorage.getItem('user'));
         console.log('avant home');
         this.router.navigateByUrl('/home');
         console.log('apres home');
@@ -62,5 +68,6 @@ export class SigninComponent implements OnInit {
         this.error = true;
       },
     });
+
   }
 }
