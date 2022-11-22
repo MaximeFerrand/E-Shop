@@ -8,8 +8,9 @@
   <!-- Background image -->
 
   <div
-    class="card mx-4 mx-md-5 shadow-5-strong"
+    class="card mx-4 mx-md-5 shadow-4-strong"
     style="
+      box-shadow: grey 0px 2px 2px 1px;
       margin-top: -100px;
       background: hsla(0, 0%, 100%, 0.8);
       backdrop-filter: blur(30px);
@@ -18,7 +19,7 @@
     <div class="card-body py-5 px-md-5">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Sign up now</h2>
+          <h2 class="fw-bold mb-5">Inscrivez-vous dès maintenant</h2>
 
           <form (ngSubmit)="save()" [formGroup]="form">
             <!-- 2 column grid layout with text inputs for the first and last names -->
@@ -115,6 +116,50 @@
                 class="alert alert-danger"
               >
                 probleme email
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline form-group">
+                  <input
+                    formControlName="prenom"
+                    type="text"
+                    class="form-control"
+                  />
+                  <label class="form-label" for="prenom">Numero</label>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline form-group">
+                  <input
+                    type="text"
+                    formControlName="nom"
+                    class="form-control"
+                  />
+                  <label class="form-label" for="nom">Rue</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline form-group">
+                  <input
+                    type="text"
+                    formControlName="nom"
+                    class="form-control"
+                  />
+                  <label class="form-label" for="nom">CP</label>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline form-group">
+                  <input
+                    type="text"
+                    formControlName="nom"
+                    class="form-control"
+                  />
+                  <label class="form-label" for="nom">Ville</label>
+                </div>
               </div>
             </div>
 

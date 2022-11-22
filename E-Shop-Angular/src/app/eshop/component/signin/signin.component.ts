@@ -46,9 +46,11 @@ export class SigninComponent implements OnInit {
           sessionStorage.setItem('role', 'user');
           sessionStorage.setItem('account', JSON.stringify(data.login));
         } else if (data.role == 'ROLE_ADMIN') {
+          console.log('role admin');
           sessionStorage.setItem('account', JSON.stringify(data.login));
           sessionStorage.setItem('role', 'admin');
         } else if (data.role == 'ROLE_SUPPLIER') {
+          console.log('role supplier');
           let supplier = new Supplier(
             data.id,
             data.company,
