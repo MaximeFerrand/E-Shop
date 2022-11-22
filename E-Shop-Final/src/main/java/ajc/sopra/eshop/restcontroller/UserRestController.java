@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -26,6 +28,8 @@ import ajc.sopra.eshop.service.UserService;
 @RequestMapping("/api/user")
 @CrossOrigin(origins= {"*"})
 public class UserRestController {
+	
+	private static final Logger LOGGER=LoggerFactory.getLogger(UserRestController.class);
 
 	@Autowired
 	private UserService userSrv;
@@ -42,6 +46,7 @@ public class UserRestController {
 		if (br.hasErrors()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
 		}
+
 		return userSrv.save(user);
 	}
 //ok

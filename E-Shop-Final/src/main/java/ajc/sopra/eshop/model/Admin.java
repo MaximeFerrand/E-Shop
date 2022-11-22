@@ -1,9 +1,6 @@
 package ajc.sopra.eshop.model;
 
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 @Entity
 public class Admin extends Account{

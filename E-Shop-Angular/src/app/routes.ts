@@ -9,10 +9,11 @@ import { SignupComponent } from './eshop/component/user/signup/signup.component'
 import { SupplierEditComponent } from './eshop/component/user/supplier/supplier-edit/supplier-edit.component';
 import { SupplierListComponent } from './eshop/component/user/supplier/supplier-list/supplier-list.component';
 import { AdminGuardService } from './eshop/guard/admin-guard.service';
+import { AnonymousGuardService } from './eshop/guard/anonymous-guard.service';
 import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
 
 export const routes: Routes = [
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: 'product',
     component: ProductListComponent,
@@ -45,12 +46,12 @@ export const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
-    canActivate: [],
+    canActivate: [AnonymousGuardService],
   },
   {
     path: 'signin',
     component: SigninComponent,
-    canActivate: [],
+    canActivate: [AnonymousGuardService],
   },
   {
     path: 'problem/admin',

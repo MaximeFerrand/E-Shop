@@ -20,8 +20,10 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   send() {
+    console.log('avant');
     this.authSrv.authentication(this.login, this.password).subscribe({
       next: (data) => {
+        console.log('next');
         this.error = false;
         sessionStorage.setItem(
           'token',
@@ -56,6 +58,7 @@ export class SigninComponent implements OnInit {
       },
       error: (err) => {
         this.error = true;
+        console.log('error');
       },
     });
   }

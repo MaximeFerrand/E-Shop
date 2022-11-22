@@ -5,32 +5,50 @@
   <nav id="header-nav-container">
     <div id="header-nav-container-link">
       <div>
-        <a *ngIf="anonymous" routerLink="/signup" routerLinkActive="active"
-          >Tout voir ano</a
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
+          >Tout voir</a
         >
       </div>
       <div>
-        <a *ngIf="anonymous" routerLink="/signup" routerLinkActive="active"
-          >Mobilier ano</a
+        <a *ngIf="admin || supplier" routerLink="" routerLinkActive="active"
+          >Produits</a
         >
       </div>
       <div>
-        <a *ngIf="admin" routerLink="/admin" routerLinkActive="active"
-          >Luminaire admin</a
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
+          >Mobilier</a
         >
       </div>
       <div>
-        <a *ngIf="supplier" routerLink="/supplier" routerLinkActive="active"
-          >Tapis supplier</a
+        <a *ngIf="admin" routerLink="" routerLinkActive="active"
+          >Fournisseurs</a
         >
       </div>
       <div>
-        <a *ngIf="user" routerLink="/user" routerLinkActive="active"
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
+          >Luminaire</a
+        >
+      </div>
+      <div>
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
+          >Tapis</a
+        >
+      </div>
+      <div>
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
           >A propos</a
         >
       </div>
-      <div><a href="#">Histoires</a></div>
-      <div><a href="#">Contact</a></div>
+      <div>
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
+          >Histoires</a
+        >
+      </div>
+      <div>
+        <a *ngIf="anonymous || user" routerLink="" routerLinkActive="active"
+          >Contact</a
+        >
+      </div>
     </div>
   </nav>
 </div>

@@ -103,12 +103,14 @@ export class SignupComponent implements OnInit {
       this.form.get('ville')?.value
     ) {
       Object.assign(user, {
-        adress: {
-          number: this.form.get('numero')?.value,
-          way: this.form.get('voie')?.value,
-          pc: this.form.get('cp')?.value,
-          city: this.form.get('ville')?.value,
-        },
+        adresses: [
+          {
+            number: this.form.get('numero')?.value,
+            way: this.form.get('voie')?.value,
+            pc: this.form.get('cp')?.value,
+            city: this.form.get('ville')?.value,
+          },
+        ],
       });
     }
     this.clientService.signup(user).subscribe((data) => {
