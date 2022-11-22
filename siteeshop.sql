@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 22 nov. 2022 à 08:37
+-- Généré le : mar. 22 nov. 2022 à 11:05
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_5vxwyorsr92jce3ore6h93k6q` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `account`
@@ -45,7 +45,13 @@ INSERT INTO `account` (`id`, `login`, `password`) VALUES
 (9, 'jane@doe.fr', '$2a$10$I1B.pVm.4udim0wWHnX3ReBEJJzSBF6ENz8ha3WoHuTz0fPoCsRgm'),
 (10, 'john@doe.fr', '$2a$10$qZQ/mEuNGvD/iJY0Mg2OiOZ6obkNN3JfzVKhA0CaiNnXybwVsnufe'),
 (11, 'supplier@sopra.fr', '$2a$10$HPbY3uniN2M7Yar3uxvj0OOoARSERRGtFWujMrPcna1CSCANZBMPi'),
-(12, 'supplier@AJC.fr', '$2a$10$YgupZVA1ArurJ0R6.QP/8uNecIkEE8JIzLXz1AyyuF0HvD9nRshJK');
+(12, 'supplier@AJC.fr', '$2a$10$YgupZVA1ArurJ0R6.QP/8uNecIkEE8JIzLXz1AyyuF0HvD9nRshJK'),
+(13, 'jules@doe.fr', '$2a$10$6dZkVKeadhYfPxAvL3I4tO72a/5EjorMm0zuOpuIoUF7dZXIyazsu'),
+(14, 'mary@doe.fr', '$2a$10$zs480OujbmvRUSOq/XQC..1fMMus4Yfj1ekM9co0bNVh4ltwQL2ci'),
+(16, 'jack@doe.fr', '$2a$10$X8ax8PrTNwmMu8BcHEcX/.xkAoPiAgZlbmWYn0em42R0kwDO5Qr2K'),
+(17, 'dany@doe.fr', '$2a$10$e3A/qimSC7vJxpg8cB2tYu7a0LzpUlENELO5obWkFZqLOfIN60cOW'),
+(18, 'lena@user.fr', '$2a$10$BMkhTlBqD/UOtZkXhEo1ouH.hVtTiLWFi46Y0Bave9BxbiZfIkkg6'),
+(19, 'megane@user.fr', '$2a$10$hQNPxdn0Xw0RaNbArgsxVeN5Sm2W91ETxLHXCTcucWImnhHoSeN.y');
 
 -- --------------------------------------------------------
 
@@ -242,7 +248,13 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`discount`, `firstname`, `is_validated`, `id`, `lastname`) VALUES
 (0, 'Jane', NULL, 9, 'Doe'),
-(0, 'John', NULL, 10, 'Doe');
+(0, 'John', NULL, 10, 'Doe'),
+(0, 'Jules', NULL, 13, 'Doe'),
+(0, 'Mary', NULL, 14, 'Doe'),
+(0, 'Jack', NULL, 16, 'Doe'),
+(0, 'Dany', NULL, 17, 'Doe'),
+(0, 'lena', NULL, 18, 'doe'),
+(0, 'Megane', NULL, 19, 'Doe');
 
 -- --------------------------------------------------------
 
@@ -259,6 +271,14 @@ CREATE TABLE IF NOT EXISTS `user_adresses` (
   `way` varchar(35) NOT NULL,
   PRIMARY KEY (`user_id`,`city`,`number`,`pc`,`way`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user_adresses`
+--
+
+INSERT INTO `user_adresses` (`user_id`, `city`, `number`, `pc`, `way`) VALUES
+(17, 'xxxx', 'xxxx', 'xxxx', 'xxxx'),
+(19, 'ppp', 'ppp', 'ppp', 'ppp');
 
 --
 -- Contraintes pour les tables déchargées

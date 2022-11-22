@@ -4,7 +4,6 @@ footer {
   height: var(--heightFooter);
   margin-top: 25px;
   color: var(--color1);
-  border: solid 2px black;
 }
 
 a {

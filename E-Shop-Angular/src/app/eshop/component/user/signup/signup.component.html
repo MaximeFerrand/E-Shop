@@ -3,10 +3,7 @@
   <!-- Background image -->
   <div
     class="p-5 bg-image"
-    style="
-      background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
-      height: 300px;
-    "
+    style="background: url(/assets/images/welcome/home2.jpg); height: 300px"
   ></div>
   <!-- Background image -->
 
@@ -28,16 +25,13 @@
             <ng-container formGroupName="groupeInfo">
               <div class="row">
                 <div class="col-md-6 mb-4">
-                  <div class="form-outline">
+                  <div class="form-outline form-group">
                     <input
                       formControlName="prenom"
                       type="text"
-                      id="form3Example1"
                       class="form-control"
                     />
-                    <label class="form-label" for="form3Example1"
-                      >First name</label
-                    >
+                    <label class="form-label" for="prenom">Prenom</label>
                     <div
                       *ngIf="
                         form.get('groupeInfo.prenom')?.dirty &&
@@ -50,16 +44,13 @@
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
-                  <div class="form-outline">
+                  <div class="form-outline form-group">
                     <input
                       type="text"
-                      id="form3Example2"
                       formControlName="nom"
                       class="form-control"
                     />
-                    <label class="form-label" for="form3Example2"
-                      >Last name</label
-                    >
+                    <label class="form-label" for="nom">Nom</label>
                     <div
                       *ngIf="
                         form.get('groupeInfo.nom')?.dirty &&
@@ -73,35 +64,15 @@
                 </div>
               </div>
 
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <input
-                  formControlName="login"
-                  type="email"
-                  id="form3Example3"
-                  class="form-control"
-                />
-                <label class="form-label" for="form3Example3"
-                  >Email address</label
-                >
-                <div
-                  *ngIf="form.get('login')?.dirty && form.get('login')?.invalid"
-                  class="alert alert-danger"
-                >
-                  probleme email
-                </div>
-              </div>
-
               <!-- Password input -->
               <ng-container formGroupName="groupePassword">
                 <div class="form-outline mb-4">
                   <input
                     formControlName="password"
                     type="password"
-                    id="form3Example4"
                     class="form-control"
                   />
-                  <label class="form-label" for="form3Example4">Password</label>
+                  <label class="form-label" for="password">Password</label>
                   <div
                     *ngIf="
                       form.get('groupeInfo.groupePassword.password')?.dirty &&
@@ -111,22 +82,40 @@
                   >
                     probleme password
                   </div>
+
+                  <input
+                    type="password"
+                    formControlName="confirmation"
+                    class="form-control"
+                  />
+                  <label for="confirmation">Confirmation</label>
+                  <div
+                    *ngIf="
+                      form.get('groupeInfo.groupePassword')?.dirty &&
+                      form.get('groupeInfo.groupePassword')?.invalid
+                    "
+                    class="alert alert-danger"
+                  >
+                    probleme confirmation
+                  </div>
                 </div>
               </ng-container>
             </ng-container>
 
-            <!-- Checkbox-->
-            <div class="form-check d-flex justify-content-center mb-4">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
               <input
-                class="form-check-input me-2"
-                type="checkbox"
-                value=""
-                id="form2Example33"
-                checked
+                formControlName="login"
+                type="email"
+                class="form-control"
               />
-              <label class="form-check-label" for="form2Example33">
-                Subscribe to our newsletter
-              </label>
+              <label class="form-label" for="login">Email address</label>
+              <div
+                *ngIf="form.get('login')?.dirty && form.get('login')?.invalid"
+                class="alert alert-danger"
+              >
+                probleme email
+              </div>
             </div>
 
             <!-- Submit button -->
@@ -137,26 +126,6 @@
             >
               Sign up
             </button>
-
-            <!-- Register buttons -->
-            <div class="text-center">
-              <p>or sign up with:</p>
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-              </button>
-
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-              </button>
-
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-              </button>
-
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-github"></i>
-              </button>
-            </div>
           </form>
         </div>
       </div>

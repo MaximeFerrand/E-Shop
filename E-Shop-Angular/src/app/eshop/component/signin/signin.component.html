@@ -34,21 +34,20 @@
       </div>
       <div class="col-lg-8">
         <div class="card-body py-5 px-md-5">
+          <div *ngIf="error" class="alert alert-danger">
+            données incorrectes
+          </div>
           <form (ngSubmit)="send()" #form="ngForm">
-            <div class="form-outline mb-4">
+            <div class="form-group form-outline mb-4">
               <input
                 type="email"
-                id="form2Example1"
                 class="form-control"
-                type="email"
                 name="login"
                 [(ngModel)]="login"
                 required
                 #emailCtrl="ngModel"
               />
-              <label class="form-label" for="form2Example1"
-                >Email address</label
-              >
+              <label class="form-label" for="login">Email address</label>
               <div
                 *ngIf="emailCtrl.dirty && emailCtrl.invalid"
                 class="alert alert-danger"
@@ -60,15 +59,13 @@
             <div class="form-outline mb-4">
               <input
                 type="password"
-                id="form2Example2"
                 class="form-control"
-                type="password"
                 name="password"
                 [(ngModel)]="password"
                 required
                 #passwordCtrl="ngModel"
               />
-              <label class="form-label" for="form2Example2">Password</label>
+              <label class="form-label" for="password">Password</label>
               <div
                 *ngIf="passwordCtrl.dirty && passwordCtrl.invalid"
                 class="alert alert-danger"

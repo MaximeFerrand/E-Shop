@@ -20,10 +20,10 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {}
 
   send() {
-    console.log('avant');
+    console.log('avant auth');
     this.authSrv.authentication(this.login, this.password).subscribe({
       next: (data) => {
-        console.log('next');
+        console.log('avant next');
         this.error = false;
         sessionStorage.setItem(
           'token',
@@ -43,22 +43,23 @@ export class SigninComponent implements OnInit {
         } else if (data.role == 'ROLE_ADMIN') {
           sessionStorage.setItem('account', JSON.stringify(data.login));
           sessionStorage.setItem('role', 'admin');
-        } else {
+        } else if (data.role == 'ROLE_SUPPLIER') {
           let supplier = new Supplier(
             data.supplier.id,
             data.supplier.company,
             data.supplier.product ? data.product : undefined,
             data.user.login
           );
-          sessionStorage.setItem('user', JSON.stringify(supplier));
+          sessionStorage.setItem('supplier', JSON.stringify(supplier));
           sessionStorage.setItem('role', 'supplier');
           sessionStorage.setItem('account', JSON.stringify(data.login));
         }
+        console.log('avant home');
         this.router.navigateByUrl('/home');
+        console.log('apres home');
       },
       error: (err) => {
         this.error = true;
-        console.log('error');
       },
     });
   }

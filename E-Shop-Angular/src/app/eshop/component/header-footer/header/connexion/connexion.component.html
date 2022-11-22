@@ -23,7 +23,14 @@
         routerLinkActive="active"
         >Connexion</a
       >
-      <a id="toConnect" *ngIf="authenticated" (click)="logoff()">Deconnexion</a>
+      <a
+        id="toConnect"
+        *ngIf="authenticated"
+        routerLink="/signin"
+        routerLinkActive="active"
+        (click)="logoff()"
+        >Deconnexion</a
+      >
     </div>
     <div class="social-media header-connect-account-connexion">
       <svg
