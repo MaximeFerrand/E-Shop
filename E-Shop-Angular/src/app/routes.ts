@@ -8,10 +8,6 @@ import { SupplierListComponent } from './eshop/component/supplier/supplier-list/
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 import { AdminGuardService } from './eshop/guard/admin-guard.service';
 import { AnonymousGuardService } from './eshop/guard/anonymous-guard.service';
 import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
