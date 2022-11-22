@@ -18,8 +18,7 @@ import { SocialMediaComponent } from './eshop/component/header-footer/social-med
 import { ProductComponent } from './eshop/component/user/product/product/product.component';
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
-import { SupplierListComponent } from './eshop/component/user/supplier/supplier-list/supplier-list.component';
-import { SupplierEditComponent } from './eshop/component/user/supplier/supplier-edit/supplier-edit.component';
+
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
 import { SigninComponent } from './eshop/component/signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +27,8 @@ import { routes } from './routes';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthenticationInterceptor } from './eshop/interceptor/authentication.interceptor';
 import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
+import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
+import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
 
 @NgModule({
   declarations: [
