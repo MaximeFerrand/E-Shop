@@ -3,11 +3,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './eshop/component/home/home.component';
 import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
 import { SigninComponent } from './eshop/component/signin/signin.component';
+import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
+import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
-import { SupplierEditComponent } from './eshop/component/user/supplier/supplier-edit/supplier-edit.component';
-import { SupplierListComponent } from './eshop/component/user/supplier/supplier-list/supplier-list.component';
+
 import { AdminGuardService } from './eshop/guard/admin-guard.service';
 import { AnonymousGuardService } from './eshop/guard/anonymous-guard.service';
 import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
