@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product } from '../model/product';
 import { Supplier } from '../model/supplier';
 import { ProductService } from './product.service';
 
@@ -10,10 +11,7 @@ import { ProductService } from './product.service';
 export class SupplierService {
   static URL: string = 'http://localhost:8080/eshop/api/supplier';
 
-  constructor(
-    private httpClient: HttpClient,
-    private productSrv: ProductService,
-  ) {}
+  constructor(private httpClient: HttpClient) {}
 
   public findAll(): Observable<Supplier[]> {
     return this.httpClient.get<Supplier[]>(SupplierService.URL);
@@ -46,13 +44,14 @@ export class SupplierService {
       company: supplier.company,
     };
     if (supplier.products) {
-      Object.assign(supplierJson, {
-        product: {
-          id: supplier.products,
-          label: supplier.products,
-          price: supplier.products
-        },
-      });
+      /*Object.assign(supplierJson, {
+        products: [{
+          numero: supplier.products!.id,
+          voie: fournisseur.adresse.voie,
+          ville: fournisseur.adresse.ville,
+          cp: fournisseur.adresse.cp,
+        }],
+      });*/
     }
     if (supplier.id) {
       Object.assign(supplierJson, { id: supplier.id });

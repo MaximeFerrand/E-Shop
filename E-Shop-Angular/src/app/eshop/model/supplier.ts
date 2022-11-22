@@ -2,10 +2,10 @@ import { Account } from "./account";
 import { Product } from "./product";
 
 export class Supplier extends Account {
-  public get products(): any[] | undefined {
+  public get products(): Product[] | undefined {
     return this._products;
   }
-  public set products(value: any[] | undefined) {
+  public set products(value: Product[] | undefined) {
     this._products = value;
   }
   public get company(): string | undefined {
@@ -19,7 +19,7 @@ export class Supplier extends Account {
     _login?: string,
     _password?: string,
     private _company?: string,
-    private _products?: any[]
+    private _products?: Product[]
   ) {
     super(_id, _login, _password);
   }
