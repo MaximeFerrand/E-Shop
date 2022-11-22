@@ -48,9 +48,9 @@ export class SupplierService {
     if (supplier.products) {
       Object.assign(supplierJson, {
         product: {
-          id: supplier.products.id,
-          label: supplier.products.label,
-          price: supplier.products.price,
+          id: supplier.products,
+          label: supplier.products,
+          price: supplier.products
         },
       });
     }
