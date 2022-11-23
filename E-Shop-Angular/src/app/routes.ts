@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from './eshop/component/contact/contact.component';
 import { CompteComponent } from './eshop/component/header/compte/compte.component';
 
+import { AllComponent } from './eshop/component/header-footer/header/navigation/all/all.component';
 import { HomeComponent } from './eshop/component/home/home.component';
 import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
 import { SigninComponent } from './eshop/component/signin/signin.component';
@@ -70,6 +71,10 @@ export const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
     canActivate: [AnonymousGuardService],
+  },
+   {path: 'all',
+    component:   AllComponent ,
+
   },
   {
     path: 'signin',

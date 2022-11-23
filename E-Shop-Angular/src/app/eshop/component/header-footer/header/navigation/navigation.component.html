@@ -1,14 +1,14 @@
 <div id="header-nav">
   <div id="header-nav-logo">
-    <a routerLink="/home" routerLinkActive="active"
-      ><img src="/assets/images/logo.jpg" alt="Logo JH2M"
-    /></a>
+    <a routerLink="/home" routerLinkActive="active">
+      <img src="/assets/images/logo.jpg" alt="Logo JH2M" />
+    </a>
   </div>
   <nav id="header-nav-container">
     <!--nav ano + user-->
     <div id="header-nav-container-link" *ngIf="anonymous || user">
       <div>
-        <a routerLink="" routerLinkActive="active">Tout voir</a>
+        <a routerLink="/all" routerLinkActive="active">Tout voir</a>
       </div>
       <div>
         <a routerLink="" routerLinkActive="active">Décoration</a>

@@ -1,6 +1,12 @@
 import { Supplier } from './supplier';
 
 export class Product {
+  public get picture(): string | undefined {
+    return this._picture;
+  }
+  public set picture(value: string | undefined) {
+    this._picture = value;
+  }
   public get supplier(): Supplier | undefined {
     return this._supplier;
   }
@@ -30,6 +36,7 @@ export class Product {
     private _id?: number,
     private _label?: string,
     private _price?: number,
+    private _picture?: string,
     private _supplier?: Supplier
   ) {}
 }

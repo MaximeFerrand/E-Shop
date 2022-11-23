@@ -35,6 +35,8 @@ import { ContactComponent } from './eshop/component/contact/contact.component';
 import { CompteComponent } from './eshop/component/header/compte/compte.component';
 import { EditComponent } from './eshop/component/user/edit/edit.component';
 import { SupplierSignupComponent } from './eshop/component/supplier/supplier-signup/supplier-signup.component';
+import { AllComponent } from './eshop/component/header-footer/header/navigation/all/all.component';
+import { DecorationComponent } from './eshop/component/header-footer/header/navigation/decoration/decoration.component';
 
 
 @NgModule({
@@ -66,6 +68,10 @@ import { SupplierSignupComponent } from './eshop/component/supplier/supplier-sig
     ContactComponent,
     UserEditComponent,
     UserListComponent,
+    UserEditComponent,
+    ContactComponent,
+    AllComponent,
+    DecorationComponent,
     SupplierSignupComponent,
   ],
   imports: [
