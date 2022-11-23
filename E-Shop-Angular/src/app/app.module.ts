@@ -29,9 +29,11 @@ import { AuthenticationInterceptor } from './eshop/interceptor/authentication.in
 import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
 import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
-import { ContactComponent } from './eshop/component/contact/contact.component';
 import { UserListComponent } from './eshop/component/user/user-list/user-list.component';
 import { UserEditComponent } from './eshop/component/user/user-edit/user-edit.component';
+import { ContactComponent } from './eshop/component/contact/contact.component';
+import { CompteComponent } from './eshop/component/header/compte/compte.component';
+import { EditComponent } from './eshop/component/user/edit/edit.component';
 
 
 @NgModule({
@@ -58,9 +60,11 @@ import { UserEditComponent } from './eshop/component/user/user-edit/user-edit.co
     SignupComponent,
     SigninComponent,
     ProblemAdminComponent,
-    UserListComponent,
-    UserEditComponent,
+    EditComponent,
+    CompteComponent,
     ContactComponent,
+    UserEditComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
