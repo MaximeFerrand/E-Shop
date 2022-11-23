@@ -8,23 +8,23 @@ export class User extends Account {
   public set adress(value: Adress[] | undefined) {
     this._adress = value;
   }
-  public get lastName(): string | undefined {
-    return this._lastName;
+  public get lastname(): string | undefined {
+    return this._lastname;
   }
-  public set lastName(value: string | undefined) {
-    this._lastName = value;
+  public set lastname(value: string | undefined) {
+    this._lastname = value;
   }
-  public get firstName(): string | undefined {
-    return this._firstName;
+  public get firstname(): string | undefined {
+    return this._firstname;
   }
-  public set firstName(value: string | undefined) {
-    this._firstName = value;
+  public set firstname(value: string | undefined) {
+    this._firstname = value;
   }
   constructor(
     _id?: number,
     _login?: string,
-    private _firstName?: string,
-    private _lastName?: string,
+    private _firstname?: string,
+    private _lastname?: string,
     private _adress?: Adress[]
   ) {
     super(_id, _login);

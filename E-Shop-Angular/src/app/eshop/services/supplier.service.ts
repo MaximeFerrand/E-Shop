@@ -26,7 +26,7 @@ export class SupplierService {
   }
 
   public update(supplier: Supplier): Observable<Supplier> {
-    return this.httpClient.put<Supplier>(
+    return this.httpClient.patch<Supplier>(
       `${SupplierService.URL}/${supplier.id}`,
       this.supplierToJson(supplier)
     );
@@ -42,14 +42,14 @@ export class SupplierService {
     let supplierJson = {
       login: supplier.login,
       company: supplier.company,
+      password: supplier.password,
     };
     if (supplier.products) {
+      // parcourir tableau -> transformer en JSON -> push en tableau -> Assign à l'Object
       /*Object.assign(supplierJson, {
-        products: [{
-          numero: supplier.products!.id,
-          voie: fournisseur.adresse.voie,
-          ville: fournisseur.adresse.ville,
-          cp: fournisseur.adresse.cp,
+        products: [{products.forEach(e => {numero: supplier.products.id,
+        });
+
         }],
       });*/
     }

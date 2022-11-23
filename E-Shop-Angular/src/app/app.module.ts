@@ -30,6 +30,9 @@ import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-a
 import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
 import { ContactComponent } from './eshop/component/contact/contact.component';
+import { UserListComponent } from './eshop/component/user/user-list/user-list.component';
+import { UserEditComponent } from './eshop/component/user/user-edit/user-edit.component';
+
 
 @NgModule({
   declarations: [
@@ -55,6 +58,8 @@ import { ContactComponent } from './eshop/component/contact/contact.component';
     SignupComponent,
     SigninComponent,
     ProblemAdminComponent,
+    UserListComponent,
+    UserEditComponent,
     ContactComponent,
   ],
   imports: [

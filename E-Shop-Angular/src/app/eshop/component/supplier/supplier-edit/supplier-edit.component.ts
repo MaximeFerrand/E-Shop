@@ -30,10 +30,10 @@ export class SupplierEditComponent implements OnInit {
     if (this.supplier.id) {
       this.supplierSrv
         .update(this.supplier)
-        .subscribe(() => this.router.navigateByUrl('/supplier'));
+        .subscribe(() => this.router.navigateByUrl('/admin/supplier'));
     } else {
       this.supplierSrv.create(this.supplier).subscribe(() => {
-        this.router.navigateByUrl('/supplier');
+        this.router.navigateByUrl('/admin/supplier');
       });
     }
   }
