@@ -35,13 +35,22 @@
           Bonjour {{ userAccount.firstName }}
         </a>
         <a
-          *ngIf="admin || supplier"
+          *ngIf="admin"
           class="dropdown-toggle"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Bonjour
+          Bonjour administrateur
+        </a>
+        <a
+          *ngIf="supplier"
+          class="dropdown-toggle"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Bonjour supplier
         </a>
 
         <ul class="dropdown-menu">

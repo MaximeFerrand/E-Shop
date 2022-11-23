@@ -22,7 +22,14 @@
 }
 
 #header-nav-container-link {
-  width: 600px;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header-nav-container-link-admin-supplier {
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,4 +38,9 @@
 #header-nav a {
   text-decoration: none;
   color: var(--color3);
+}
+
+img {
+  width: 100px;
+  height: auto;
 }

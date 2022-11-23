@@ -32,7 +32,7 @@
 .header-connect-account-connexion:nth-child(odd) {
   display: flex;
   justify-content: flex-end;
-  width: 200px;
+  width: 250px;
   margin: 0 30px 0 0;
 }
 
