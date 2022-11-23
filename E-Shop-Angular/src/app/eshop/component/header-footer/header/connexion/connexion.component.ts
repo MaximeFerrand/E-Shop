@@ -31,6 +31,14 @@ export class ConnexionComponent implements OnInit {
     return this.authSrv.isUser();
   }
 
+  get admin() {
+    return this.authSrv.isAdmin();
+  }
+
+  get supplier() {
+    return this.authSrv.isSupplier();
+  }
+
   get authenticated() {
     return this.authSrv.isAuthenticated();
   }
