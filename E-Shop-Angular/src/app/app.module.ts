@@ -29,6 +29,7 @@ import { AuthenticationInterceptor } from './eshop/interceptor/authentication.in
 import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
 import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
+import { ContactComponent } from './eshop/component/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/
     SignupComponent,
     SigninComponent,
     ProblemAdminComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

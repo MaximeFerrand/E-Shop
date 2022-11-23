@@ -23,6 +23,11 @@ export class ConnexionComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
+  logChange() {
+    sessionStorage.clear();
+    this.router.navigateByUrl('/signin');
+  }
+
   get anonymous() {
     return !this.authSrv.isAuthenticated();
   }

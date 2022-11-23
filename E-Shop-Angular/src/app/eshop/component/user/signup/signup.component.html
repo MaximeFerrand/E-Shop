@@ -1,26 +1,22 @@
 <!-- Section: Design Block -->
 <section class="text-center">
   <!-- Background image -->
-  <div
-    class="p-5 bg-image"
-    style="background: url(/assets/images/welcome/home2.jpg); height: 300px"
-  ></div>
+  <div class="p-5 bg-image"></div>
   <!-- Background image -->
 
   <div
-    class="card mx-4 mx-md-5 shadow-4-strong"
-    style="
-      box-shadow: grey 0px 2px 2px 1px;
-      margin-top: -100px;
-      background: hsla(0, 0%, 100%, 0.8);
-      backdrop-filter: blur(30px);
-    "
+    id="division-card"
+    class="card mx-4 mx-md-5 shadow-4-strong position-relative"
   >
-    <div class="card-body py-5 px-md-5">
+    <div
+      id="radius-shape-1"
+      class="position-absolute rounded-circle shadow-5-strong"
+    ></div>
+    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+    <div class="card-body py-5 px-md-5 bg-glass">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
           <h2 class="fw-bold mb-5">Inscrivez-vous dès maintenant</h2>
-
           <form (ngSubmit)="save()" [formGroup]="form">
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <ng-container formGroupName="groupeInfo">
@@ -169,7 +165,7 @@
               [disabled]="form.invalid"
               class="btn btn-primary btn-block mb-4"
             >
-              S'inscrire'
+              S'inscrire
             </button>
           </form>
         </div>
