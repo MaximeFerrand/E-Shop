@@ -1,12 +1,19 @@
+
+
+
+
+<section class="background-radial-gradient overflow-hidden">
+
+    <div class="row gx-lg-5 align-items-center mb-5">
 <div>
   <form (ngSubmit)="save()" #form="ngForm">
     <div class="form-group">
-      <label for="id">nom:</label>
+      <label for="id"><b>nom:</b></label>
       <input
         class="form-control"
         id="lastName"
         name="lastName"
-        [(ngModel)]="user.lastName"
+        [(ngModel)]="user.lastname"
         #nomCtrl="ngModel"
 
       />
@@ -18,12 +25,12 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="prenom">prenom </label>
+      <label for="prenom"><b>prenom </b></label>
       <input
         class="form-control"
         name="firstName"
         id="firstName"
-        [(ngModel)]="user.firstName"
+        [(ngModel)]="user.firstname"
         required
         #prenomCtrl="ngModel"
       />
@@ -34,22 +41,89 @@
         prenom obligatoire
       </div>
     </div>
+    <div class="form-group">
+      <label for="prenom"><b>login </b></label>
+      <input
+        class="form-control"
+        name="loginName"
+        id="loginName"
+        [(ngModel)]="user.login"
+        required
+        email=""
+        #logintrl="ngModel"
+      />
+      <div
+        *ngIf="logintrl.dirty && logintrl.invalid"
+        class="alert alert-danger"
+      >
+        email obligatoire
+      </div>
+    </div>
+    <span *ngFor="let p of user.adresses">
+    <div class="form-group">
 
+      <label for="adresse.numero"><b>numero:</b></label>
+      <input
+        class="form-control"
+        id="p.number"
+        name="p.number"
+        [(ngModel)]="p!.number"
+      />
+    </div>
+    <div class="form-group">
+      <label for="adresse.voie"><b>voie:</b></label>
+      <input
+        class="form-control"
+        id="p.way"
+        name="p.way"
+        [(ngModel)]="p!.way"
+      />
+    </div>
+    <div class="form-group">
+      <label for="adresse.cp"><b>code postal:</b></label>
+      <input
+        class="form-control"
+        id="p.pc"
+        name="p.pc"
+        [(ngModel)]="p!.pc"
+      />
+    </div>
+    <div class="form-group">
+      <label for="adresse.ville"><b>code ville:</b></label>
+      <input
+        class="form-control"
+        id="p.city"
+        name="p.city"
+        [(ngModel)]="p!.city"
+      />
+    </div>
+  </span>
+
+<br>
+<br>
 
     <div class="form-group">
       <button
         type="submit"
-        class="btn btn-outline-primary"
+        class="btn2 btn-dark btn-sm btn-block m-0 p-1"
         [disabled]="form.invalid"
       >
         enregistrer
       </button>
-      <a
+
+      <button
         routerLink="/compte"
         routerLinkActive="active"
-        class="btn btn-outline-warning"
-        >annuler</a
+        class="btn1 btn-dark btn-sm btn-block m-0 p-1"
+        >annuler</button
       >
     </div>
   </form>
 </div>
+<br>
+<br>
+</div>
+
+</section>
+
+

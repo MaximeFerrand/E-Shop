@@ -29,9 +29,7 @@ export class UserService {
     return this.httpClient.get<User[]>(UserService.URL);
   }
 
-  public findById(id: number): Observable<User> {
-    return this.httpClient.get<User>(`${UserService.URL}/${id}`);
-  }
+
 
   public deleteById(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${UserService.URL}/${id}`);

@@ -16,7 +16,7 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     this.userAccount = JSON.parse(sessionStorage.getItem('user')!);
-    console.log(this.userAccount.firstName)
+    console.log(this.userAccount.firstname)
   }
 
   logoff() {

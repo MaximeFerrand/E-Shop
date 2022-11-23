@@ -27,6 +27,7 @@ public class SecurityConfig {
 				.antMatchers(HttpMethod.PATCH,"/api/user/**").authenticated()
 				.antMatchers(HttpMethod.POST, "/api/user/**").hasRole("USER")
 				.antMatchers(HttpMethod.GET, "/api/user/**").hasRole("USER")
+				.antMatchers(HttpMethod.PATCH, "/api/user/**").hasRole("USER")
 				.antMatchers(HttpMethod.PATCH,"/api/supplier/**").authenticated()
 				.antMatchers(HttpMethod.POST, "/api/supplier/**").hasRole("SUPPLIER")
 				.antMatchers(HttpMethod.POST, "/api/order/**").hasRole("USER")

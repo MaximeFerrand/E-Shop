@@ -1,0 +1,17 @@
+.btn1 {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: #000;
+  color: #aeaeae;
+  font-size: 15px
+}
+
+.btn2 {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: rgb(28, 192, 229);
+  color: #010508;
+  font-size: 15px
+}
