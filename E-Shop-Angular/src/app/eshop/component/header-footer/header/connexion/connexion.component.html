@@ -26,18 +26,37 @@
 
       <div class="dropdown" *ngIf="authenticated">
         <a
+          *ngIf="user"
           class="dropdown-toggle"
-          href="#"
           role="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Bonjour {{ userAccount.firstName }}
         </a>
+        <a
+          *ngIf="admin || supplier"
+          class="dropdown-toggle"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Bonjour
+        </a>
 
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Votre compte</a></li>
+          <li><a class="dropdown-item" href="#">Vos commandes</a></li>
+          <li><a class="dropdown-item" href="#">Vos favoris</a></li>
+          <li>
+            <a
+              class="dropdown-item"
+              routerLink="/signin"
+              routerLinkActive="active"
+              (click)="logoff()"
+              >Changer de compte</a
+            >
+          </li>
           <li>
             <a
               class="dropdown-item"
