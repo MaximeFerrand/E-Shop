@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { CompteComponent } from './eshop/component/header/compte/compte.component';
+
 import { HomeComponent } from './eshop/component/home/home.component';
 import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-admin.component';
 import { SigninComponent } from './eshop/component/signin/signin.component';
 import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
 import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
+import { EditComponent } from './eshop/component/user/edit/edit.component';
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
@@ -75,6 +78,16 @@ export const routes: Routes = [
     path: 'problem/admin',
     component: ProblemAdminComponent,
     canActivate: [AdminGuardService],
+  },
+  {
+    path: 'compte',
+    component: CompteComponent,
+
+  },
+  {
+    path: 'user/edit/:id',
+    component:EditComponent,
+
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

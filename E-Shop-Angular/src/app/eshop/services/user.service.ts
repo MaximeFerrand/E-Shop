@@ -11,6 +11,10 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) {}
 
+  public findById(id: number): Observable<User> {
+    return this.httpClient.get<User>(`${UserService.URL}/${id}`);
+  }
+
   public signup(user: any): Observable<User> {
     return this.httpClient.post<User>(`${UserService.URL}/signup`, user);
   }

@@ -1,0 +1,22 @@
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+  <div class="card p-4">
+    <div class=" image d-flex flex-column justify-content-center align-items-center">
+      <span >
+        <img  src="/assets/images/compte/photoCompte.jpg" height="150" width="150" />
+      </span>
+       <span class="name mt-3">{{userAccount.firstName}} {{userAccount.lastName}}</span> <span class="idd">Email : {{userAccount.login}}</span>
+      <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">{{userAccount.adress}}</span>
+
+      <div class=" d-flex mt-2"  routerLink="/user/edit/{{userAccount.id}} " routerLinkActive="active" >
+        <button class="btn1 btn-dark btn-sm btn-block m-0 p-1">Edit Profile</button> </div><br>
+      <div class=" d-flex mt-2"  routerLink="/achat" routerLinkActive="active">
+        <button class="btn1 btn-dark btn-sm btn-block m-0 p-1">historique d'achat</button> </div>
+      <!--<div class="text mt-3"> <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br><br>
+          Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+      <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i
+            class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i
+            class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div>
+      <div class=" px-2 rounded mt-4 date "> <span class="join">Joined May,2021</span> </div>-->
+      </div>
+      </div>
+</div>
