@@ -16,39 +16,21 @@
     <div class="card-body py-5 px-md-5 bg-glass">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <a
-            routerLink="/supplier/signup"
-            routerLinkActive="active"
-            class="btn btn-link"
-            >S'inscrire comme professionnel
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="bi bi-arrow-bar-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8Zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5Z"
-              />
-            </svg>
-          </a>
-          <h2 class="fw-bold mb-5">Inscrivez-vous dès maintenant</h2>
+          <h2 class="fw-bold mb-5">Inscription pour professionels</h2>
           <form (ngSubmit)="save()" [formGroup]="form">
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <ng-container formGroupName="groupeInfo">
               <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-12 mb-4">
                   <div class="form-outline form-group">
                     <input
-                      formControlName="prenom"
+                      formControlName="company"
                       type="text"
                       class="form-control"
                     />
-                    <label class="form-label" for="prenom"
-                      >Prenom <span style="color: red">&#x2A;</span></label
+                    <label class="form-label" for="company"
+                      >Nom de l'entreprise
+                      <span style="color: red">&#x2A;</span></label
                     >
                     <div
                       *ngIf="
@@ -57,28 +39,7 @@
                       "
                       class="alert alert-danger"
                     >
-                      probleme prenom
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline form-group">
-                    <input
-                      type="text"
-                      formControlName="nom"
-                      class="form-control"
-                    />
-                    <label class="form-label" for="nom"
-                      >Nom <span style="color: red">&#x2A;</span></label
-                    >
-                    <div
-                      *ngIf="
-                        form.get('groupeInfo.nom')?.dirty &&
-                        form.get('groupeInfo.nom')?.invalid
-                      "
-                      class="alert alert-danger"
-                    >
-                      probleme nom
+                      probleme entreprise
                     </div>
                   </div>
                 </div>
@@ -125,7 +86,6 @@
                 </div>
               </ng-container>
             </ng-container>
-
             <!-- Email input -->
             <div class="form-outline mb-4">
               <input
@@ -143,51 +103,6 @@
                 probleme email
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6 mb-4">
-                <div class="form-outline form-group">
-                  <input
-                    formControlName="prenom"
-                    type="text"
-                    class="form-control"
-                  />
-                  <label class="form-label" for="prenom">Numero</label>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4">
-                <div class="form-outline form-group">
-                  <input
-                    type="text"
-                    formControlName="nom"
-                    class="form-control"
-                  />
-                  <label class="form-label" for="nom">Rue</label>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-4">
-                <div class="form-outline form-group">
-                  <input
-                    type="text"
-                    formControlName="nom"
-                    class="form-control"
-                  />
-                  <label class="form-label" for="nom">Code Postal</label>
-                </div>
-              </div>
-              <div class="col-md-6 mb-4">
-                <div class="form-outline form-group">
-                  <input
-                    type="text"
-                    formControlName="nom"
-                    class="form-control"
-                  />
-                  <label class="form-label" for="nom">Ville</label>
-                </div>
-              </div>
-            </div>
-
             <!-- Submit button -->
             <button
               type="submit"

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { ContactComponent } from './eshop/component/contact/contact.component';
 import { CompteComponent } from './eshop/component/header/compte/compte.component';
 
 import { HomeComponent } from './eshop/component/home/home.component';
@@ -7,6 +8,7 @@ import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-a
 import { SigninComponent } from './eshop/component/signin/signin.component';
 import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
 import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
+import { SupplierSignupComponent } from './eshop/component/supplier/supplier-signup/supplier-signup.component';
 import { EditComponent } from './eshop/component/user/edit/edit.component';
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
@@ -72,6 +74,15 @@ export const routes: Routes = [
   {
     path: 'signin',
     component: SigninComponent,
+    canActivate: [AnonymousGuardService],
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
+    path: 'supplier/signup',
+    component: SupplierSignupComponent,
     canActivate: [AnonymousGuardService],
   },
   {

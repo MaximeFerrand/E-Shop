@@ -34,6 +34,7 @@ import { UserEditComponent } from './eshop/component/user/user-edit/user-edit.co
 import { ContactComponent } from './eshop/component/contact/contact.component';
 import { CompteComponent } from './eshop/component/header/compte/compte.component';
 import { EditComponent } from './eshop/component/user/edit/edit.component';
+import { SupplierSignupComponent } from './eshop/component/supplier/supplier-signup/supplier-signup.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { EditComponent } from './eshop/component/user/edit/edit.component';
     ContactComponent,
     UserEditComponent,
     UserListComponent,
+    SupplierSignupComponent,
   ],
   imports: [
     BrowserModule,

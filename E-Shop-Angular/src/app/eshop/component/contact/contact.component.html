@@ -1,1 +1,190 @@
-<p>contact works!</p>
+<!-- Section: Design Block -->
+<section class="text-center">
+  <!-- Background image -->
+  <div class="p-5 bg-image"></div>
+  <!-- Background image -->
+
+  <div
+    id="division-card"
+    class="card mx-4 mx-md-5 shadow-4-strong position-relative"
+  >
+    <div
+      id="radius-shape-1"
+      class="position-absolute rounded-circle shadow-5-strong"
+    ></div>
+    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+    <div class="card-body py-5 px-md-5 bg-glass">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="mb-5">
+            Une question ? Une demande ? Un soucis ?<br />
+            <b>Contactez-nous !</b>
+          </h2>
+          <form [formGroup]="form">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <ng-container formGroupName="groupeInfo">
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline form-group">
+                    <input
+                      formControlName="prenom"
+                      type="text"
+                      class="form-control"
+                    />
+                    <label class="form-label" for="prenom"
+                      >Prenom <span style="color: red">&#x2A;</span></label
+                    >
+                    <div
+                      *ngIf="
+                        form.get('groupeInfo.prenom')?.dirty &&
+                        form.get('groupeInfo.prenom')?.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      probleme prenom
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline form-group">
+                    <input
+                      type="text"
+                      formControlName="nom"
+                      class="form-control"
+                    />
+                    <label class="form-label" for="nom"
+                      >Nom <span style="color: red">&#x2A;</span></label
+                    >
+                    <div
+                      *ngIf="
+                        form.get('groupeInfo.nom')?.dirty &&
+                        form.get('groupeInfo.nom')?.invalid
+                      "
+                      class="alert alert-danger"
+                    >
+                      probleme nom
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Text input -->
+              <div class="form-outline mb-4">
+                <input
+                  formControlName="entreprise"
+                  type="text"
+                  class="form-control"
+                  class="form-control"
+                />
+                <label class="form-label" for="entreprise">Entreprise</label>
+                <div
+                  *ngIf="
+                    form.get('groupeInfo.entreprise')?.dirty &&
+                    form.get('groupeInfo.entreprise')?.invalid
+                  "
+                  class="alert alert-danger"
+                >
+                  probleme entreprise
+                </div>
+              </div>
+
+              <!-- Text input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  formControlName="adresse"
+                  class="form-control"
+                />
+                <label class="form-label" for="adresse">Addresse</label>
+                <div
+                  *ngIf="
+                    form.get('groupeInfo.adresse')?.dirty &&
+                    form.get('groupeInfo.adresse')?.invalid
+                  "
+                  class="alert alert-danger"
+                >
+                  probleme adresse
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                />
+                <label class="form-label" for="email"
+                  >Email <span style="color: red">&#x2A;</span></label
+                >
+                <div
+                  *ngIf="
+                    form.get('groupeInfo.email')?.dirty &&
+                    form.get('groupeInfo.email')?.invalid
+                  "
+                  class="alert alert-danger"
+                >
+                  probleme e-mail
+                </div>
+              </div>
+
+              <!-- Number input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="number"
+                  formControlName="telephone"
+                  class="form-control"
+                />
+                <label class="form-label" for="telephone"
+                  >Telephone <span style="color: red">&#x2A;</span></label
+                >
+                <div
+                  *ngIf="
+                    form.get('groupeInfo.telephone')?.dirty &&
+                    form.get('groupeInfo.telephone')?.invalid
+                  "
+                  class="alert alert-danger"
+                >
+                  probleme telephone
+                </div>
+              </div>
+
+              <!-- Message input -->
+              <div class="form-outline mb-4">
+                <textarea
+                  class="form-control"
+                  formControlName="message"
+                  rows="4"
+                ></textarea>
+                <label class="form-label" for="message"
+                  >Message <span style="color: red">&#x2A;</span></label
+                >
+                <div
+                  *ngIf="
+                    form.get('groupeInfo.message')?.dirty &&
+                    form.get('groupeInfo.message')?.invalid
+                  "
+                  class="alert alert-danger"
+                >
+                  probleme message
+                </div>
+              </div>
+            </ng-container>
+            <!-- Submit button -->
+            <button
+              type="submit"
+              [disabled]="form.invalid"
+              (click)="formIsValid()"
+              class="btn btn-primary btn-block mb-4"
+            >
+              Envoyer
+            </button>
+            <div class="alert alert-primary" *ngIf="validation">
+              Message transmit avec succès !
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->

@@ -10,8 +10,8 @@
     <tr *ngFor="let supplier of suppliersObservable | async">
       <td>{{ supplier.id }}</td>
       <td>{{ supplier.company }}</td>
-           <td>
-       <a
+      <td>
+        <a
           routerLink="/admin/supplier/edit/{{ supplier.id }}"
           routerLinkActive="active"
           class="btn btn-outline-primary"
@@ -19,16 +19,13 @@
         >
       </td>
       <td>
-        <button
-          class="btn btn-outline-danger"
-          (click)="delete(supplier.id!)"
-        >
+        <button class="btn btn-outline-danger" (click)="delete(supplier.id!)">
           supprimer
         </button>
       </td>
     </tr>
   </tbody>
 </table>
-<a routerLink="/signup/supplier" routerLinkActive="active" class="btn btn-link"
+<a routerLink="/supplier/signup" routerLinkActive="active" class="btn btn-link"
   >nouveau fournisseur</a
 >

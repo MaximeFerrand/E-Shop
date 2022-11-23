@@ -38,6 +38,19 @@ export class SupplierService {
     );
   }
 
+  public signup(supplier: any): Observable<Supplier> {
+    return this.httpClient.post<Supplier>(
+      `${SupplierService.URL}/signup`,
+      supplier
+    );
+  }
+
+  public checkEmailExists(email: string): Observable<boolean> {
+    return this.httpClient.get<boolean>(
+      `${SupplierService.URL}/check/email/${email}`
+    );
+  }
+
   public supplierToJson(supplier: Supplier): any {
     let supplierJson = {
       login: supplier.login,
