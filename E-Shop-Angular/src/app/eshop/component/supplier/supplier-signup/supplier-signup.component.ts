@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { SupplierService } from 'src/app/eshop/services/supplier.service';
 import { UserService } from 'src/app/eshop/services/user.service';
 
 @Component({
@@ -19,14 +20,13 @@ import { UserService } from 'src/app/eshop/services/user.service';
 export class SupplierSignupComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private clientService: UserService, private router: Router) {}
+  constructor(
+    private supplierService: SupplierService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      numero: new FormControl(),
-      voie: new FormControl(),
-      cp: new FormControl(),
-      ville: new FormControl(),
       login: new FormControl(
         '',
         [Validators.required, Validators.email],
@@ -34,11 +34,10 @@ export class SupplierSignupComponent implements OnInit {
       ),
       groupeInfo: new FormGroup(
         {
-          prenom: new FormControl('', [
+          company: new FormControl('', [
             Validators.required,
             Validators.minLength(2),
           ]),
-          nom: new FormControl('', Validators.required),
           groupePassword: new FormGroup(
             {
               password: new FormControl(
@@ -52,14 +51,14 @@ export class SupplierSignupComponent implements OnInit {
             this.passwordAndConfirmatonEquals
           ),
         },
-        this.contientPrenomOuNom
+        this.contientCompany
       ),
     });
   }
 
   emailNotExists(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      return this.clientService.checkEmailExists(control.value).pipe(
+      return this.supplierService.checkEmailExists(control.value).pipe(
         map((bool) => {
           return bool ? { emailExists: true } : null;
         })
@@ -79,41 +78,22 @@ export class SupplierSignupComponent implements OnInit {
       : { passwordAndConfirmationNotEquals: true };
   }
 
-  contientPrenomOuNom(control: AbstractControl): ValidationErrors | null {
+  contientCompany(control: AbstractControl): ValidationErrors | null {
     let password = control.get('groupePassword.password');
     return password?.value
       .toString()
-      .includes(control.get('prenom')?.value.toString()) ||
-      password?.value.toString().includes(control.get('nom')?.value.toString())
-      ? { contientPrenomOuNom: true }
+      .includes(control.get('company')?.value.toString())
+      ? { contientCompany: true }
       : null;
   }
 
   save() {
-    let user = {
-      firstname: this.form.get('groupeInfo.prenom')?.value,
-      lastname: this.form.get('groupeInfo.nom')?.value,
+    let supplier = {
+      company: this.form.get('groupeInfo.company')?.value,
       login: this.form.get('login')?.value,
       password: this.form.get('groupeInfo.groupePassword.password')?.value,
     };
-    if (
-      this.form.get('numero')?.value ||
-      this.form.get('voie')?.value ||
-      this.form.get('cp')?.value ||
-      this.form.get('ville')?.value
-    ) {
-      Object.assign(user, {
-        adresses: [
-          {
-            number: this.form.get('numero')?.value,
-            way: this.form.get('voie')?.value,
-            pc: this.form.get('cp')?.value,
-            city: this.form.get('ville')?.value,
-          },
-        ],
-      });
-    }
-    this.clientService.signup(user).subscribe((data) => {
+    this.supplierService.signup(supplier).subscribe((data) => {
       this.router.navigateByUrl('/home');
     });
   }
