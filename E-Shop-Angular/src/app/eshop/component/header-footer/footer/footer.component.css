@@ -128,3 +128,20 @@ a:hover {
   padding-left: 35px;
   color: var(--color3);
 }
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+.social-media svg {
+  min-width: 18px;
+  min-height: 18px;
+  color: var(--color1);
+}
+
+#header-connect-social {
+  width: 75px;
+  display: flex;
+  justify-content: space-between;
+}

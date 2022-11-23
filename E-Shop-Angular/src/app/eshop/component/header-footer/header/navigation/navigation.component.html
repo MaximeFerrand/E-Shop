@@ -1,21 +1,30 @@
 <div id="header-nav">
   <div id="header-nav-logo">
-    <a routerLink="/home" routerLinkActive="active">Logo E-shop</a>
+    <a routerLink="/home" routerLinkActive="active"
+      ><img src="/assets/images/logo.jpg" alt="Logo JH2M"
+    /></a>
   </div>
   <nav id="header-nav-container">
+    <!--nav ano + user-->
     <div id="header-nav-container-link" *ngIf="anonymous || user">
       <div>
         <a routerLink="" routerLinkActive="active">Tout voir</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">Mobilier</a>
+        <a routerLink="" routerLinkActive="active">Décoration</a>
       </div>
 
       <div>
-        <a routerLink="" routerLinkActive="active">Luminaire</a>
+        <a routerLink="" routerLinkActive="active">Meubles</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">Tapis</a>
+        <a routerLink="" routerLinkActive="active">Electromenager</a>
+      </div>
+      <div>
+        <a routerLink="" routerLinkActive="active">Linges</a>
+      </div>
+      <div>
+        <a routerLink="" routerLinkActive="active">Entretien</a>
       </div>
       <div>
         <a routerLink="" routerLinkActive="active">A propos</a>
@@ -27,16 +36,29 @@
         <a routerLink="" routerLinkActive="active">Contact</a>
       </div>
     </div>
-
-    <div id="header-nav-container-link" *ngIf="admin">
+    <!--nav admin-->
+    <div id="header-nav-container-link-admin-supplier" *ngIf="admin">
       <div>
         <a routerLink="" routerLinkActive="active">Produits</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">Fournisseurs</a>
+        <a routerLink="/supplier" routerLinkActive="active">Fournisseurs</a>
+      </div>
+      <div>
+        <a routerLink="/user-list" routerLinkActive="active">Utilisateurs</a>
       </div>
     </div>
-
-    >
+    <!--nav supplier-->
+    <div id="header-nav-container-link-admin-supplier" *ngIf="supplier">
+      <div>
+        <a routerLink="" routerLinkActive="active">Produits</a>
+      </div>
+      <div>
+        <a routerLink="" routerLinkActive="active">Stock</a>
+      </div>
+      <div>
+        <a routerLink="" routerLinkActive="active">Contact</a>
+      </div>
+    </div>
   </nav>
 </div>

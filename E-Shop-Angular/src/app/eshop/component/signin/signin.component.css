@@ -58,3 +58,8 @@
   width: 100%;
   justify-content: center;
 }
+
+.toRegister {
+  height: 50px;
+  margin-top: 40px;
+}
