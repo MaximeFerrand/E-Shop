@@ -2,17 +2,19 @@
   <thead>
     <tr>
       <th>id:</th>
-      <th>company:</th>
+      <th>Prénom:</th>
+      <th>Nom :</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let supplier of suppliersObservable | async">
-      <td>{{ supplier.id }}</td>
-      <td>{{ supplier.company }}</td>
-           <td>
+    <tr *ngFor="let user of usersObservable | async">
+      <td>{{ user.id }}</td>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+      <td>
        <a
-          routerLink="/admin/supplier/edit/{{ supplier.id }}"
+          routerLink="/admin/user-edit/{{ user.id }}"
           routerLinkActive="active"
           class="btn btn-outline-primary"
           >editer</a
@@ -21,7 +23,7 @@
       <td>
         <button
           class="btn btn-outline-danger"
-          (click)="delete(supplier.id!)"
+          (click)="delete(user.id!)"
         >
           supprimer
         </button>
@@ -29,6 +31,6 @@
     </tr>
   </tbody>
 </table>
-<a routerLink="/signup/supplier" routerLinkActive="active" class="btn btn-link"
-  >nouveau fournisseur</a
+<a routerLink="/signup" routerLinkActive="active" class="btn btn-link"
+  >nouveau client</a
 >

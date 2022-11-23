@@ -8,6 +8,9 @@ import { SupplierListComponent } from './eshop/component/supplier/supplier-list/
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
+import { UserEditComponent } from './eshop/component/user/user-edit/user-edit.component';
+import { UserListComponent } from './eshop/component/user/user-list/user-list.component';
+
 import { AdminGuardService } from './eshop/guard/admin-guard.service';
 import { AnonymousGuardService } from './eshop/guard/anonymous-guard.service';
 import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
@@ -29,19 +32,34 @@ export const routes: Routes = [
     canActivate: [AdminGuardService, SupplierGuardService],
   },
   {
-    path: 'supplier',
+    path: 'admin/supplier',
     component: SupplierListComponent,
     canActivate: [AdminGuardService],
   },
   {
-    path: 'supplier/edit',
+    path: 'admin/user-list',
+    component: UserListComponent,
+    canActivate: [AdminGuardService],
+  },
+  {
+    path: 'admin/user-edit',
+    component: UserEditComponent,
+    canActivate: [AdminGuardService],
+  },
+  {
+    path: 'admin/user-edit/:id',
+    component: UserEditComponent,
+    canActivate: [AdminGuardService],
+  },
+  {
+    path: 'admin/supplier/edit',
     component: SupplierEditComponent,
     canActivate: [AdminGuardService],
   },
   {
-    path: 'supplier/edit/:id',
+    path: 'admin/supplier/edit/:id',
     component: SupplierEditComponent,
-    canActivate: [AdminGuardService, SupplierGuardService],
+    canActivate: [AdminGuardService],
   },
   {
     path: 'signup',
