@@ -30,17 +30,18 @@
 }
 
 .header-connect-account-connexion:nth-child(odd) {
-  width: auto;
-  margin-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  width: 200px;
+  margin: 0 30px 0 0;
+}
+
+.header-connect-account-connexion:nth-child(odd) > svg {
+  margin-right: 10px;
 }
 
 .header-connect-account-connexion:nth-child(even) {
-  width: auto;
-}
-
-.social-media svg {
-  min-width: 18px;
-  min-height: 18px;
+  width: 30px;
 }
 
 #header-connect a {

@@ -13,6 +13,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class SigninComponent implements OnInit {
   login: string = '';
   password: string = '';
+  test: string = '';
   error = false;
 
   constructor(private authSrv: AuthenticationService, private router: Router) {}
@@ -23,34 +24,26 @@ export class SigninComponent implements OnInit {
     console.log('avant auth');
     this.authSrv.authentication(this.login, this.password).subscribe({
       next: (data) => {
-        console.log(data);
-        console.log('avant next');
         this.error = false;
         sessionStorage.setItem(
           'token',
           'Basic ' + window.btoa(this.login + ':' + this.password)
         );
         if (data.role == 'ROLE_USER') {
-
           let user = new User(
             data.id,
             data.login,
-
             data.firstname,
-            data.lastname,
-            data.adresses ? data.adresses: undefined,
-
+            data.lastname
           );
-          sessionStorage.setItem('user', JSON.stringify(user));
-
+          let test = JSON.stringify(user).replace(/_/g, '');
+          sessionStorage.setItem('user', test);
           sessionStorage.setItem('role', 'user');
           sessionStorage.setItem('account', JSON.stringify(data.login));
         } else if (data.role == 'ROLE_ADMIN') {
-          console.log('role admin');
           sessionStorage.setItem('account', JSON.stringify(data.login));
           sessionStorage.setItem('role', 'admin');
         } else if (data.role == 'ROLE_SUPPLIER') {
-          console.log('role supplier');
           let supplier = new Supplier(
             data.id,
             data.company,
@@ -61,15 +54,11 @@ export class SigninComponent implements OnInit {
           sessionStorage.setItem('role', 'supplier');
           sessionStorage.setItem('account', JSON.stringify(data.login));
         }
-        console.log("hello"+sessionStorage.getItem('user'));
-        console.log('avant home');
         this.router.navigateByUrl('/home');
-        console.log('apres home');
       },
       error: (err) => {
         this.error = true;
       },
     });
-
   }
 }

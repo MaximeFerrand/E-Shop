@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/eshop/model/user';
 import { AuthenticationService } from 'src/app/eshop/services/authentication.service';
+import { SigninComponent } from '../../../signin/signin.component';
 
 @Component({
   selector: 'app-connexion',
@@ -8,9 +10,14 @@ import { AuthenticationService } from 'src/app/eshop/services/authentication.ser
   styleUrls: ['./connexion.component.css'],
 })
 export class ConnexionComponent implements OnInit {
+  userAccount!: User;
+
   constructor(private authSrv: AuthenticationService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userAccount = JSON.parse(sessionStorage.getItem('user')!);
+  }
+
   logoff() {
     sessionStorage.clear();
     this.router.navigateByUrl('/home');
@@ -18,6 +25,10 @@ export class ConnexionComponent implements OnInit {
 
   get anonymous() {
     return !this.authSrv.isAuthenticated();
+  }
+
+  get user() {
+    return this.authSrv.isUser();
   }
 
   get authenticated() {

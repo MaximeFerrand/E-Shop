@@ -17,8 +17,6 @@ export class NavigationComponent implements OnInit {
   }
 
   get user() {
-
-    console.log("je suit un utilisateur")
     return this.authSrv.isUser();
   }
 

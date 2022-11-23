@@ -1,0 +1,11 @@
+.social-media svg {
+  min-width: 18px;
+  min-height: 18px;
+  color: var(--color3);
+}
+
+#header-connect-social {
+  width: 75px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -4,8 +4,8 @@
     <div class="social-media header-connect-account-connexion">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="18"
+        height="18"
         fill="currentColor"
         class="bi bi-person-square"
         viewBox="0 0 16 16"
@@ -23,20 +23,41 @@
         routerLinkActive="active"
         >Connexion</a
       >
-      <a
-        id="toConnect"
-        *ngIf="authenticated"
-        routerLink="/home"
-        routerLinkActive="active"
-        (click)="logoff()"
-        >Deconnexion</a
-      >
+
+      <div class="dropdown" *ngIf="authenticated">
+        <a
+          class="dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Bonjour {{ userAccount.firstName }}
+        </a>
+
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li>
+            <a
+              class="dropdown-item"
+              routerLink="/home"
+              routerLinkActive="active"
+              (click)="logoff()"
+              >Se déconnecter</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="social-media header-connect-account-connexion">
+    <div
+      class="social-media header-connect-account-connexion"
+      *ngIf="anonymous || user"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="18"
+        height="18"
         fill="currentColor"
         class="bi bi-cart3"
         viewBox="0 0 16 16"
