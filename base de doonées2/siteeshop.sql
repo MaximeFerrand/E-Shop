@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 23 nov. 2022 à 19:23
+-- Généré le : mer. 23 nov. 2022 à 19:55
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -20,6 +20,141 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `siteeshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `account`
+--
+
+DROP TABLE IF EXISTS `account`;
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_5vxwyorsr92jce3ore6h93k6q` (`login`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `account`
+--
+
+INSERT INTO `account` (`id`, `login`, `password`) VALUES
+(8, 'admin@admin.fr', '$2a$10$vn/AtrH4yfUeU8bJQLc53O.qdZkp.FkZjrgEjzR/INJLW1knc0xb6'),
+(9, 'jane@doe.fr', '$2a$10$I1B.pVm.4udim0wWHnX3ReBEJJzSBF6ENz8ha3WoHuTz0fPoCsRgm'),
+(10, 'john@doe.fr', '$2a$10$qZQ/mEuNGvD/iJY0Mg2OiOZ6obkNN3JfzVKhA0CaiNnXybwVsnufe'),
+(11, 'supplier@sopra.fr', '$2a$10$HPbY3uniN2M7Yar3uxvj0OOoARSERRGtFWujMrPcna1CSCANZBMPi'),
+(12, 'supplier@AJC.fr', '$2a$10$YgupZVA1ArurJ0R6.QP/8uNecIkEE8JIzLXz1AyyuF0HvD9nRshJK'),
+(13, 'jules@doe.fr', '$2a$10$6dZkVKeadhYfPxAvL3I4tO72a/5EjorMm0zuOpuIoUF7dZXIyazsu'),
+(14, 'mary@doe.fr', '$2a$10$zs480OujbmvRUSOq/XQC..1fMMus4Yfj1ekM9co0bNVh4ltwQL2ci'),
+(16, 'jack@doe.fr', '$2a$10$X8ax8PrTNwmMu8BcHEcX/.xkAoPiAgZlbmWYn0em42R0kwDO5Qr2K'),
+(17, 'dany@doe.fr', '$2a$10$e3A/qimSC7vJxpg8cB2tYu7a0LzpUlENELO5obWkFZqLOfIN60cOW'),
+(18, 'lena@user.fr', '$2a$10$BMkhTlBqD/UOtZkXhEo1ouH.hVtTiLWFi46Y0Bave9BxbiZfIkkg6'),
+(19, 'megane@user.fr', '$2a$10$hQNPxdn0Xw0RaNbArgsxVeN5Sm2W91ETxLHXCTcucWImnhHoSeN.y');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id`) VALUES
+(8);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `artisan`
+--
+
+DROP TABLE IF EXISTS `artisan`;
+CREATE TABLE IF NOT EXISTS `artisan` (
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `basket`
+--
+
+DROP TABLE IF EXISTS `basket`;
+CREATE TABLE IF NOT EXISTS `basket` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_tracking` enum('ordered','inPreparation','shipped','delivered','closed') NOT NULL DEFAULT 'ordered',
+  `shipping` enum('houseShipping','pickUp','withdrawal') DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKfp7yinn3dh4sy1ia364xp3d9g` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `labelcat` varchar(35) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_d1th1pltb63gh2jgwbplpsds` (`labelcat`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `category`
+--
+
+INSERT INTO `category` (`id`, `labelcat`) VALUES
+(2, 'décoration'),
+(4, 'électroménager'),
+(6, 'entretien'),
+(5, 'linges'),
+(3, 'meubles');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `merchant`
+--
+
+DROP TABLE IF EXISTS `merchant`;
+CREATE TABLE IF NOT EXISTS `merchant` (
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `order_detail`
+--
+
+DROP TABLE IF EXISTS `order_detail`;
+CREATE TABLE IF NOT EXISTS `order_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quantity` int(11) NOT NULL,
+  `comment` text,
+  `notation` int(11) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK191acqcunrl0xo32ub778fqa6` (`order_id`),
+  KEY `FKb8bg2bkty0oksa3wiq5mp5qnc` (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -70,9 +205,116 @@ INSERT INTO `product` (`id`, `description`, `label`, `measure`, `price`, `refere
 (19, 'Vinaigre blanc 20° multi usages. Fait briller tous types de support. Idéal nettoyant intensif a l\'intérieur et à l\'extérieur', 'Vinaigre blanc 20° - Gloss', '10L', 28.75, 'P6-VIN-2022-1-12', 'New', 60, 6, 12, 'http://localhost/images/articles/entretien/vinaigre.jpg'),
 (20, 'Bon rapport qualité/ prix ! 1 face verte pour le récurage. 1 face éponge végétale pour nettoyer, absorber et essuyer. Bonnes propriétés récurantes et grande capacité l\'absorption. Pour le nettoyage courant de la vaisselle, des plaques de cuisson, des pianos, des éviers. Rinçage facile. Eponge flexible et souple. Le lot de 10 tamponges.', '10 tamponges professionnels Bernard verts, 13 x 9 x 2,2 cm', '13 x 9 x 2,2cm', 9, 'P6-VIN-2022-1-11', 'New', 150, 6, 11, 'http://localhost/images/articles/entretien/tampon-vert-sur-eponge-vegetale-jaune-13-x-9-x-2-cm-paquet-de-10.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `supplier`
+--
+
+DROP TABLE IF EXISTS `supplier`;
+CREATE TABLE IF NOT EXISTS `supplier` (
+  `company` varchar(50) NOT NULL,
+  `type_of_supplier` varchar(50) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `supplier`
+--
+
+INSERT INTO `supplier` (`company`, `type_of_supplier`, `id`) VALUES
+('Sopra', NULL, 11),
+('AJC', NULL, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `discount` int(11) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `is_validated` bit(1) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`discount`, `firstname`, `is_validated`, `id`, `lastname`) VALUES
+(0, 'Jane', NULL, 9, 'Doe'),
+(0, 'John', NULL, 10, 'Doe'),
+(0, 'Jules', NULL, 13, 'Doe'),
+(0, 'Mary', NULL, 14, 'Doe'),
+(0, 'Jack', NULL, 16, 'Doe'),
+(0, 'Dany', NULL, 17, 'Doe'),
+(0, 'lena', NULL, 18, 'doe'),
+(0, 'Megane', NULL, 19, 'Doe');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_adresses`
+--
+
+DROP TABLE IF EXISTS `user_adresses`;
+CREATE TABLE IF NOT EXISTS `user_adresses` (
+  `user_id` int(11) NOT NULL,
+  `city` varchar(35) NOT NULL,
+  `number` varchar(35) NOT NULL,
+  `pc` varchar(35) NOT NULL,
+  `way` varchar(35) NOT NULL,
+  PRIMARY KEY (`user_id`,`city`,`number`,`pc`,`way`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user_adresses`
+--
+
+INSERT INTO `user_adresses` (`user_id`, `city`, `number`, `pc`, `way`) VALUES
+(17, 'xxxx', 'xxxx', 'xxxx', 'xxxx'),
+(19, 'ppp', 'ppp', 'ppp', 'ppp');
+
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `FKn8edb4epg8k2xutqkoa7knt9v` FOREIGN KEY (`id`) REFERENCES `account` (`id`);
+
+--
+-- Contraintes pour la table `artisan`
+--
+ALTER TABLE `artisan`
+  ADD CONSTRAINT `FKd334f8g839konpr9h1gij4d5y` FOREIGN KEY (`id`) REFERENCES `supplier` (`id`);
+
+--
+-- Contraintes pour la table `basket`
+--
+ALTER TABLE `basket`
+  ADD CONSTRAINT `FKfp7yinn3dh4sy1ia364xp3d9g` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Contraintes pour la table `merchant`
+--
+ALTER TABLE `merchant`
+  ADD CONSTRAINT `FK35cc2itoh7skk963okgolootl` FOREIGN KEY (`id`) REFERENCES `supplier` (`id`);
+
+--
+-- Contraintes pour la table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `FK191acqcunrl0xo32ub778fqa6` FOREIGN KEY (`order_id`) REFERENCES `basket` (`id`),
+  ADD CONSTRAINT `FKb8bg2bkty0oksa3wiq5mp5qnc` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Contraintes pour la table `product`
@@ -80,6 +322,24 @@ INSERT INTO `product` (`id`, `description`, `label`, `measure`, `price`, `refere
 ALTER TABLE `product`
   ADD CONSTRAINT `FK1mtsbur82frn64de7balymq9s` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
   ADD CONSTRAINT `FK2kxvbr72tmtscjvyp9yqb12by` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`);
+
+--
+-- Contraintes pour la table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD CONSTRAINT `FKhxhcs9i8povygg78n7ui67l14` FOREIGN KEY (`id`) REFERENCES `account` (`id`);
+
+--
+-- Contraintes pour la table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `FKre5uwuepts6lywms9h3ksux9s` FOREIGN KEY (`id`) REFERENCES `account` (`id`);
+
+--
+-- Contraintes pour la table `user_adresses`
+--
+ALTER TABLE `user_adresses`
+  ADD CONSTRAINT `FKh9r96dgv6vd3qjvc39x1hpk4u` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
