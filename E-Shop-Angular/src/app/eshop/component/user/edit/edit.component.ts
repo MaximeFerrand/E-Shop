@@ -3,6 +3,7 @@ import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationEr
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { User } from 'src/app/eshop/model/user';
+import { Adress } from 'src/app/eshop/model/adress';
 import { AuthenticationService } from 'src/app/eshop/services/authentication.service';
 import { UserService } from 'src/app/eshop/services/user.service';
 
@@ -13,19 +14,50 @@ import { UserService } from 'src/app/eshop/services/user.service';
 })
 export class EditComponent implements OnInit {
   user!:User;
+
   form!: FormGroup;
+  adresses:Adress[]=[];
+  adress!:Adress;
+
+
 
   constructor(private authSrv: AuthenticationService,private clientService: UserService, private router: Router,private activatedRoute: ActivatedRoute,) {}
 
   ngOnInit(): void {
+    this.adress=new Adress();
+    this.user=new User();
+    this.user.adresses=[this.adress];
+
     this.activatedRoute.params.subscribe((params) => {
       if (params['id']) {
         console.log("id:"+params['id']);
 
         this.clientService.findById(params['id']).subscribe((data) => {
-
           console.log(data);
-          console.log("user : "+ this.user);
+         data.adresses!.forEach(element => {
+            this.adress=new Adress(
+              element.number,
+              element.way,
+              element.pc,
+              element.city
+            )
+            console.log("adress "+this.adress);
+          this.adresses.push(this.adress);
+              console.log(this.adresses);
+          });
+
+
+
+          this.user=new User(data.id,
+            data.login,
+            data.firstname,
+            data.lastname,
+          this.adresses
+
+
+          )
+          //console.log("tesssst"+this.user.firstname);
+
         });
       }
     });
@@ -83,65 +115,15 @@ export class EditComponent implements OnInit {
     return this.authSrv.isSupplier();
   }
 
-  emailNotExists(): AsyncValidatorFn {
-    return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      return this.clientService.checkEmailExists(control.value).pipe(
-        map((bool) => {
-          return bool ? { emailExists: true } : null;
-        })
-      );
-    };
-  }
-
-  passwordAndConfirmatonEquals(
-    control: AbstractControl
-  ): ValidationErrors | null {
-    let password = control.get('password');
-    if (password?.invalid) {
-      return null;
-    }
-    return password?.value == control.get('confirmation')?.value
-      ? null
-      : { passwordAndConfirmationNotEquals: true };
-  }
-
-  contientPrenomOuNom(control: AbstractControl): ValidationErrors | null {
-    let password = control.get('groupePassword.password');
-    return password?.value
-      .toString()
-      .includes(control.get('prenom')?.value.toString()) ||
-      password?.value.toString().includes(control.get('nom')?.value.toString())
-      ? { contientPrenomOuNom: true }
-      : null;
-  }
-
   save() {
-    let user = {
-      firstname: this.form.get('groupeInfo.prenom')?.value,
-      lastname: this.form.get('groupeInfo.nom')?.value,
-      login: this.form.get('login')?.value,
-      password: this.form.get('groupeInfo.groupePassword.password')?.value,
-    };
-    if (
-      this.form.get('numero')?.value ||
-      this.form.get('voie')?.value ||
-      this.form.get('cp')?.value ||
-      this.form.get('ville')?.value
-    ) {
-      Object.assign(user, {
-        adresses: [
-          {
-            number: this.form.get('numero')?.value,
-            way: this.form.get('voie')?.value,
-            pc: this.form.get('cp')?.value,
-            city: this.form.get('ville')?.value,
-          },
-        ],
+    if (this.user.id) {
+      this.clientService.update(this.user).subscribe((data) => {
+        this.router.navigateByUrl('/compte');
+      });
+    } else {
+      this.clientService.create(this.user).subscribe((data) => {
+        this.router.navigateByUrl('/compte');
       });
     }
-    this.clientService.signup(user).subscribe((data) => {
-      this.router.navigateByUrl('/home');
-    });
   }
-
 }

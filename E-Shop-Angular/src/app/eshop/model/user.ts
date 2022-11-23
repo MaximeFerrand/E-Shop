@@ -2,11 +2,11 @@ import { Account } from './account';
 import { Adress } from './adress';
 
 export class User extends Account {
-  public get adress(): Adress[] | undefined {
-    return this._adress;
+  public get adresses(): Adress[] | undefined {
+    return this._adresses;
   }
-  public set adress(value: Adress[] | undefined) {
-    this._adress = value;
+  public set adresses(value: Adress[] | undefined) {
+    this._adresses = value;
   }
   public get lastname(): string | undefined {
     return this._lastname;
@@ -25,7 +25,7 @@ export class User extends Account {
     _login?: string,
     private _firstname?: string,
     private _lastname?: string,
-    private _adress?: Adress[]
+    private _adresses?: Adress[]
   ) {
     super(_id, _login);
   }
