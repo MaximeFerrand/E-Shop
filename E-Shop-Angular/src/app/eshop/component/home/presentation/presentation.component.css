@@ -80,3 +80,11 @@
   color: var(--color3);
   border: solid 1px var(--color3);
 }
+.btn1 {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: #000;
+  color: #aeaeae;
+  font-size: 15px
+}
