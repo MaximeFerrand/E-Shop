@@ -2,12 +2,7 @@ import { Category } from './category';
 import { Supplier } from './supplier';
 
 export class Product {
-  public get category(): Category | undefined {
-    return this._category;
-  }
-  public set category(value: Category | undefined) {
-    this._category = value;
-  }
+
   public get quantity(): number| undefined {
     return this._quantity;
   }

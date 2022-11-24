@@ -93,8 +93,8 @@ import { TriComponent } from './eshop/component/tri/tri.component';
      ElectromenagerComponent,
      LingesComponent,
      EntretienComponent,
-     TriComponent
-     BanqueComponent,
+     TriComponent,
+
      StoryComponent
 
   ],
