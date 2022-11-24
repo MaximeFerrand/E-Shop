@@ -47,7 +47,16 @@ public class Product {
 	@JsonView(JsonViews.Common.class)
 	@Column(nullable = false)
 	private String measure;
+	@JsonView(JsonViews.Common.class)
+	@Column(nullable = false)
+	private String picture;
 	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 	@JsonView(JsonViews.ProductWithSupplierAndCatAndOD.class)
 	@OneToMany(mappedBy ="product")
 	private List<OrderDetail> orderDetail;
@@ -74,10 +83,11 @@ public class Product {
 	private Status status;
 	
 	
-	public Product( String label, Double price, Integer stock) {
+	public Product( String label, Double price, Integer stock, String pic) {
 		this.label = label;
 		this.price = price;
 		this.stock = stock;
+		this.picture=pic;
 	}
 	public Product() {
 	}
@@ -156,11 +166,13 @@ public class Product {
 	}
 	
 	
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", label=" + label + ", price=" + price + ", reference=" + reference
-				+ ", description=" + description + ", measure=" + measure + ", orderDetail=" + orderDetail
-				+ ", supplier=" + supplier + ", stock=" + stock + ", status=" + status + ", category=" + category + "]";
+				+ ", description=" + description + ", measure=" + measure + ", picture=" + picture + ", orderDetail="
+				+ orderDetail + ", supplier=" + supplier + ", stock=" + stock + ", category=" + category + ", status="
+				+ status + "]";
 	}
 	@Override
 	public int hashCode() {

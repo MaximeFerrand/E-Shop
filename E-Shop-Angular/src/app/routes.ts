@@ -9,8 +9,10 @@ import { ProblemAdminComponent } from './eshop/component/problem-admin/problem-a
 import { SigninComponent } from './eshop/component/signin/signin.component';
 import { SupplierEditComponent } from './eshop/component/supplier/supplier-edit/supplier-edit.component';
 import { SupplierListComponent } from './eshop/component/supplier/supplier-list/supplier-list.component';
+import { AchatComponent } from './eshop/component/user/achat/achat.component';
 import { SupplierSignupComponent } from './eshop/component/supplier/supplier-signup/supplier-signup.component';
 import { EditComponent } from './eshop/component/user/edit/edit.component';
+import { PayementComponent } from './eshop/component/user/payement/payement.component';
 import { ProductEditComponent } from './eshop/component/user/product/product-edit/product-edit.component';
 import { ProductListComponent } from './eshop/component/user/product/product-list/product-list.component';
 import { SignupComponent } from './eshop/component/user/signup/signup.component';
@@ -20,6 +22,7 @@ import { UserListComponent } from './eshop/component/user/user-list/user-list.co
 import { AdminGuardService } from './eshop/guard/admin-guard.service';
 import { AnonymousGuardService } from './eshop/guard/anonymous-guard.service';
 import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
+import { BanqueComponent } from './eshop/component/user/banque/banque.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -103,6 +106,21 @@ export const routes: Routes = [
   {
     path: 'user/edit/:id',
     component:EditComponent,
+
+  },
+  {
+    path: 'user/achat',
+    component:AchatComponent,
+
+  },
+  {
+    path: 'user/payement',
+    component:PayementComponent,
+
+  },
+  {
+    path: 'user/banque',
+    component:BanqueComponent,
 
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },

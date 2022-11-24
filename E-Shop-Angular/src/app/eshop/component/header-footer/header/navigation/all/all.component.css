@@ -127,3 +127,11 @@ h5 {
   display: flex;
   justify-content: space-between;
 }
+.btn1 {
+  height: 40px;
+  width: 150px;
+  border: none;
+  background-color: rgb(29, 133, 156);
+  color: #040404;
+  font-size: 15px
+}

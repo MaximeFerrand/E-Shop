@@ -8,6 +8,7 @@ import { SupplierService } from './supplier.service';
   providedIn: 'root',
 })
 export class ProductService {
+
   constructor(
     private httpClient: HttpClient,
     private supplierSrv: SupplierService
@@ -25,7 +26,7 @@ export class ProductService {
     );
   }
 
-  public findById(id: number): Observable<Product> {
+  public  findById(id: number): Observable<Product> {
     return this.httpClient.get<Product>(
       `http://localhost:8080/eshop/api/product/${id}`
     );

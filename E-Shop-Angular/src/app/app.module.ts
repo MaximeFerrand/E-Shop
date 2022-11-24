@@ -34,9 +34,15 @@ import { UserEditComponent } from './eshop/component/user/user-edit/user-edit.co
 import { ContactComponent } from './eshop/component/contact/contact.component';
 import { CompteComponent } from './eshop/component/header/compte/compte.component';
 import { EditComponent } from './eshop/component/user/edit/edit.component';
+
 import { SupplierSignupComponent } from './eshop/component/supplier/supplier-signup/supplier-signup.component';
 import { AllComponent } from './eshop/component/header-footer/header/navigation/all/all.component';
 import { DecorationComponent } from './eshop/component/header-footer/header/navigation/decoration/decoration.component';
+
+import { PayementComponent } from './eshop/component/user/payement/payement.component';
+import { AchatComponent } from './eshop/component/user/achat/achat.component';
+import { BanqueComponent } from './eshop/component/user/banque/banque.component';
+
 
 
 @NgModule({
@@ -73,6 +79,11 @@ import { DecorationComponent } from './eshop/component/header-footer/header/navi
     AllComponent,
     DecorationComponent,
     SupplierSignupComponent,
+    AchatComponent,
+
+   PayementComponent,
+     BanqueComponent
+
   ],
   imports: [
     BrowserModule,

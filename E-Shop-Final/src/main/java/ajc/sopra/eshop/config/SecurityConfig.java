@@ -32,6 +32,7 @@ public class SecurityConfig {
 				.antMatchers(HttpMethod.POST, "/api/supplier/**").hasRole("SUPPLIER")
 				.antMatchers(HttpMethod.POST, "/api/order/**").hasRole("USER")
 				.antMatchers(HttpMethod.POST, "/api/orderDetail/**").hasRole("USER")
+				.antMatchers(HttpMethod.GET, "/api/product/**").permitAll()
 				.anyRequest().hasRole("ADMIN")
 				/*.anyRequest().permitAll()*/
 			.and()

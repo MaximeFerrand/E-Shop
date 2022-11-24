@@ -1,6 +1,12 @@
 import { Supplier } from './supplier';
 
 export class Product {
+  public get quantity(): number| undefined {
+    return this._quantity;
+  }
+  public set quantity(value: number| undefined) {
+    this._quantity = value;
+  }
   public get picture(): string | undefined {
     return this._picture;
   }
@@ -37,6 +43,7 @@ export class Product {
     private _label?: string,
     private _price?: number,
     private _picture?: string,
-    private _supplier?: Supplier
+    private _supplier?: Supplier,
+    private _quantity?: number,
   ) {}
 }
