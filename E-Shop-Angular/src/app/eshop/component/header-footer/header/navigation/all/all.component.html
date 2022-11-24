@@ -1,28 +1,25 @@
 <section id="section-bestsellers">
   <div class="selectdiv">
-    <label>
-      <a routerLink="/triprice" routerLinkActive="active">TriPrix</a>
-      <button class="btn-dark" (onclick)="tri()">prix croissant</button>
-    </label>
+
   </div>
   <div id="section-bestsellers-article">
     <div *ngFor="let p of products">
       <article class="section-bestsellers-article">
         <div class="section-bestsellers-article-info">
           <div class="section-bestsellers-article-info-presentation">
-            <p>Meilleur vente</p>
+            <!--<p>Meilleur vente</p>-->
             <img src="{{ p.picture }}" />
             <h5>Aperçu rapide</h5>
           </div>
           <div class="section-bestsellers-article-info-price">
             <h5>{{ p.label }}</h5>
-            <p>{{ p.price | currency: 'EUR':true:'1.0-0' }}</p>
+            <p>{{ p.price | currency: "EUR":true:"1.0-0" }}</p>
           </div>
           <div class="wil">
-
-
-            <button (click)="ajouterPanier(p.id!.toString())" class="btn1 btn-dark btn-sm btn-block m-0 p-1">
-
+            <button
+              (click)="ajouterPanier(p.id!.toString())"
+              class="btn btn-sm btn-block m-1 p-2"
+            >
               ajouter au panier
             </button>
 
