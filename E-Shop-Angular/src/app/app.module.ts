@@ -42,6 +42,7 @@ import { DecorationComponent } from './eshop/component/header-footer/header/navi
 import { PayementComponent } from './eshop/component/user/payement/payement.component';
 import { AchatComponent } from './eshop/component/user/achat/achat.component';
 import { BanqueComponent } from './eshop/component/user/banque/banque.component';
+import { StoryComponent } from './eshop/component/pages/story/story.component';
 
 
 
@@ -82,7 +83,8 @@ import { BanqueComponent } from './eshop/component/user/banque/banque.component'
     AchatComponent,
 
    PayementComponent,
-     BanqueComponent
+     BanqueComponent,
+     StoryComponent
 
   ],
   imports: [
