@@ -1,42 +1,42 @@
+<style>
+  .hidden{
+    visibility: hidden;
+  }
+
+.centered-element{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    width: 120px;
+}
+</style>
+
 <footer>
   <div id="footer-container">
     <div class="footer-container">
-      <form action="" id="footer-container-form">
+      <!--<form action="" id="footer-container-form" class="hidden">
         <h3>Abonnez-vous à notre newsletter</h3>
         <label for="">E-mail</label>
         <input type="email" name="" id="" />
         <button type="submit">Envoyer</button>
-      </form>
-      <div id="footer-container-nav">
+      </form>-->
+      <div class="centered-element" id="footer-container-nav">
         <ul class="footer-container-nav-list-items">
           <li>
             <p><b>Boutique</b></p>
           </li>
-          <li><a href="">Mobilier</a></li>
-          <li><a href="">Luminaire</a></li>
-          <li><a href="">Tapis</a></li>
-          <li><a href="">Nouveauté</a></li>
-          <li><a href="">Promos</a></li>
+          <li><a routerLink="/meubles" routerLinkActive="active">Meubles</a></li>
+          <li><a routerLink="/deco" routerLinkActive="active">Décoration</a></li>
+          <li><a routerLink="/electro" routerLinkActive="active">Electromenager</a></li>
+          <li><a routerLink="/Linges" routerLinkActive="active">Linges</a></li>
+          <li><a routerLink="/entretien" routerLinkActive="active">Entretien</a></li>
         </ul>
-        <ul class="footer-container-nav-list-items">
+          <ul class="footer-container-nav-list-items">
           <li>
-            <p><b>Service client</b></p>
+            <p><b>Découvrir JH2M</b></p>
           </li>
-          <li><a href="">Expédition et retours</a></li>
-          <li><a href="">Politique de boutique</a></li>
-          <li><a href="">Moyens de paiement</a></li>
-          <li><a href="">FAQ</a></li>
-          <li><a href="">Mentions légales</a></li>
-          <li><a href="">Politique de cookies</a></li>
-        </ul>
-        <ul class="footer-container-nav-list-items">
-          <li>
-            <p><b>Découvrir E-Shop</b></p>
-          </li>
-          <li><a href="">Notre histoire</a></li>
-          <li><a href="">Marques et designers</a></li>
-          <li><a href="">Boutique</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="/story">Notre histoire</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
     </div>

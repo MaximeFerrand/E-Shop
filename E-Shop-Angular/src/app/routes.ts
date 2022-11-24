@@ -23,6 +23,7 @@ import { AdminGuardService } from './eshop/guard/admin-guard.service';
 import { AnonymousGuardService } from './eshop/guard/anonymous-guard.service';
 import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
 import { BanqueComponent } from './eshop/component/user/banque/banque.component';
+import { StoryComponent } from './eshop/component/pages/story/story.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -75,10 +76,7 @@ export const routes: Routes = [
     component: SignupComponent,
     canActivate: [AnonymousGuardService],
   },
-   {path: 'all',
-    component:   AllComponent ,
-
-  },
+  { path: 'all', component: AllComponent },
   {
     path: 'signin',
     component: SigninComponent,
@@ -101,27 +99,26 @@ export const routes: Routes = [
   {
     path: 'compte',
     component: CompteComponent,
-
+  },
+  {
+    path: 'story',
+    component: StoryComponent,
   },
   {
     path: 'user/edit/:id',
-    component:EditComponent,
-
+    component: EditComponent,
   },
   {
     path: 'user/achat',
-    component:AchatComponent,
-
+    component: AchatComponent,
   },
   {
     path: 'user/payement',
-    component:PayementComponent,
-
+    component: PayementComponent,
   },
   {
     path: 'user/banque',
-    component:BanqueComponent,
-
+    component: BanqueComponent,
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
