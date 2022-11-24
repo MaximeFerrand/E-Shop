@@ -15,28 +15,19 @@ export class PayementComponent implements OnInit {
 
   selectedOption: string = '';
   actions = [
-    { info: 'A domicile - ', prix: '5.0' },
+    { info: 'A domicile - ', prix: '5.5' },
     { info: 'En point relais - ', prix: '0.0' },
   ];
 
   constructor(private produitSrv: ProductService) {}
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      selectedPromo: new FormControl('', Validators.pattern('JH2M')),
-    });
-    this.totalAvantPromo=this.getPrixTotal()
-    this.promo();
-  }
-
-  promo() {
-    if (this.form) {
-      this.totalApresPromo *= 1.1;
-    }
+    this.totalAvantPromo = this.getPrixTotal();
   }
 
   onClick() {
-    this.totalApresPromo = this.totalAvantPromo + parseInt(this.selectedOption);
+    this.totalApresPromo =
+      this.totalAvantPromo + parseFloat(this.selectedOption);
   }
 
   getPrixTotal(): number {

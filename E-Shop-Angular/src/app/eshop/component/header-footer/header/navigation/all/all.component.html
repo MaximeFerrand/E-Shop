@@ -1,7 +1,5 @@
 <section id="section-bestsellers">
-  <div class="selectdiv">
-
-  </div>
+  <div class="selectdiv"></div>
   <div id="section-bestsellers-article">
     <div *ngFor="let p of products">
       <article class="section-bestsellers-article">
@@ -18,8 +16,9 @@
           <div class="wil">
             <button
               (click)="ajouterPanier(p.id!.toString())"
-              class="btn btn-sm btn-block m-1 p-2"
+              class="btn btn-warning m-1 p-2"
             >
+              <i class="fa fa-shopping-cart"></i>
               ajouter au panier
             </button>
 

@@ -43,13 +43,11 @@ import { PayementComponent } from './eshop/component/user/payement/payement.comp
 import { AchatComponent } from './eshop/component/user/achat/achat.component';
 import { BanqueComponent } from './eshop/component/user/banque/banque.component';
 import { StoryComponent } from './eshop/component/pages/story/story.component';
-import { MeublesComponent } from './eshop/component/header-footer/header/meubles/meubles.component';
+import { MeublesComponent } from './eshop/component/header-footer/header/navigation/meubles/meubles.component';
 import { ElectromenagerComponent } from './eshop/component/header-footer/header/navigation/electromenager/electromenager.component';
 import { LingesComponent } from './eshop/component/header-footer/header/navigation/linges/linges.component';
 import { EntretienComponent } from './eshop/component/header-footer/header/navigation/entretien/entretien.component';
 import { TriComponent } from './eshop/component/tri/tri.component';
-
-
 
 @NgModule({
   declarations: [
@@ -87,16 +85,15 @@ import { TriComponent } from './eshop/component/tri/tri.component';
     SupplierSignupComponent,
     AchatComponent,
 
-   PayementComponent,
-     BanqueComponent,
-     MeublesComponent,
-     ElectromenagerComponent,
-     LingesComponent,
-     EntretienComponent,
-     TriComponent,
+    PayementComponent,
+    BanqueComponent,
+    MeublesComponent,
+    ElectromenagerComponent,
+    LingesComponent,
+    EntretienComponent,
+    TriComponent,
 
-     StoryComponent
-
+    StoryComponent,
   ],
   imports: [
     BrowserModule,

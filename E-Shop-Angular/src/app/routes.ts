@@ -25,7 +25,7 @@ import { SupplierGuardService } from './eshop/guard/supplier-guard.service';
 import { BanqueComponent } from './eshop/component/user/banque/banque.component';
 import { StoryComponent } from './eshop/component/pages/story/story.component';
 import { DecorationComponent } from './eshop/component/header-footer/header/navigation/decoration/decoration.component';
-import { MeublesComponent } from './eshop/component/header-footer/header/meubles/meubles.component';
+import { MeublesComponent } from './eshop/component/header-footer/header/navigation/meubles/meubles.component';
 import { ElectromenagerComponent } from './eshop/component/header-footer/header/navigation/electromenager/electromenager.component';
 import { LingesComponent } from './eshop/component/header-footer/header/navigation/linges/linges.component';
 import { EntretienComponent } from './eshop/component/header-footer/header/navigation/entretien/entretien.component';
@@ -37,9 +37,7 @@ export const routes: Routes = [
     path: 'product',
     component: ProductListComponent,
   },
-  {path: 'entretien',
-  component: EntretienComponent,
-},
+  { path: 'entretien', component: EntretienComponent },
   {
     path: 'deco',
     component: DecorationComponent,
@@ -60,7 +58,6 @@ export const routes: Routes = [
   {
     path: 'electro',
     component: ElectromenagerComponent,
-
   },
   {
     path: 'product/edit/:id',
@@ -69,8 +66,7 @@ export const routes: Routes = [
   },
   {
     path: 'meubles',
-    component: MeublesComponent ,
-
+    component: MeublesComponent,
   },
   {
     path: 'admin/supplier',
