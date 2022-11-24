@@ -167,7 +167,7 @@ public class ProductRestController {
 	
 
 	@JsonView(JsonViews.ProductWithcat.class)
-	@GetMapping("/toto/{catpro}")
+	@GetMapping("/category/{catpro}")
 	public List<Product> findByCategoryyy(@PathVariable(name="catpro") String name) {
 		return   productSrv.findByCategory(name);}
 	

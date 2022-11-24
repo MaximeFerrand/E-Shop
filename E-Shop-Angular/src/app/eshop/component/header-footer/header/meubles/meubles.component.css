@@ -25,8 +25,7 @@
 #section-bestsellers-article {
 
   width: 100%;
-  padding-top: 0px;
-  margin-top: -100px;
+  padding-top: 30px;
   display: flex;
   justify-content:space-between;
   flex-wrap: wrap;
@@ -128,20 +127,3 @@ h5 {
   display: flex;
   justify-content: space-between;
 }
-.btn1 {
-  height: 40px;
-  width: 150px;
-  border: none;
-  background-color: rgb(29, 133, 156);
-  color: #040404;
-  font-size: 15px
-}
-
-
-
-/* IE11 hide native button (thanks Matt!) */
-select::-ms-expand {
-display: none;
-}
-
-

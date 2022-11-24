@@ -57,5 +57,10 @@ export class AllComponent implements OnInit {
       this.products = data;
     });
   }
-
+  tri(){
+    this.products=[]
+    this.productService.triprice().subscribe((data) => {
+      this.products = data;
+    });
+  }
 }

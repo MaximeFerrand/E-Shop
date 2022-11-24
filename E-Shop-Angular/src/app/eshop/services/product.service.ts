@@ -9,6 +9,11 @@ import { SupplierService } from './supplier.service';
 })
 export class ProductService {
   compteur:number = 0;
+  findByCategory(arg0: string):Observable<Product[]> {
+    return this.httpClient.get<Product[]>(
+      `http://localhost:8080/eshop/api/product/category/${arg0}`
+    );
+  }
 
   public subject$ = new Subject<string>();
 
@@ -82,6 +87,11 @@ export class ProductService {
   public findAll(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(
       'http://localhost:8080/eshop/api/product'
+    );
+  }
+  public triprice(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(
+      'http://localhost:8080/eshop/api/product/tri'
     );
   }
 

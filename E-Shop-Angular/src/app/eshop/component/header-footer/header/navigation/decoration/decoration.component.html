@@ -1,1 +1,34 @@
-<p>decoration works!</p>
+<section id="section-bestsellers">
+  <div id="section-bestsellers-article">
+    <div *ngFor="let p of products">
+      <article class="section-bestsellers-article">
+        <div class="section-bestsellers-article-info">
+          <div class="section-bestsellers-article-info-presentation">
+            <p>Meilleur vente</p>
+            <img src="{{ p.picture }}" />
+            <h5>Aperçu rapide</h5>
+          </div>
+          <div class="section-bestsellers-article-info-price">
+            <h5>{{ p.label }}</h5>
+
+            <p>{{ p.price | currency: 'EUR':true:'1.0-0' }}</p>
+          </div>
+          <div class="wil">
+            <a href="#" class="myButton">
+              <i class="fa fa-shopping-cart"></i>
+              Ajouter au panier
+            </a>
+            <div>
+              <span>Avis</span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
