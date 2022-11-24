@@ -48,3 +48,7 @@
   text-decoration: none;
   color: var(--color3);
 }
+
+a:hover {
+  cursor: hand;
+}
