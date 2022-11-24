@@ -25,6 +25,7 @@ export class PayementComponent implements OnInit {
     this.form = new FormGroup({
       selectedPromo: new FormControl('', Validators.pattern('JH2M')),
     });
+    this.totalAvantPromo=this.getPrixTotal()
     this.promo();
   }
 
@@ -36,5 +37,10 @@ export class PayementComponent implements OnInit {
 
   onClick() {
     this.totalApresPromo = this.totalAvantPromo + parseInt(this.selectedOption);
+  }
+
+  getPrixTotal(): number {
+    let jsonObject = JSON.parse(sessionStorage.getItem('totalPrix')!);
+    return parseInt(jsonObject);
   }
 }

@@ -14,10 +14,12 @@
             <p>{{ p.price | currency: 'EUR':true:'1.0-0' }}</p>
           </div>
           <div class="wil">
-            <a href="#" class="myButton">
-              <i class="fa fa-shopping-cart"></i>
-              Ajouter au panier
-            </a>
+            <button
+            (click)="ajouterPanier(p.id!.toString())"
+            class="btn1 btn-dark btn-sm btn-block m-0 p-1"
+          >
+            ajouter au panier
+          </button>
             <div>
               <span>Avis</span>
               <span class="fa fa-star checked"></span>
