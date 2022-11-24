@@ -4,11 +4,10 @@
   display: inline;
 }
 
-
-
 #section-bestsellers {
-  width: 100%;
-
+  width: 95%;
+  margin-left: 2.5%;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,20 +22,17 @@
 }
 
 #section-bestsellers-article {
-
   width: 100%;
   padding-top: 0px;
   margin-top: -100px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   flex-wrap: wrap;
-
 }
 
 .section-bestsellers-article {
   margin-top: 50px;
   width: 450px;
-
 }
 
 .section-bestsellers-article-info {
@@ -76,7 +72,8 @@
 
 .section-bestsellers-article-info-presentation > img {
   width: 100%;
-   height: 500px;
+  height: 500px;
+  border-radius: 25px;
 }
 
 .section-bestsellers-article-info-price {
@@ -87,7 +84,7 @@
   justify-content: center;
   align-items: center;
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Montserrat&display=swap");
 .section-bestsellers-article-info-price p,
 h5 {
   width: 100%;
@@ -96,35 +93,35 @@ h5 {
   align-items: center;
   margin: 0;
   text-align: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 .myButton {
-	box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	background-color:#e3fabd;
-	border-radius:6px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:4px 18px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #95cc52;
-  width:40%;
+  box-shadow: inset 0px 1px 0px 0px #dcecfb;
+  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+  background-color: #e3fabd;
+  border-radius: 6px;
+  border: 1px solid #84bbf3;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 4px 18px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #95cc52;
+  width: 40%;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
 }
 .myButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
-.wil{
-  width:100%;
+.wil {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -134,14 +131,10 @@ h5 {
   border: none;
   background-color: rgb(29, 133, 156);
   color: #040404;
-  font-size: 15px
+  font-size: 15px;
 }
-
-
 
 /* IE11 hide native button (thanks Matt!) */
 select::-ms-expand {
-display: none;
+  display: none;
 }
-
-
