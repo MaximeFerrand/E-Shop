@@ -10,7 +10,8 @@
                 <div class="p-5">
                   <div class="d-flex justify-content-between align-items-center mb-5">
                     <h1 class="fw-bold mb-0 text-black">Panier</h1>
-                    <h6 class="mb-0 text-muted">{{compteur}} items</h6>
+
+                    <h6 class="mb-0 text-muted" >{{compteur}} items</h6>
                   </div>
 
                 <span  *ngFor="let p of produits;let i=index" [(ngModel)]="produits" (change)="delete(i)">
@@ -33,7 +34,7 @@
 
 
 
-                      <input id="form1" min="0" name="quantity" value="1" type="number" [(ngModel)]="p.quantity" (change)="changementQuantity(p,i)"
+                      <input id="form1" min="0" name="quantity" placeholder="1"  type="number"  [(ngModel)]="p.quantity" (change)="changementQuantity(p,i)"
                         class="form-control form-control-sm" />
 
 
@@ -55,7 +56,7 @@
                   </div>
                   <div class="pt-5">
 
-                      <h6 class="mb-0 text-muted">Total panier : {{total}}</h6>
+                      <h6 class="mb-0 text-muted">Total panier : {{total}} €</h6>
 
                   </div>
                   <div class="pt-5">

@@ -80,7 +80,8 @@
     </div>
     <div
       class="social-media header-connect-account-connexion"
-      *ngIf="anonymous || user"
+      *ngIf="anonymous || user"  routerLink="/user/achat"
+      routerLinkActive="active"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +96,7 @@
         />
       </svg>
       <p>&ensp;</p>
-      <a href="#">0</a>
+      <a routerLink="/user/achat" routerLinkActive="active">{{compteur}}</a>
     </div>
   </div>
 </div>

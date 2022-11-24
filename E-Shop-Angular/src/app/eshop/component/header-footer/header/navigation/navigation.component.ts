@@ -10,7 +10,10 @@ import { AuthenticationService } from 'src/app/eshop/services/authentication.ser
 export class NavigationComponent implements OnInit {
   constructor(private authSrv: AuthenticationService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+  }
 
   get admin() {
     return this.authSrv.isAdmin();

@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { User } from 'src/app/eshop/model/user';
 import { AuthenticationService } from 'src/app/eshop/services/authentication.service';
+import { ProductService } from 'src/app/eshop/services/product.service';
 import { SigninComponent } from '../../../signin/signin.component';
 
 @Component({
@@ -11,12 +13,18 @@ import { SigninComponent } from '../../../signin/signin.component';
 })
 export class ConnexionComponent implements OnInit {
   userAccount!: User;
+ compteur!: number;
 
-  constructor(private authSrv: AuthenticationService, private router: Router) {}
+
+  constructor(private authSrv: AuthenticationService, private productService : ProductService, private router: Router) {}
 
   ngOnInit(): void {
     this.userAccount = JSON.parse(sessionStorage.getItem('user')!);
 
+    this.productService.subject$.subscribe(data => {
+      this.compteur = parseInt(data);
+      console.log("Mise a jour du compteur " + data);
+    })
   }
 
   logoff() {

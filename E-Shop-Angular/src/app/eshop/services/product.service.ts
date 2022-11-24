@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Product } from '../model/product';
 import { SupplierService } from './supplier.service';
 
@@ -8,11 +8,76 @@ import { SupplierService } from './supplier.service';
   providedIn: 'root',
 })
 export class ProductService {
+  compteur:number = 0;
+
+  public subject$ = new Subject<string>();
 
   constructor(
     private httpClient: HttpClient,
-    private supplierSrv: SupplierService
+    private supplierSrv: SupplierService,
+
   ) {}
+
+  /*
+  public updateCalcul2():Subject<number>{
+
+    const subject = new Subject<number>();
+    return new Observable(observer => {
+      let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
+
+      let panier: Map<number, number> = new Map<number, number>();
+
+      for (let value in jsonObject) {
+          panier.set(parseInt(value), parseInt(jsonObject[value]));
+      }
+      panier.forEach(element=> {
+
+
+          this.compteur += panier.get(element)!;
+
+
+      });
+      console.log("Compteur a diffuser = " + sessionStorage.getItem('compteur'));
+      observer.next(this.compteur);
+    });
+
+    subject.subscribe({
+
+      //next: (v) => console.log(`observerA: ${v}`),
+    });
+
+  }
+
+  public updateCalcul() {
+      this.compteur = 0;
+
+      if(sessionStorage.getItem('panier')) {
+        let jsonObject = JSON.parse(sessionStorage.getItem('panier')!);
+
+        let panier: Map<number, number> = new Map<number, number>();
+
+        for (let value in jsonObject) {
+            panier.set(parseInt(value), parseInt(jsonObject[value]));
+        }
+
+        console.log("Panier =", panier);
+
+        panier.forEach(element => {
+            this.compteur += element;
+        });
+
+        console.log("Compteur a diffuser = " + this.compteur);
+
+        this.subject$.next(this.compteur.toString());
+      } else {
+        console.log("rien a afficher ");
+        this.subject$.next("0");
+      }
+  }
+*/
+
+
+
 
   public findAll(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(

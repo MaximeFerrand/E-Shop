@@ -43,7 +43,8 @@ export class Product {
     private _label?: string,
     private _price?: number,
     private _picture?: string,
-    private _supplier?: Supplier,
     private _quantity?: number,
+    private _supplier?: Supplier,
+
   ) {}
 }

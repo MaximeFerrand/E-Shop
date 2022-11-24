@@ -10,32 +10,36 @@ import { ProductService } from 'src/app/eshop/services/product.service';
 export class AllComponent implements OnInit {
   products: Product[] = [];
 
-
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-
-    if (!sessionStorage.getItem('panier')) {
-      sessionStorage.setItem(
-        'panier',
-        JSON.stringify(new Map<number, number>())
-      );
-    }
     this.initProduit();
-
   }
 
-  ajouterPanier(id: number) {
+  ajouterPanier(id: string) {
+    let tempPanier: Map<string, string>;
 
-    let map: Map<number, number> = this.panier;
-    if (map.has(id)) {
-      map.set(id, map.get(id)! + 1);
+
+    console.log("session storage = ", sessionStorage);
+    if (sessionStorage.getItem('panier')) {
+      tempPanier = new Map(Object.entries(JSON.parse(sessionStorage.getItem('panier')!.toString())));
     } else {
-      map.set(id, 1);
+      tempPanier = new Map<string, string>();
     }
-    sessionStorage.setItem('panier', JSON.stringify(Object.fromEntries(map)));
+
+    console.log("tempPanier", tempPanier);
+
+    if (tempPanier.has(id)) {
+      tempPanier.set(id, (parseInt(tempPanier.get(id)!) + 1).toString());
+    } else {
+      tempPanier.set(id, "1");
+    }
+
+    sessionStorage.setItem('panier', JSON.stringify(Object.fromEntries(tempPanier)));
+
     console.log("produit ajouté");
     console.log(sessionStorage.getItem('panier'));
+   // this.productService.updateCalcul();
   }
 
   get panier(): Map<number, number> {
