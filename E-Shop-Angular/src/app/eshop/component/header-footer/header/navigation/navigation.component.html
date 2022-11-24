@@ -7,10 +7,6 @@
   <nav id="header-nav-container">
     <!--nav ano + user-->
 
-
-
-
-
     <div id="header-nav-container-link" *ngIf="anonymous || user">
       <div>
         <a routerLink="/all" routerLinkActive="active">Tout voir</a>
@@ -20,31 +16,28 @@
       </div>
 
       <div>
-        <a routerLink="" routerLinkActive="active">Meubles</a>
+        <a routerLink="/meubles" routerLinkActive="active">Meubles</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">Electromenager</a>
+        <a routerLink="/electro" routerLinkActive="active">Electromenager</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">Linges</a>
+        <a routerLink="/linges" routerLinkActive="active">Linges</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">Entretien</a>
+        <a routerLink="/entretien" routerLinkActive="active">Entretien</a>
       </div>
       <div>
-        <a routerLink="" routerLinkActive="active">A propos</a>
-      </div>
-
-        <a routerLink="/story" routerLinkActive="active">Notre histoire</a>
+           <a routerLink="/story" routerLinkActive="active">Notre histoire</a>
       </div>
       <div>
         <a routerLink="/contact" routerLinkActive="active">Contact</a>
       </div>
-    </div>
+</div>
     <!--nav admin-->
     <div id="header-nav-container-link-admin-supplier" *ngIf="admin">
       <div>
-        <a routerLink="" routerLinkActive="active">Produits</a>
+        <a routerLink="/all" routerLinkActive="active">Produits</a>
       </div>
       <div>
         <a routerLink="/supplier" routerLinkActive="active">Fournisseurs</a>
