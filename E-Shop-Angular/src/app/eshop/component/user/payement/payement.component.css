@@ -1,0 +1,9 @@
+label,
+h3 {
+  color: var(--color1);
+}
+
+.space {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}

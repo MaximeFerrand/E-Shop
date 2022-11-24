@@ -1,39 +1,190 @@
-<button type="button" class="btn btn-primary launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-rocket"></i> Pay Now
-</button>
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> <div class="modal-dialog">
-   <div class="modal-content"> <div class="modal-body"> <div class="text-right">
-     <i class="fa fa-close close" data-dismiss="modal"></i> </div> <div class="tabs mt-3">
-       <ul class="nav nav-tabs" id="myTab" role="tablist"> <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="visa-tab" data-toggle="tab" href="#visa" role="tab" aria-controls="visa" aria-selected="true">
-          <img src="https://i.imgur.com/sB4jftM.png" width="80">
-        </a> </li> <li class="nav-item" role="presentation">
-          <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> <img src="https://i.imgur.com/yK7EDD1.png" width="80"> </a> </li> </ul> <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="visa" role="tabpanel" aria-labelledby="visa-tab">
-              <div class="mt-4 mx-4"> <div class="text-center"> <h5>Credit card</h5> </div> <div class="form mt-3">
-                <div class="inputbox"> <input type="text" name="name" class="form-control" required="required">
-                  <span>Cardholder Name</span> </div> <div class="inputbox"> <input type="text" name="name" min="1" max="999" class="form-control" required="required">
-                    <span>Card Number</span> <i class="fa fa-eye"></i>
-                   </div> <div class="d-flex flex-row"> <div class="inputbox">
-                    <input type="text" name="name" min="1" max="999" class="form-control" required="required"> <span>Expiration Date</span>
-                    </div>
-                    <div class="inputbox"> <input type="text" name="name" min="1" max="999" class="form-control" required="required">
-                      <span>CVV</span> </div>
-                    </div>
-                    <div class="px-5 pay"> <button class="btn btn-success btn-block">Add card</button> </div>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
-                      <div class="px-5 mt-5">
-                        <div class="inputbox"> <input type="text" name="name" class="form-control" required="required"> <span>Paypal Email
-                            Address</span> </div>
-                        <div class="pay px-5"> <button class="btn btn-primary btn-block">Add paypal</button> </div>
-                      </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+<div class="container">
+  <div class="view-account">
+    <section class="module">
+      <div class="module-inner">
+        <div class="content-panel">
+          <div class="billing">
+            <div class="secure text-center margin-bottom-md">
+              <h3 class="margin-bottom-md text-success">
+                <small>Paiement</small>
+              </h3>
+              <div class="accepted-cards">
+                <ul class="list-inline">
+                  <li>
+                    <img
+                      src="https://img.icons8.com/fluency/48/null/visa.png"
+                      alt="Visa"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://img.icons8.com/color/48/null/mastercard-logo.png"
+                      alt="MasterCard"
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src="https://img.icons8.com/color/48/null/paypal.png"
+                      alt="Paypal"
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <form
+              id="billing"
+              class="form-horizontal"
+              method="post"
+              action="#"
+              role="form"
+            >
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="col-md-6 control-label"
+                    >Titulaire de la carte</label
+                  >
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your name"
+                    />
+                    <p class="help-block">Comme écrit sur la carte</p>
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-md-6 control-label"
+                    >Numéro de la carte</label
+                  >
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="••••  ••••  ••••  •••• "
+                      alt="MasterCard"
+                    />
+                    <p class="help-block">
+                      Les 16 digites sur la face de votre carte.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-2 mb-4">
+                  <label class="control-label">Date d'expiration</label>
+                  <div class="form-inline">
+                    <select class="form-control">
+                      <option value="01">01</option>
+                      <option value="01">02</option>
+                      <option value="01">03</option>
+                      <option value="01">04</option>
+                      <option value="01">05</option>
+                      <option value="01">06</option>
+                      <option value="01">07</option>
+                      <option value="01">08</option>
+                      <option value="01">09</option>
+                      <option value="01">10</option>
+                      <option value="01">11</option>
+                      <option value="01">12</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group col-md-2 mb-4">
+                  <label class="control-label"></label>
+                  <div class="form-inline">
+                    <select class="form-control">
+                      <option value="01">2022</option>
+                      <option value="01">2023</option>
+                      <option value="01">2024</option>
+                      <option value="01">2025</option>
+                      <option value="01">2026</option>
+                      <option value="01">2027</option>
+                      <option value="01">2028</option>
+                      <option value="01">2029</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-md-2 mb-4">
+                  <label class="col-sm-3 control-label">CVC</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="CVC" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label class="col-sm-3 control-label">Addresse</label>
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Addresse"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="col-sm-3 control-label"></label>
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Ville"
+                    />
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-sm-3 control-label"></label>
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Code Postal"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label class="col-sm-3 control-label"></label>
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Pays"
+                    />
+                  </div>
+                </div>
+                <div class="form-group col-md-6">
+                  <label class="col-sm-3 control-label"></label>
+                  <div class="">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Region"
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="action-wrapper text-center">
+                <h4 class="notes margin-bottom-sm">
+                  Ce qu'il vous reste à payer :
+                  <span class="text-stronger">total prix</span>
+                </h4>
+                <div class="action-btn">
+                  <button class="btn btn-success btn-lg">
+                    Payer
+                    <i class="fa fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
