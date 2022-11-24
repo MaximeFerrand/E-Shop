@@ -1,12 +1,15 @@
 /***********SECONDARY NAV***********/
 #header-secondary-nav {
-  width: 95%;
+  width: 90%;
   min-height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color1);
   margin-top: -75px;
+  margin-left: 5%;
+  position: relative;
+  z-index: 15;
 }
 
 .header-welcome-nav-link {
